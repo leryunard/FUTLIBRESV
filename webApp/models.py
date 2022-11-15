@@ -45,7 +45,6 @@ class Detallenoticia(models.Model):
     iddetalle = models.IntegerField(db_column='IDDETALLE', primary_key=True)  # Field name made lowercase.
     idnoticia = models.ForeignKey('Noticia', models.DO_NOTHING, db_column='IDNOTICIA', blank=True,
                                   null=True)  # Field name made lowercase.
-    imagennoticia = models.ImageField(upload_to='imagenes/', verbose_name="IMAGENNOTICIA", null=False, blank=False)
     descripcionnoticia = models.CharField(db_column='DESCRIPCIONNOTICIA', max_length=255)  # Field name made lowercase.
     fechanoticia = models.DateField(db_column='FECHANOTICIA')  # Field name made lowercase.
 
@@ -131,7 +130,6 @@ class Noticia(models.Model):
                                   null=True)  # Field name made lowercase.
     tiponoticia = models.CharField(db_column='TIPONOTICIA', max_length=255)  # Field name made lowercase.
     nombrenoticia = models.CharField(db_column='NOMBRENOTICIA', max_length=255)  # Field name made lowercase.
-    subtitulonoticia = models.CharField(db_column='SUBTITULONOTICIA', max_length=1000)
 
     class Meta:
         managed = False
