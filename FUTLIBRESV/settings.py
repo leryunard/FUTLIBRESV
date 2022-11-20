@@ -24,11 +24,9 @@ SECRET_KEY = 'django-insecure-ppi0$($gih(ojv!!jv^p5gwnm_9e##)n@fvs=8pbc5^f%(qha$
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-
 ALLOWED_HOSTS = []
 
 # Application definition
-
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -39,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'crispy_forms',
     'webApp',
+    'selecciones',
 ]
 
 MIDDLEWARE = [
@@ -79,7 +78,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'futlibredb',
         'USER': 'root',
-        'PASSWORD': '',
+        'PASSWORD': 'qwerty',
         'HOST': 'localhost',
         'PORT': '3306',
 
