@@ -21,9 +21,12 @@ webApp: Mostrará las páginas como el home y cualquier otra cuya categoría sea
 
 -----------------------------------------------------------------------------------------------
 ->Selecciones/mundial
+
 Usa las tablas de la base de datos: equipo, noticia, detallenoticia
 En la tabla de equipo se a añadido una columna nueva llemada IDTipoEquipo que cuando es de "3" se refiere a que es un equipo del mundial y saldra en las vistas de la app 
+
 En la tabla de noticias en la columna tiponoticia, el valor debe de ser de "Mundial" para que la app carge las noticias
+
 Las imagenes son cargadas externamente con el link de la imagen en sus respectivas columnas de las tablas
 
 -----------------------------------------------------------------------------------------------
