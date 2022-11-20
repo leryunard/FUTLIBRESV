@@ -17,4 +17,4 @@ webApp: Mostrará las páginas como el home y cualquier otra cuya categoría sea
 
 -----------------------------------------------------------------------------------------------
 ...............................................................................................
---par instalar todas las librerias y modulos necesarios usar "pip install -r requirements.txt"
+--Para instalar todas las librerias y modulos necesarios usar "pip install -r requirements.txt"
