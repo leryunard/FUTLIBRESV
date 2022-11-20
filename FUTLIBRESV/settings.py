@@ -78,7 +78,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'futlibredb',
         'USER': 'root',
-        'PASSWORD': 'qwerty',
+        'PASSWORD': '',
         'HOST': 'localhost',
         'PORT': '3306',
 
