@@ -14,3 +14,5 @@ Ligas domésticas: Donde se guarda la información pertinente a competiciones do
 Selecciones: Donde se guarda la información pertinente a selecciones nacionales de fútbol y sus competiciones.
 
 webApp: Mostrará las páginas como el home y cualquier otra cuya categoría sea general o compartida.
+
+-----------------------------------------------------------------------------------------------
