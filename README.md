@@ -16,5 +16,3 @@ Selecciones: Donde se guarda la información pertinente a selecciones nacionales
 webApp: Mostrará las páginas como el home y cualquier otra cuya categoría sea general o compartida.
 
 -----------------------------------------------------------------------------------------------
-
---par instalar todas las librerias y modulos necesarios usar "pip install -r requirements.txt"
