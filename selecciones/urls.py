@@ -8,4 +8,6 @@ urlpatterns = [
     path('verNoticiasMundial/<id>/', views.verNoticiasMundial, name = 'id'),
     path('verEquiposMundial', views.verEquiposMundial),
     path('verTodasNoticiasMundial', views.verTodasNoticiasMundial),
+    path('verPerfilEquipoMundial/<id>/', views.verPerfilEquipoMundial, name = 'id'),
+    
 ]
