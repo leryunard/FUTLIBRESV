@@ -1,6 +1,6 @@
 {% extends "bases/base.html" %}
 
-{% block titulo %} Inicio: Noticias Fútbol Libre SV {%endblock %}
+{% block titulo %} Administración {%endblock %}
 
 {% block nvar %}
 
@@ -18,7 +18,7 @@
 
                 <div class="card-body">
                     <div class="container">
-                        <form>
+                        <form id="login">
                             <div class="mb-3 row">
                                 <label for="inputName" class="col-4 col-form-label">Usuario</label>
                                 <div class="col-8">
@@ -35,8 +35,8 @@
                             </div>
                             <div class="mb-3 row">
                                 <div class="offset-sm-4 col-sm-8">
-                                    <button type="button" class="btn btn-primary">Iniciar</button>
-                                    <button type="button" class="btn btn-secondary">Cancelar</button>
+                                    <button type="submit" class="btn btn-primary">Iniciar</button>
+                                    <button type="submit" class="btn btn-secondary">Cancelar</button>
                                 </div>
                             </div>
                         </form>

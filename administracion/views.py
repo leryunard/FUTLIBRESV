@@ -4,4 +4,4 @@ from django.http import HttpResponse
 
 
 def administracion(request):
-    return render(request, 'paginas/admin.html')
+    return render(request, 'paginas/login.html')
