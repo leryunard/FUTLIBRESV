@@ -7,6 +7,15 @@
 {% endblock %}
 
 {% block contenido %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="ver todos los equipos registrados del mundial Qatar 2022">
+    <meta name="keywords" content="Django, Bootstrap, Python">
+    <meta name="author" content="Wilfredo Mancia - MT20015">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
 <div class="container">
     <div class="row">
         <div class="col-12">
@@ -29,6 +38,9 @@
                                 <p style="color: black;" class="card-text">Año de fundacion: {{equi.yearfundacion}}</p>
                                 <p style="color: black;" class="card-text">Estadio principal: {{ equi.estadioequipo }} </p>
                                 <li><a><img src={{ equi.urllogo }} height="125" width="225"/></a></li>
+                                <br>
+                                <a href="verPerfilEquipoMundial/{{equi.idequipo}}" class="btn btn-warning">Ver Perfil de equipo</a>
+                                
                             </div>
                         </div>
                         {% endif %}

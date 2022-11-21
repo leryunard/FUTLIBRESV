@@ -11,6 +11,14 @@
 {% for noti in mostrar %}
 {% if var|add:"0" == noti.idnoticia %}
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="ver noticia especifica sobre el mundial Qatar 2022">
+    <meta name="keywords" content="Django, Bootstrap, Python">
+    <meta name="author" content="Wilfredo Mancia - MT20015">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
 <div class="container">
     <div class="row">
         <div class="col-12">
@@ -39,11 +47,6 @@
 
                
                <button class="btn btn-primary btn-lg" type="button" onclick="window.location='/selecciones/verTodasNoticiasMundial';">Ver todas las noticias</button>
-
-
-
-
-
 
                 {% endif %}
                 {% endfor %} 

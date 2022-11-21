@@ -8,6 +8,15 @@
 
 {% block contenido %}
 
+{% firstof "1" as counter %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="ver todas las noticias guardadas sobre el mundial Qatar 2022">
+    <meta name="keywords" content="Django, Bootstrap, Python">
+    <meta name="author" content="Wilfredo Mancia - MT20015">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
 <div class="container">
     <div class="row">
         <div class="col-12">
@@ -24,9 +33,13 @@
                 
                 <div class="card-body">
                     <div class="card-columns">
+
+                        
+                        
                         {% for noti in mostrar %}
                         
                         {% if noti.tiponoticia == "Mundial" %}
+                        
                         
 
                         <div class="card" style="width: 18rem;">
@@ -41,13 +54,24 @@
                                 {% endif %}
                                 {% endfor %} 
                                 <br>
-                                <a href="verNoticiasMundial/{{noti.idnoticia}}" class="btn btn-warning">Ver Noticia</a>
+                                
+                                <a href="verNoticiasMundial/{{noti.idnoticia}}" class="btn btn-warning">Ver Noticia {{ forloop.counter }}</a>
+
+                                
+
+
 
                             </div>
+                            
+
                         </div>
+                        
+                               
+
                         
                         {% endif %}
                         {% endfor %} 
+                        
                     </div>
                 </div>
             </div>
@@ -56,4 +80,5 @@
 </div>
 
 </main>
+
 {% endblock %}
