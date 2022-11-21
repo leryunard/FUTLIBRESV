@@ -1,0 +1,51 @@
+{% extends "bases/base.html" %}
+
+{% block titulo %} Inicio: Noticias Fútbol Libre SV {%endblock %}
+
+{% block nvar %}
+
+{% endblock %}
+
+{% block contenido %}
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <br><br><br><br>
+            <div class="card text-white bg-dark mb-3">
+                <div class="card-header">
+                    Ingrese sus credenciales de administrador
+                </div>
+
+                <div class="card-body">
+                    <div class="container">
+                        <form>
+                            <div class="mb-3 row">
+                                <label for="inputName" class="col-4 col-form-label">Usuario</label>
+                                <div class="col-8">
+                                    <input type="text" class="form-control" name="inputName" id="inputName"
+                                        placeholder="Usuario">
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <label for="inputPass" class="col-4 col-form-label">Contraseña</label>
+                                <div class="col-8">
+                                    <input type="text" class="form-control" name="inputPass" id="inputPass"
+                                        placeholder="Contraseña">
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <div class="offset-sm-4 col-sm-8">
+                                    <button type="button" class="btn btn-primary">Iniciar</button>
+                                    <button type="button" class="btn btn-secondary">Cancelar</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</main>
+{% endblock %}
