@@ -44,7 +44,6 @@ INSTALLED_APPS = [
     'ligasdomesticas',
     'selecciones',
     'webApp',
-    'administracion',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
