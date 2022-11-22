@@ -42,8 +42,11 @@
                             <ul class="nav">
                                 <li><a href="">Ligas domésticas</a>
                                     <ul>
-                                        <li><a href="static/img/logo.png"><img src="static/img/logo.png" height="125"
-                                                    width="225" /></a></li>
+                                        <li>
+                                            {% load static %}
+                                            <a href="{% static 'img/logo.png' %}"><img src="{% static 'img/logo.png' %}"
+                                                    height="125" width="225" /></a>
+                                        </li>
                                         <li><a href="">Serie A</a></li>
                                         <li><a href="">Bundesliga</a></li>
                                         <li><a href="">Liga Francesa</a>
