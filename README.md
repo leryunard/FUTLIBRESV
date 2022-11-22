@@ -18,4 +18,5 @@ webApp: Mostrará las páginas como el home y cualquier otra cuya categoría sea
 -----------------------------------------------------------------------------------------------
 
 para activar el virtual eviroment > .\venv\Scripts\activate
+
 para instalar los requirements > pip install -r requirements.txt
