@@ -24,9 +24,11 @@ SECRET_KEY = 'django-insecure-ppi0$($gih(ojv!!jv^p5gwnm_9e##)n@fvs=8pbc5^f%(qha$
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+
 ALLOWED_HOSTS = []
 
 # Application definition
+
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -36,10 +38,15 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'crispy_forms',
-    'webApp',
-    'selecciones',
+    'administracion',
+    'autenticacion',
     'internacionales',
+    'ligasdomesticas',
+    'selecciones',
+    'webApp',
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -82,6 +89,9 @@ DATABASES = {
         'PASSWORD': '',
         'HOST': 'localhost',
         'PORT': '3306',
+        'OPTIONS': {
+            'sql_mode': 'traditional',
+        }
 
     }
 }
