@@ -18,22 +18,15 @@
 
                 <div class="card-body">
                     <div class="card-columns">
-
-                        {% for noti in mostrar %}
                         <div class="card" style="width: 18rem;">
-                            {% for det in detalle %}
-                            {% if det.iddetalle == noti.idnoticia %}
-                            <img class="card-img-top" src="{{ det.urlimagen }} " alt="Card image cap">
-                            {% endif %}
-                            {% endfor %}
+                            <!--<img class="card-img-top" src="" alt="Card image cap">-->
                             <div class="card-body">
-                                <h5 style="color: red;" class="card-title">{{ noti.nombrenoticia }}</h5>
-                                <p style="color: black;" class="card-text">Noticias sobre: {{noti.tiponoticia}}</p>
-                                <a href="verNoticiasMundial/{{noti.idnoticia}}" class="btn btn-primary">Ver Noticia</a>
+                                <h5 style="color: red;" class="card-title">Card title</h5>
+                                <p style="color: black;" class="card-text">Some quick example text to build on the card title and make up the
+                                    bulk of the card's content.</p>
+                                <a href="#" class="btn btn-primary">Go somewhere</a>
                             </div>
                         </div>
-                        {% endfor %}
-
                     </div>
                 </div>
             </div>
@@ -41,4 +34,5 @@
     </div>
 </div>
 
+</main>
 {% endblock %}
