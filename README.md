@@ -16,7 +16,19 @@ Selecciones: Donde se guarda la información pertinente a selecciones nacionales
 webApp: Mostrará las páginas como el home y cualquier otra cuya categoría sea general o compartida.
 
 -----------------------------------------------------------------------------------------------
+...............................................................................................
+--par instalar todas las librerias y modulos necesarios usar "pip install -r requirements.txt"
 
-para activar el virtual eviroment > .\venv\Scripts\activate
+-----------------------------------------------------------------------------------------------
+->Selecciones/mundial
 
-para instalar los requirements > pip install -r requirements.txt
+Usa las tablas de la base de datos: equipo, noticia, detallenoticia
+En la tabla de equipo se a añadido una columna nueva llemada IDTipoEquipo que cuando es de "3" se refiere a que es un equipo del mundial y saldra en las vistas de la app 
+
+En la tabla de noticias en la columna tiponoticia, el valor debe de ser de "Mundial" para que la app carge las noticias
+
+Las imagenes son cargadas externamente con el link de la imagen en sus respectivas columnas de las tablas
+
+-----------------------------------------------------------------------------------------------
+
+
