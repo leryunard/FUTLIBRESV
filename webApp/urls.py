@@ -1,5 +1,6 @@
 from django.urls import path
 from .views import *
+from . import views
 from django.urls import include
 
 # enlaces para mostrar las vistas (URLS)
@@ -7,4 +8,5 @@ from django.urls import include
 
 urlpatterns = [
     path('', home, name='home'),
+    path('verTodasNoticias', views.verTodasNoticias, name='home'),
 ]
