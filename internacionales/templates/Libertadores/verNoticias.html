@@ -1,0 +1,63 @@
+{% extends "bases/base.html" %}
+
+{% block titulo %} Detalle {%endblock %}
+
+{% block nvar %}
+
+{% endblock %}
+
+{% block contenido %}
+
+{% for noti in mostrar %}
+{% if var|add:"0" == noti.idnoticia %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="ver noticia especifica sobre Copa Libertadores">
+    <meta name="keywords" content="Django, Bootstrap, Python">
+    <meta name="author" content="Oswaldo Cardoza - CD15015">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <br><br><br><br>
+            <div class="card text-white bg-dark mb-3">
+                <div class="card-header">
+
+                    <p style="color: white;" class="card-text">Noticias sobre: {{noti.tiponoticia}}</p>
+
+                    <h1 >{{noti.nombrenoticia}}</h1>
+
+                </div>
+
+                {% for det in detalle %}
+                {% if var|add:"0" == det.iddetalle %}
+                <div class="card-body">
+
+                <p style="color: white;" class="card-text">Fecha de publicacion: {{det.fechanoticia}}</p>
+
+                <br>
+                <p style="color: white;" class="card-text">{{det.descripcionnoticia}}</p>
+                <div class="row text-center">
+                <img src={{ det.urlimagen }} height="500" width="800" class="mx-auto d-block" >
+                </div>
+               </div>
+
+               <p>
+
+               </p>
+               <a href=" /internacionales/verTodasNoticiasLibertadores " class="btn btn-warning"> Volver a Noticias de la Copa Libertadores de America</a>
+
+                {% endif %}
+                {% endfor %} 
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+{% endfor %} 
+
+</main>
+{% endblock %}
