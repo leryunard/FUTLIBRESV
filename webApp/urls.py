@@ -7,6 +7,5 @@ from django.urls import include
 # path(para pasar parametros, llamado a las  views, nombre de la url)
 
 urlpatterns = [
-    path('', home, name='home'),
-    path('verTodasNoticias', views.verTodasNoticias, name='home'),
+    path('', views.verTodasNoticias, name='home'),
 ]
