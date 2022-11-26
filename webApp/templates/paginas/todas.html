@@ -1,0 +1,56 @@
+{% extends "bases/base.html" %}
+
+{% block titulo %} Todas las noticias {%endblock %}
+
+
+{% block contenido %}
+<br><br><br><br>
+<div class="text-center">
+    <div class="row">
+        <div class="col-12">
+           <!-- {% include 'buscar_noticia/buscar.html' %} -->
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row m-4">
+        <a name="" class="btn btn-dark" href=" {% url 'home' %}" role="button">Regresar</a>
+    </div>
+    <div class="row m-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    Todas las noticias disponibles
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title">Lista de noticias</h4>
+
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th>Título</th>
+                            <th>Etiqueta</th>
+                            <th>Fecha</th>
+                            <th>Acción</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for toda in todas %}
+                        <tr>
+                            <td>  {{toda.idnoticia.nombrenoticia}}</td>
+                            <td> {{toda.idnoticia.tiponoticia}}</td>
+                            <td> {{toda.fechanoticia}}</td>
+                            <td>
+                                <a class="btn btn-info"
+                                   href="{% url 'noticia' toda.iddetalle %}" role="button">Visualizar</a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{%endblock %}

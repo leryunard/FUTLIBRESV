@@ -19,26 +19,27 @@
                 <div class="card-body">
                     <div class="card-columns">
 
-                        {% for noti in mostrar %}
-                        <div class="card" style="width: 18rem;">
-                            {% for det in detalle %}
-                            {% if det.iddetalle == noti.idnoticia %}
-                            <img class="card-img-top" src="{{ det.urlimagen }} " alt="Card image cap">
-                            {% endif %}
-                            {% endfor %}
+                        {% for noti in noticias %}
+                        <div class="card" style="width: 18rem; height: 35;">
+
+                            <img class="card-img-top" src="{{ noti.urlimagen }} " alt="Card image cap">
                             <div class="card-body">
-                                <h5 style="color: red;" class="card-title">{{ noti.nombrenoticia }}</h5>
-                                <p style="color: black;" class="card-text">Noticias sobre: {{noti.tiponoticia}}</p>
-                                <a href="verNoticiasMundial/{{noti.idnoticia}}" class="btn btn-primary">Ver Noticia</a>
+                                <h5 style="color: red;" class="card-title">{{ noti.idnoticia.nombrenoticia }}</h5>
+                                <p style="color: black;" class="card-text">Noticias sobre:
+                                    {{noti.idnoticia.tiponoticia}}</p>
+                                <a href="{% url 'noticia' noti.iddetalle %}" class="btn btn-primary">Ver Noticia</a>
                             </div>
                         </div>
                         {% endfor %}
-
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <div class="row m-4">
+        <a name="" class="btn btn-warning" href="{% url 'todas' %}" role="button">Ver todas las noticias</a>
+    </div>
 </div>
+
 
 {% endblock %}

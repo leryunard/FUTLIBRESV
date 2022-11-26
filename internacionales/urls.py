@@ -6,7 +6,7 @@ from . import views
 # path(para pasar parametros, llamado a las  views, nombre de la url)
 
 urlpatterns = [
-    path('verNoticiasLibertadores/<id>/', views.verNoticiasLibertadores, name='id'),
+    path('verNoticiasLibertadores/<id>/', views.verNoticiasLibertadores, name='noticialiber'),
     path('verEquiposLibertadores', views.verEquiposLibertadores),
     path('verTodasNoticiasLibertadores', views.verTodasNoticiasLibertadores, name='liber'),
 
