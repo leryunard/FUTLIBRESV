@@ -22,5 +22,9 @@ urlpatterns = [
     path('', include('webApp.urls')),
     path('administracion/', include('administracion.urls')),
     path('selecciones/', include('selecciones.urls')),
+<<<<<<< Updated upstream
     path('internacionales/', include('internacionales.urls')),
+=======
+    path('ligasdomesticas/', include('ligasdomesticas.urls')),
+>>>>>>> Stashed changes
 ]

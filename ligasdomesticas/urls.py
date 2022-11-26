@@ -2,7 +2,8 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('verNoticiaBundesliga/<id>/', views.verNoticiaBundesliga, name='id'),
-    path('verEquiposBundesliga', views.verEquiposBundesliga),
-    path('verNoticiasBundesliga', views.verNoticiasBundesliga, name='bundesliga'),
+    path('verNoticiasLaliga/<id>/', views.verNoticiasLaliga, name = 'id'),
+    path('verEquiposLaliga', views.verEquiposLaliga),
+    path('verTodasNoticiasLaliga', views.verTodasNoticiasLaliga, name = 'Espana'),
+    path('verPerfilEquipoLaliga/<id>/', views.verPerfilEquipoLaliga, name = 'id'),
 ]
