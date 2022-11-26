@@ -6,6 +6,7 @@
 
 {% endblock %}
 
+
 {% block contenido %}
 <div class="container">
     <div class="row">
@@ -13,34 +14,43 @@
             <br><br><br><br>
             <div class="card text-white bg-dark mb-3">
                 <div class="card-header">
-                   <center>
-                    Equipos que participan en Copa Libertadores de America
-                    <p>
+                    <center>
+                        Equipos que participan en Copa Libertadores de America
                         <p>
-                   </p>
-                    <a href=" /internacionales/verTodasNoticiasLibertadores " class="btn btn-warning">Noticias de la Copa Libertadores de America</a>
-                       <b>
+                            <p>
+                            </p>
+                            <a href=" /internacionales/verTodasNoticiasLibertadores " class="btn btn-warning">Noticias
+                                de la Copa Libertadores de America</a>
+                            <b>
 
-                       </b>
-                    </p>
+                            </b>
+                        </p>
                         <br>
-                    <br>
-                   </center>
+                        <br>
+                    </center>
 
                 </div>
                 <div class="card-body">
                     <div class="card-columns">
                         {% for equi in equipo %}
-                        {% if equi.idTipoEquipo == 8 %}
+                        {% if equi.idTipoEquipo == 1 %}
                         <div class="card" style="width: 18rem;">
                             <!--<img class="card-img-top" src="" alt="Card image cap">-->
                             <div class="card-body">
                                 <center>
-                                <h5 style="color: red;" class="card-title">{{ equi.nombreequipo }}</h5>
-                                <p style="color: black;" class="card-text">Año de fundacion: {{equi.yearfundacion}}</p>
-                                <p style="color: black;" class="card-text">Estadio: {{ equi.estadioequipo }} </p>
-                                <p style="color: black;" class="card-text">Ciudad Equipo: {{ equi.ciudadequipo }} </p>
-                                <li><a><img src={{ equi.urllogo }} height="260" width="260"/></a></li>
+                                    <h5 style="color: red;" class="card-title">{{ equi.nombreequipo }}</h5>
+                                    <p style="color: black;" class="card-text">Estadio: {{ equi.estadioequipo }} </p>
+                                    <p style="color: black;" class="card-text">Ciudad Equipo: {{ equi.ciudadequipo }}
+                                    </p>
+                                    <li>
+                                        <article class="location-listing">
+                                            <a class="location-title" href="">Ver Noticias</a>
+                                            <div class="location-image">
+                                                <a href=""><img src="{{ equi.urllogo }}"  height="200" width="200"
+                                                        alt="Logo Equipo" /></a>
+                                            </div>
+                                        </article>
+                                    </li>
                                 </center>
                             </div>
                         </div>

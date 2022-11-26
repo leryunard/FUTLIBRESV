@@ -19,3 +19,4 @@ def verTodasNoticiasLibertadores(request):
     return render(request, 'Libertadores/verTodas.html', {'mostrar': mostrar, 'detalle': detalle})
 
 # Create your views here.
+# Parte Carlos Rafaelano
