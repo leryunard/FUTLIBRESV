@@ -40,7 +40,6 @@
                         <div class="card-columns">
                             {% for equi in equipo %}
                             <div class="card" style="width: 18rem;">
-                                <!--<img class="card-img-top" src="" alt="Card image cap">-->
                                 <div class="card-body">
                                     <center>
                                         <h5 style="color: red;" class="card-title">{{ equi.nombreequipo }}</h5>
@@ -51,9 +50,11 @@
                                         </p>
                                         <li>
                                             <article class="location-listing">
-                                                <a class="location-title" href="">Ver Noticias</a>
+                                                <a class="location-title"
+                                                    href="verPerfilEquipoChampions/{{equi.idequipo}}">Ver Perfil</a>
                                                 <div class="location-image">
-                                                    <a href=""><img src="{{ equi.urllogo }}" height="200" width="200"
+                                                    <a href="verPerfilEquipoChampions/{{equi.idequipo}}"><img
+                                                            src="{{ equi.urllogo }}" height="200" width="200"
                                                             alt="Logo Equipo" /></a>
                                                 </div>
                                             </article>

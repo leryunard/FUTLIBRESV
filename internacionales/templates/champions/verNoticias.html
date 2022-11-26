@@ -34,7 +34,7 @@
 
                     <p style="color: white;" class="card-text">Noticias sobre: {{noti.tiponoticia}}</p>
 
-                    <h1 >{{noti.nombrenoticia}}</h1>
+                    <h1>{{noti.nombrenoticia}}</h1>
 
                 </div>
 
@@ -42,28 +42,30 @@
                 {% if var|add:"0" == det.iddetalle %}
                 <div class="card-body">
 
-                <p style="color: white;" class="card-text">Fecha de publicacion: {{det.fechanoticia}}</p>
+                    <p style="color: white;" class="card-text">Fecha de publicacion: {{det.fechanoticia}}</p>
 
-                <br>
-                <p style="color: white;" class="card-text">{{det.descripcionnoticia}}</p>
-                <div class="row text-center">
-                <img src={{ det.urlimagen }} height="500" width="800" class="mx-auto d-block" >
+                    <br>
+                    <p style="color: white;" class="card-text">{{det.descripcionnoticia}}</p>
+                    <div class="row text-center">
+                        <img src={{ det.urlimagen }} height="500" width="800" class="mx-auto d-block">
+                    </div>
                 </div>
-               </div>
 
-               <p>
+                <p>
 
-               </p>
-               <a href=" /internacionales/verTodasNoticiasLibertadores " class="btn btn-warning"> Volver a Noticias de la Copa Libertadores de America</a>
+                </p>
+                
+                <a href=" /internacionales/verTodasNoticiasChampions" class="btn btn-warning"> Volver a Noticias de
+                    la UEFA Champions League</a>
 
                 {% endif %}
-                {% endfor %} 
+                {% endfor %}
             </div>
         </div>
     </div>
 </div>
 {% endif %}
-{% endfor %} 
+{% endfor %}
 
 </main>
 {% endblock %}
