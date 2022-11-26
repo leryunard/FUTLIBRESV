@@ -1,0 +1,83 @@
+{% extends "bases/base.html" %}
+
+{% block titulo %} Noticias Copa Libertadores {%endblock %}
+
+{% block nvar %}
+
+{% endblock %}
+
+{% block contenido %}
+
+{% firstof "1" as counter %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="ver todas las noticias guardadas sobre Copa Libertadores">
+    <meta name="keywords" content="Django, Bootstrap, Python">
+    <meta name="author" content="CD15015 - Oswaldo Cardoza">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <br><br><br><br>
+            <div class="card text-white bg-dark mb-3">
+                <div class="card-header">
+                    <center>
+                        Todas las noticias sobre equipos de la Copa Libertadores
+                        <br>
+                        <br>
+                        <a href="verEquiposLibertadores" class="btn btn-warning">Equipos que participan</a>
+                    </center>
+                </div>
+
+
+                <div class="card-body">
+                    <div class="card-columns">
+
+
+                        {% for noti in mostrar %}
+
+                        {% if noti.tiponoticia == "Libertadores" %}
+
+
+                        <div class="card" style="width: 18rem;">
+                            <!--<img class="card-img-top" src="" alt="Card image cap">-->
+                            <div class="card-body">
+                                <center>
+                                    <h5 style="color: red;" class="card-title">{{ noti.nombrenoticia }}</h5>
+
+                                    <p style="color: black;" class="card-text">Noticias sobre: {{noti.tiponoticia}}</p>
+                                    {% for det in detalle %}
+                                    {% if det.iddetalle == noti.idnoticia %}
+                                    <li><a><img src={{ det.urlimagen }} height="127" width="225"/></a></li>
+                                    {% endif %}
+                                    {% endfor %}
+                                </center>
+                                <br>
+
+                                <center>
+                                    <a href="verNoticiasLibertadores/{{noti.idnoticia}}" class="btn btn-warning">Ver
+                                        Noticia</a>
+                                </center>
+
+
+                            </div>
+
+
+                        </div>
+
+
+                        {% endif %}
+                        {% endfor %}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</main>
+
+{% endblock %}

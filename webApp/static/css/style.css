@@ -4,7 +4,7 @@
 * Author: BootstrapMade.com
 * License: https://bootstrapmade.com/license/
 */
-
+@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&family=Open+Sans:wght@300;500;700;800&family=Oswald:wght@500;700&family=Saira+Condensed:wght@500;600;700&display=swap');
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
@@ -83,6 +83,11 @@ h6 {
   display: inline-block;
   vertical-align: middle;
   width: 170px;
+}
+
+.enlace
+{
+
 }
 
 .footer-back {
@@ -837,3 +842,4 @@ section {
   height: 100%;
   width: 100%;
 }
+
