@@ -28,7 +28,7 @@ def verEquiposChampions(request):
 
 
 def verTodasNoticiasChampions(request):
-    mostrar = Noticia.objects.filter(idcompetencia=3)
+    mostrar = Noticia.objects.filter(idcompetencia=0)
     detalle = Detallenoticia.objects.all()
     return render(request, 'champions/verTodas.html', {'mostrar': mostrar, 'detalle': detalle})
 
