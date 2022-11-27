@@ -48,19 +48,18 @@
                                         <p style="color: black;" class="card-text">Ciudad Equipo:
                                             {{ equi.ciudadequipo }}
                                         </p>
-                                        <li>
-                                            <article class="location-listing">
-                                                <a class="location-title"
-                                                    href="verPerfilEquipoChampions/{{equi.idequipo}}">Ver Perfil</a>
-                                                <div class="location-image">
-                                                    <a href="verPerfilEquipoChampions/{{equi.idequipo}}">
-                                                        <img src="{{ equi.urllogo }}" height="200" width="200"
-                                                            alt="Logo Equipo" /></a>
-                                                </div>
-                                            </article>
-                                        </li>
+
                                     </center>
                                 </div>
+                                <article class="location-listing">
+                                    <a class="location-title" href="verPerfilEquipoChampions/{{equi.idequipo}}">Ver
+                                        Perfil</a>
+                                    <div class="location-image">
+                                        <a href="verPerfilEquipoChampions/{{equi.idequipo}}">
+                                            <img src="{{ equi.urllogo }}" height="200" width="200"
+                                                alt="Logo Equipo" /></a>
+                                    </div>
+                                </article>
                             </div>
                             {% endfor %}
                         </div>
@@ -71,6 +70,4 @@
         </div>
     </div>
 </div>
-
-</main>
 {% endblock %}
