@@ -24,21 +24,21 @@
             <div class="card text-white bg-dark mb-3">
                 <div class="card-header">
 
-                    <p style="color: white;" class="card-text">Noticias sobre: {{noticia.idnoticia.tiponoticia}}</p>
+                    <p style="color: white;" class="card-text">Noticias sobre: {{noticiabundes.idnoticia.tiponoticia}}</p>
 
-                    <h1>{{noticia.idnoticia.nombrenoticia}}</h1>
+                    <h1>{{noticiabundes.idnoticia.nombrenoticia}}</h1>
 
                 </div>
 
 
                 <div class="card-body">
 
-                    <p style="color: white;" class="card-text">Fecha de publicacion: {{noticia.fechanoticia}}</p>
+                    <p style="color: white;" class="card-text">Fecha de publicacion: {{noticiabundes.fechanoticia}}</p>
 
                     <br>
-                    <p style="color: white;" class="card-text">{{noticia.descripcionnoticia}}</p>
+                    <p style="color: white;" class="card-text">{{noticiabundes.descripcionnoticia}}</p>
                     <div class="row text-center">
-                        <img src={{ noticia.urlimagen }} height="500" width="800" class="mx-auto d-block">
+                        <img src={{ noticiabundes.urlimagen }} height="500" width="800" class="mx-auto d-block">
                     </div>
                 </div>
 
@@ -46,7 +46,7 @@
 
                 </p>
                 <div class="row m-4">
-                    <a name="" class="btn btn-warning" href="{% url 'home' %}" role="button">Regresar</a>
+                    <a name="" class="btn btn-warning" href="{% url 'bundesliga' %}" role="button">Regresar</a>
                 </div>
 
             </div>
