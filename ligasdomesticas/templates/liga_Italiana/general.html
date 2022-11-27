@@ -1,0 +1,96 @@
+{% extends "bases/base.html" %}
+
+{% block titulo %} Noticia:SerieA de Italia {%endblock %}
+
+{% block nvar %}
+
+{% endblock %}
+
+{% block contenido %}
+
+{% firstof "1" as counter %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="ver todas las noticias guardadas sobre el mundial Qatar 2022">
+    <meta name="keywords" content="Django, Bootstrap, Python">
+    <meta name="author" content="Wilfredo Mancia - MT20015">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <br><br><br><br>
+            
+            <div class="card text-white bg-dark mb-3">
+                <div class="card-header">
+                    <h1>TABLA DE POSICIONES</h1>
+                    <div id="wg-api-football-standings"
+    data-host="v3.football.api-sports.io"
+    data-key="3f462c5be3129cfccd0a1dd555348b1b"
+    data-league="135"
+    data-team=""
+    data-season="2022"
+    data-theme="grey"
+    data-show-errors="false"
+    data-show-logos="true"
+    class="wg_loader">
+</div>
+<script
+    type="module"
+    src="https://widgets.api-sports.io/2.0.3/widgets.js">
+</script>
+                    Todas las noticias sobre equipos de la SeriaA de Italia!!
+                    <br>
+                    <br>
+                    <a href="verEquipos" class="btn btn-warning">Ver Equipos</a>
+                </div>
+                
+                
+                <div class="card-body">
+                    <div class="card-columns">
+
+                        
+                        
+                        {% for noti in mostrar %}
+                        
+                       
+                        
+                        
+
+                        <div class="card" style="width: 18rem;">
+                            <!--<img class="card-img-top" src="" alt="Card image cap">-->
+                            <div class="card-body">
+                                <p style="color: black;" class="card-text">Noticia sobre: {{noti.tiponoticia}}</p>
+                                <h5 style="color: red;" class="card-title">{{ noti.nombrenoticia }}</h5>
+                                <br>
+                                {% for det in detalle %}
+                                {% if det.iddetalle == noti.idnoticia %}
+                                <li><a><img src={{ det.urlimagen }} height="127" width="225"/></a></li>
+                                
+                                {% endif %}
+                                {% endfor %} 
+                                <br>
+                                
+                                <a href="verNoticia/{{noti.idnoticia}}" class="btn btn-warning">Ver Noticia {{ forloop.counter }}</a>
+
+                            </div>
+                            
+
+                        </div>
+                        
+                               
+
+                        
+                       
+                        {% endfor %} 
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</main>
+
+{% endblock %}
