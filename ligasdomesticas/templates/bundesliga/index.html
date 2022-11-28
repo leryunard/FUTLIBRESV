@@ -15,6 +15,14 @@
                 <div class="card-header">
                     Descubre lo último de la primera división alemana
                 </div>
+                 <div class="card-header">
+                     Ver los equipos más importantes
+                    <center>
+                        <br>
+                        <br>
+                        <a href="{% url 'equiposbundesliga' %}" class="btn btn-warning">Equipos que participan</a>
+                    </center>
+                </div>
 
                 <div class="card-body">
                     <div class="card-columns">
@@ -28,8 +36,8 @@
                                 <h5 style="color: red;" class="card-title">{{ noti.nombrenoticia }}</h5>
                                 <p style="color: black;" class="card-text">Noticias sobre:
                                     {{noti.tiponoticia}}</p>
-                                <a href="{% url 'noticiabundesliga' det.iddetalle %}" class="btn btn-primary">Ver
-                                    Noticia</a>
+                                <center><a href="{% url 'noticiabundesliga' det.iddetalle %}" class="btn btn-primary">Ver
+                                    Noticia</a></center>
                             </div>
                             {% endif %}
                             {% endfor %}
@@ -41,7 +49,7 @@
         </div>
     </div>
     <div class="row m-4">
-        <a name="" class="btn btn-warning" href="{% url 'todas' %}" role="button">Ver todas las noticias</a>
+        <a name="" class="btn btn-warning" href="{% url 'todasbundesliga' %}" role="button">Ver todas las noticias</a>
     </div>
 </div>
 

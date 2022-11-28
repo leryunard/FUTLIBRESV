@@ -118,23 +118,6 @@ class Define(models.Model):
         unique_together = (('idestadistica', 'idpartido'),)
 
 
-class Detallenoticia(models.Model):
-    # Field name made lowercase.
-    iddetalle = models.IntegerField(db_column='IDDETALLE', primary_key=True)
-    idnoticia = models.ForeignKey('Noticia', models.DO_NOTHING, db_column='IDNOTICIA', blank=True,
-                                  null=True)  # Field name made lowercase.
-    # Field name made lowercase.
-    descripcionnoticia = models.CharField(
-        db_column='DESCRIPCIONNOTICIA', max_length=9999)
-    # Field name made lowercase.
-    fechanoticia = models.DateField(db_column='FECHANOTICIA')
-    urlimagen = models.CharField(db_column='URLIMAGEN', max_length=255)
-
-    class Meta:
-        managed = True
-        db_table = 'detallenoticia'
-
-
 class DjangoAdminLog(models.Model):
     action_time = models.DateTimeField()
     object_id = models.TextField(blank=True, null=True)
@@ -202,6 +185,26 @@ class Equipo(models.Model):
     class Meta:
         managed = True
         db_table = 'equipo'
+
+
+class Detallenoticia(models.Model):
+    # Field name made lowercase.
+    iddetalle = models.IntegerField(db_column='IDDETALLE', primary_key=True)
+    idnoticia = models.ForeignKey('Noticia', models.DO_NOTHING, db_column='IDNOTICIA', blank=True,
+                                  null=True)  # Field name made lowercase.
+    idequipo = models.ForeignKey('Equipo', models.DO_NOTHING, db_column='IDEQUIPO', blank=True,
+                                 null=True)  # Field name made lowercase.
+
+    # Field name made lowercase.
+    descripcionnoticia = models.CharField(
+        db_column='DESCRIPCIONNOTICIA', max_length=9999)
+    # Field name made lowercase.
+    fechanoticia = models.DateField(db_column='FECHANOTICIA')
+    urlimagen = models.CharField(db_column='URLIMAGEN', max_length=255)
+
+    class Meta:
+        managed = True
+        db_table = 'detallenoticia'
 
 
 class Estadistica(models.Model):
@@ -279,7 +282,8 @@ class Jugador(models.Model):
     # Field name made lowercase.
     escapitan = models.BooleanField(db_column='ESCAPITAN')
     # Field name made lowercase.
-    idequipo = models.IntegerField(db_column='IDEQUIPO')
+    idequipo = models.ForeignKey('Equipo', models.DO_NOTHING, db_column='IDEQUIPO', blank=True,
+                                 null=True)  # Field name made lowercase.
 
     class Meta:
         managed = True
