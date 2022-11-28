@@ -23,4 +23,5 @@ urlpatterns = [
     path('administracion/', include('administracion.urls')),
     path('selecciones/', include('selecciones.urls')),
     path('internacionales/', include('internacionales.urls')),
+    path('ligasdomesticas/', include('ligasdomesticas.urls')),
 ]
