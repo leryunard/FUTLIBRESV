@@ -7,6 +7,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    {% block metadatos %}{% endblock %}
     <title>{% block titulo %} {% endblock %}</title>
 
     {% load static %}
@@ -41,18 +42,18 @@
                         <ul>
                             <ul class="nav">
                                 <li class="nav-item"><a href=""
-                                                        style="display: inline-block; color:	#FFD700; padding : 10px 30px;">Ligas
-                                    domésticas</a>
+                                        style="display: inline-block; color:	#FFD700; padding : 10px 30px;">Ligas
+                                        domésticas</a>
                                     <ul>
                                         <li><a style="display: flex; flex-direction: column; align-items: center;"
                                                href="{% url 'Espana' %}"><img src="{% static 'img/logos/laliga.png' %}" height="43"
                                                             width="111"/></a></li>
                                         <li><a style="display: flex; flex-direction: column; align-items: center;"
-                                               href=""><img src="{% static 'img/logos/seriea.png' %}" height="45"
-                                                            width="139"/></a></li>
+                                                href=""><img src="{% static 'img/logos/seriea.png' %}" height="45"
+                                                    width="139" /></a></li>
                                         <li><a style="display: flex; flex-direction: column; align-items: center;"
-                                               href=""><img src="{% static 'img/logos/premier.png' %}" height="52"
-                                                            width="117"/></a></li>
+                                                href=""><img src="{% static 'img/logos/premier.png' %}" height="52"
+                                                    width="117" /></a></li>
                                         <li><a style="display: flex; flex-direction: column; align-items: center;"
                                                href="{% url 'bundesliga' %}"><img src="{% static 'img/logos/bundesliga.png' %}" height="40"
                                                             width="116"/></a></li>

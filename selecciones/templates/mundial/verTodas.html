@@ -5,6 +5,7 @@
 {% block contenido %}
 
 {% firstof "1" as counter %}
+
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="ver todas las noticias guardadas sobre el mundial Qatar 2022">
@@ -44,14 +45,11 @@
                                 <p style="color: black;" class="card-text">Noticias sobre: {{noti.tiponoticia}}</p>
                                 {% for det in detalle %}
                                 {% if det.iddetalle == noti.idnoticia %}
-                                <li><a><img src={{ det.urlimagen }} height="127" width="225"/></a></li>
+                                <li><a><img src={{ det.urlimagen }} height="127" width="225" /></a></li>
                                 {% endif %}
                                 {% endfor %}
                                 <br>
-
-                                <a href="verNoticiasMundial/{{noti.idnoticia}}" class="btn btn-warning">Ver Noticia {{
-                                    forloop.counter }}</a>
-
+                                <a href="verNoticiasMundial/{{noti.idnoticia}}" class="btn btn-warning">Ver Noticia</a>
 
                             </div>
 

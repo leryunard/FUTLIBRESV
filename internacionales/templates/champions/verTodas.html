@@ -1,0 +1,71 @@
+{% extends "bases/base.html" %}
+
+{% block metadatos %}
+<meta name="description" content="Pagina de inicio de sesion para el administrador">
+<meta name="keywords" content="Django, Bootstrap, Python">
+<meta name="author" content="Carlos Eduardo Rafaelano Santos-RS20002">
+{% endblock %}
+
+{% block titulo %} Noticias UEFA Champions League{%endblock %}
+
+{% block nvar %}
+
+{% endblock %}
+
+{% block contenido %}
+
+{% firstof "1" as counter %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <br><br><br><br>
+            <div class="card text-white bg-dark mb-3">
+                <div class="card-header">
+                    <center>
+                        Todas las noticias sobre equipos de la UEFA Champions League
+                        <br>
+                        <br>
+                        <a href="verEquiposChampions" class="btn btn-warning">Equipos que participan</a>
+                    </center>
+                </div>
+
+
+                <div class="card-body">
+                    <div class="card-columns">
+
+
+                        {% for noti in mostrar %}
+                        <div class="card" style="width: 18rem;">
+                            {% for det in detalle %}
+                            {% if det.iddetalle == noti.idnoticia %}
+                            <article class="location-listing">
+                                <a class="location-title" href="verNoticiasChampions/{{noti.idnoticia}}">Ver
+                                    Noticia</a>
+                                <div class="location-image">
+                                    <a href="verNoticiasChampions/{{noti.idnoticia}}">
+                                        <img class="card-img-top" src="{{ det.urlimagen  }}" alt="imagen noticia" /></a>
+                                </div>
+                            </article>
+                            {% endif %}
+                            {% endfor %}
+                            <div class="card-body">
+                                <center>
+                                    <h5 style="color: red;" class="card-title">{{ noti.nombrenoticia }}</h5>
+                                    <p style="color: black;" class="card-text">Noticias sobre: {{noti.tiponoticia}}</p>
+
+
+                                </center>
+                            </div>
+
+
+                        </div>
+                        {% endfor %}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
