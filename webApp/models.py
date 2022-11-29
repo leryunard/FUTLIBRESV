@@ -270,8 +270,6 @@ class Jugador(models.Model):
     nombrejugador = models.CharField(db_column='NOMBREJUGADOR', max_length=255)
     edad = models.IntegerField(db_column='EDAD')  # Field name made lowercase.
     # Field name made lowercase.
-    dorsaljugador = models.IntegerField(db_column='DORSALJUGADOR')
-    # Field name made lowercase.
     posicionjugador = models.CharField(
         db_column='POSICIONJUGADOR', max_length=255)
     # Field name made lowercase.
@@ -301,8 +299,6 @@ class Noticia(models.Model):
     tiponoticia = models.CharField(db_column='TIPONOTICIA', max_length=255)
     # Field name made lowercase.
     nombrenoticia = models.CharField(db_column='NOMBRENOTICIA', max_length=255)
-    # Field name made lowercase.
-    equipo = models.CharField(db_column='EQUIPO', max_length=255)
 
     class Meta:
         managed = True
