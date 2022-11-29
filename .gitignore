@@ -284,3 +284,4 @@ poetry.toml
 # End of https://www.toptal.com/developers/gitignore/api/python,pycha
 *.pyc
 
+/webApp/migrations/0008_noticia_etiqueta.py
