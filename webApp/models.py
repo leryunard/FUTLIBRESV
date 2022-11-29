@@ -8,6 +8,75 @@
 from django.db import models
 
 
+class AuthGroup(models.Model):
+    name = models.CharField(unique=True, max_length=150)
+
+    class Meta:
+        managed = False
+        db_table = 'auth_group'
+
+
+class AuthGroupPermissions(models.Model):
+    id = models.BigAutoField(primary_key=True)
+    group = models.ForeignKey(AuthGroup, models.DO_NOTHING)
+    permission = models.ForeignKey('AuthPermission', models.DO_NOTHING)
+
+    class Meta:
+        managed = False
+        db_table = 'auth_group_permissions'
+        unique_together = (('group', 'permission'),)
+
+
+class AuthPermission(models.Model):
+    name = models.CharField(max_length=255)
+    content_type = models.ForeignKey('DjangoContentType', models.DO_NOTHING)
+    codename = models.CharField(max_length=100)
+
+    class Meta:
+        managed = False
+        db_table = 'auth_permission'
+        unique_together = (('content_type', 'codename'),)
+
+
+class AuthUser(models.Model):
+    password = models.CharField(max_length=128)
+    last_login = models.DateTimeField(blank=True, null=True)
+    is_superuser = models.IntegerField()
+    username = models.CharField(unique=True, max_length=150)
+    first_name = models.CharField(max_length=150)
+    last_name = models.CharField(max_length=150)
+    email = models.CharField(max_length=254)
+    is_staff = models.IntegerField()
+    is_active = models.IntegerField()
+    date_joined = models.DateTimeField()
+
+    class Meta:
+        managed = False
+        db_table = 'auth_user'
+
+
+class AuthUserGroups(models.Model):
+    id = models.BigAutoField(primary_key=True)
+    user = models.ForeignKey(AuthUser, models.DO_NOTHING)
+    group = models.ForeignKey(AuthGroup, models.DO_NOTHING)
+
+    class Meta:
+        managed = False
+        db_table = 'auth_user_groups'
+        unique_together = (('user', 'group'),)
+
+
+class AuthUserUserPermissions(models.Model):
+    id = models.BigAutoField(primary_key=True)
+    user = models.ForeignKey(AuthUser, models.DO_NOTHING)
+    permission = models.ForeignKey(AuthPermission, models.DO_NOTHING)
+
+    class Meta:
+        managed = False
+        db_table = 'auth_user_user_permissions'
+        unique_together = (('user', 'permission'),)
+
+
 class Competencia(models.Model):
     idcompetencia = models.IntegerField(db_column='IDCOMPETENCIA', primary_key=True)  # Field name made lowercase.
     idganador = models.ForeignKey('Ganador', models.DO_NOTHING, db_column='IDGANADOR', blank=True,
@@ -15,7 +84,7 @@ class Competencia(models.Model):
     nombrecompetencia = models.CharField(db_column='NOMBRECOMPETENCIA', max_length=255)  # Field name made lowercase.
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'competencia'
 
 
@@ -25,7 +94,7 @@ class Conforma(models.Model):
     idpermiso = models.ForeignKey('Permiso', models.DO_NOTHING, db_column='IDPERMISO')  # Field name made lowercase.
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'conforma'
         unique_together = (('idrol', 'idpermiso'),)
 
@@ -36,7 +105,7 @@ class Define(models.Model):
     idpartido = models.ForeignKey('Partido', models.DO_NOTHING, db_column='IDPARTIDO')  # Field name made lowercase.
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'define'
         unique_together = (('idestadistica', 'idpartido'),)
 
@@ -45,12 +114,59 @@ class Detallenoticia(models.Model):
     iddetalle = models.IntegerField(db_column='IDDETALLE', primary_key=True)  # Field name made lowercase.
     idnoticia = models.ForeignKey('Noticia', models.DO_NOTHING, db_column='IDNOTICIA', blank=True,
                                   null=True)  # Field name made lowercase.
-    descripcionnoticia = models.CharField(db_column='DESCRIPCIONNOTICIA', max_length=255)  # Field name made lowercase.
+    descripcionnoticia = models.CharField(db_column='DESCRIPCIONNOTICIA', max_length=9999)  # Field name made lowercase.
     fechanoticia = models.DateField(db_column='FECHANOTICIA')  # Field name made lowercase.
+    urlimagen = models.CharField(db_column='URLIMAGEN', max_length=255)  
+    imagennoticia = models.CharField(db_column='IMAGENNOTICIA', max_length=255)  
+
+    class Meta:
+        managed = True
+        db_table = 'detallenoticia'
+
+
+class DjangoAdminLog(models.Model):
+    action_time = models.DateTimeField()
+    object_id = models.TextField(blank=True, null=True)
+    object_repr = models.CharField(max_length=200)
+    action_flag = models.PositiveSmallIntegerField()
+    change_message = models.TextField()
+    content_type = models.ForeignKey('DjangoContentType', models.DO_NOTHING, blank=True, null=True)
+    user = models.ForeignKey(AuthUser, models.DO_NOTHING)
 
     class Meta:
         managed = False
-        db_table = 'detallenoticia'
+        db_table = 'django_admin_log'
+
+
+class DjangoContentType(models.Model):
+    app_label = models.CharField(max_length=100)
+    model = models.CharField(max_length=100)
+
+    class Meta:
+        managed = False
+        db_table = 'django_content_type'
+        unique_together = (('app_label', 'model'),)
+
+
+class DjangoMigrations(models.Model):
+    id = models.BigAutoField(primary_key=True)
+    app = models.CharField(max_length=255)
+    name = models.CharField(max_length=255)
+    applied = models.DateTimeField()
+
+    class Meta:
+        managed = False
+        db_table = 'django_migrations'
+
+
+class DjangoSession(models.Model):
+    session_key = models.CharField(primary_key=True, max_length=40)
+    session_data = models.TextField()
+    expire_date = models.DateTimeField()
+
+    class Meta:
+        managed = False
+        db_table = 'django_session'
 
 
 class Equipo(models.Model):
@@ -59,9 +175,12 @@ class Equipo(models.Model):
     yearfundacion = models.CharField(db_column='YEARFUNDACION', max_length=255)  # Field name made lowercase.
     estadioequipo = models.CharField(db_column='ESTADIOEQUIPO', max_length=255)  # Field name made lowercase.
     ciudadequipo = models.CharField(db_column='CIUDADEQUIPO', max_length=255)  # Field name made lowercase.
+    idTipoEquipo = models.IntegerField(db_column='IDTIPOEQUIPO')  # Field name made lowercase.
+    urllogo = models.CharField(db_column='URLLOGO', max_length=255)  # Field name made lowercase.
+    entrenador = models.CharField(db_column='ENTRENADOR', max_length=255)  # Field name made lowercase.
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'equipo'
 
 
@@ -73,7 +192,7 @@ class Estadistica(models.Model):
     regates = models.CharField(db_column='REGATES', max_length=255, blank=True, null=True)  # Field name made lowercase.
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'estadistica'
 
 
@@ -83,7 +202,7 @@ class FormaParte(models.Model):
     idequipo = models.ForeignKey(Equipo, models.DO_NOTHING, db_column='IDEQUIPO')  # Field name made lowercase.
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'forma_parte'
         unique_together = (('idjugador', 'idequipo'),)
 
@@ -95,7 +214,7 @@ class Ganador(models.Model):
     nombreganador = models.CharField(db_column='NOMBREGANADOR', max_length=255)  # Field name made lowercase.
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'ganador'
 
 
@@ -105,20 +224,24 @@ class Juega(models.Model):
     idequipo = models.ForeignKey(Equipo, models.DO_NOTHING, db_column='IDEQUIPO')  # Field name made lowercase.
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'juega'
         unique_together = (('idpartido', 'idequipo'),)
 
 
 class Jugador(models.Model):
     nombrejugador = models.CharField(db_column='NOMBREJUGADOR', max_length=255)  # Field name made lowercase.
-    fechanacimiento = models.CharField(db_column='FECHANACIMIENTO', max_length=255)  # Field name made lowercase.
+    edad = models.IntegerField(db_column='EDAD')  # Field name made lowercase.
     dorsaljugador = models.IntegerField(db_column='DORSALJUGADOR')  # Field name made lowercase.
     posicionjugador = models.CharField(db_column='POSICIONJUGADOR', max_length=255)  # Field name made lowercase.
     idjugador = models.IntegerField(db_column='IDJUGADOR', primary_key=True)  # Field name made lowercase.
+    numerojugador = models.IntegerField(db_column='NUMEROJUGADOR', primary_key=False)  # Field name made lowercase.
+    escapitan = models.BooleanField(db_column='ESCAPITAN')  # Field name made lowercase.
+    idequipo = models.IntegerField(db_column='IDEQUIPO')  # Field name made lowercase.
+
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'jugador'
 
 
@@ -130,9 +253,10 @@ class Noticia(models.Model):
                                   null=True)  # Field name made lowercase.
     tiponoticia = models.CharField(db_column='TIPONOTICIA', max_length=255)  # Field name made lowercase.
     nombrenoticia = models.CharField(db_column='NOMBRENOTICIA', max_length=255)  # Field name made lowercase.
-
+    equipo = models.CharField(db_column='EQUIPO', max_length=255)  # Field name made lowercase.
+    subtitulonoticia = models.CharField(db_column='SUBTITULONOTICIA', max_length=255)  
     class Meta:
-        managed = False
+        managed = True
         db_table = 'noticia'
 
 
@@ -143,7 +267,7 @@ class Participa(models.Model):
                                       db_column='IDCOMPETENCIA')  # Field name made lowercase.
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'participa'
         unique_together = (('idequipo', 'idcompetencia'),)
 
@@ -155,7 +279,7 @@ class Partido(models.Model):
     golesfuera = models.IntegerField(db_column='GOLESFUERA')  # Field name made lowercase.
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'partido'
 
 
@@ -164,7 +288,7 @@ class Permiso(models.Model):
     estadopermiso = models.IntegerField(db_column='ESTADOPERMISO')  # Field name made lowercase.
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'permiso'
 
 
@@ -174,7 +298,7 @@ class Posee(models.Model):
     idusuario = models.ForeignKey('Usuario', models.DO_NOTHING, db_column='IDUSUARIO')  # Field name made lowercase.
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'posee'
         unique_together = (('idrol', 'idusuario'),)
 
@@ -184,7 +308,7 @@ class Rol(models.Model):
     tiporol = models.CharField(db_column='TIPOROL', max_length=255)  # Field name made lowercase.
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'rol'
 
 
@@ -195,5 +319,5 @@ class Usuario(models.Model):
     passwordusuario = models.CharField(db_column='PASSWORDUSUARIO', max_length=255)  # Field name made lowercase.
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'usuario'
