@@ -6,7 +6,8 @@ from django.shortcuts import redirect
 # Create your views here.
 
 def vernoticias(request):
-    noticias = Noticia.objects.all()
+    competencia = Competencia.objects.filter(nombrecompetencia="Liga Nacional").first()
+    noticias = Noticia.objects.filter(idcompetencia=competencia.idcompetencia)
     for val in noticias:
         val.detalle = Detallenoticia.objects.filter(idnoticia=val.idnoticia).first()
     return render(request, 'paginas/vertodas.html',{'noticias':noticias})
