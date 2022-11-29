@@ -1,11 +1,10 @@
 {% extends "bases/base.html" %}
 
-{% block titulo %} Inicio: Noticias Fútbol Libre SV {%endblock %}
+{% block titulo %} Noticias Mundial Qatar 2022 {%endblock %}
 
 {% block contenido %}
 
 {% firstof "1" as counter %}
-
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="ver todas las noticias guardadas sobre el mundial Qatar 2022">
@@ -30,26 +29,22 @@
 
                 <div class="card-body">
                     <div class="card-columns">
-
-
                         {% for noti in mostrar %}
-
-                        {% if noti.tiponoticia == "Mundial" %}
-
-
                         <div class="card" style="width: 18rem;">
                             <!--<img class="card-img-top" src="" alt="Card image cap">-->
                             <div class="card-body">
                                 <h5 style="color: red;" class="card-title">{{ noti.nombrenoticia }}</h5>
-                                <p style="color: black;" class="card-text">ID: {{noti.idnoticia}}</p>
+                                <h5><span class="badge bg-secondary">{{ noti.equipo }}</span></h5>
                                 <p style="color: black;" class="card-text">Noticias sobre: {{noti.tiponoticia}}</p>
                                 {% for det in detalle %}
                                 {% if det.iddetalle == noti.idnoticia %}
-                                <li><a><img src={{ det.urlimagen }} height="127" width="225" /></a></li>
+                                <li><a><img src={{ det.urlimagen }} height="127" width="225"/></a></li>
                                 {% endif %}
                                 {% endfor %}
                                 <br>
-                                <a href="verNoticiasMundial/{{noti.idnoticia}}" class="btn btn-warning">Ver Noticia</a>
+
+                                <a href="verNoticiasMundial/{{noti.idnoticia}}" class="btn btn-warning">Ver Noticia </a>
+
 
                             </div>
 
@@ -57,7 +52,7 @@
                         </div>
 
 
-                        {% endif %}
+                        
                         {% endfor %}
 
                     </div>
