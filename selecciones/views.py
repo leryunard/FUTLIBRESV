@@ -24,6 +24,6 @@ def verEquiposMundial(request):
 def verPerfilEquipoMundial(request, id):
     mostrar = Noticia.objects.all()
     equipo = Equipo.objects.all()
-    jugador = Jugador.objects.all()
+    jugador = Jugador.objects.filter(idequipo=id)
     detalle = Detallenoticia.objects.all()
     return render(request, 'mundial/verPerfil.html', {'equipo': equipo, 'jugador': jugador, 'var': id, 'mostrar': mostrar, 'detalle': detalle})
