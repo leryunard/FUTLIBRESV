@@ -300,7 +300,8 @@ class Noticia(models.Model):
     # Field name made lowercase.
     nombrenoticia = models.CharField(db_column='NOMBRENOTICIA', max_length=255)
     # Field name made lowercase.
-    etiqueta = models.CharField(db_column='ETIQUETA', max_length=255)
+    etiqueta = models.CharField(db_column='ETIQUETA', max_length=255, blank=True,
+                                null=True)
 
     class Meta:
         managed = True

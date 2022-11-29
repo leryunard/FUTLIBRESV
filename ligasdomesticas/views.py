@@ -12,7 +12,8 @@ def verNoticiaBundesliga(request, iddetalle):
     noticiabundes = Detallenoticia.objects.get(iddetalle=iddetalle)
     return render(request, 'bundesliga/noticia.html', {'noticiabundes': noticiabundes})
 
-#La Liga
+
+# La Liga
 def verNoticiasLaliga(request, id):
     mostrar = Noticia.objects.all()
     detalle = Detallenoticia.objects.all()
@@ -35,7 +36,9 @@ def verPerfilEquipoLaliga(request, id):
     equipo = Equipo.objects.all()
     jugador = Jugador.objects.filter(idequipo=id)
     detalle = Detallenoticia.objects.all()
-    return render(request, 'laliga/verPerfil.html', {'equipo': equipo, 'jugador': jugador, 'var': id, 'mostrar': mostrar, 'detalle': detalle})
+    return render(request, 'laliga/verPerfil.html',
+                  {'equipo': equipo, 'jugador': jugador, 'var': id, 'mostrar': mostrar, 'detalle': detalle})
+
 
 def verTodasBundesliga(request):
     todas = Noticia.objects.filter(idcompetencia=1)
@@ -55,3 +58,31 @@ def verPerfilBundesliga(request, idequipo):
 
     return render(request, 'bundesliga/perfil.html',
                   {'equipo': equipo, 'jugador': jugador, 'noticia': noticia})
+
+
+def SerieA_general(request):
+    mostrar = Noticia.objects.filter(idcompetencia=6)
+    detalle = Detallenoticia.objects.all()
+    return render(request, 'liga_Italiana/general.html', {'mostrar': mostrar, 'detalle': detalle, 'var': id})
+
+
+def Ver_Noticia(request, id):
+    mostrar = Noticia.objects.all()
+    detalle = Detallenoticia.objects.all()
+    equipo = Equipo.objects.all()
+    return render(request, 'liga_Italiana/verNoticia.html',
+                  {'mostrar': mostrar, 'detalle': detalle, 'var': id, 'equipo': equipo})
+
+
+def verEquipo(request, id):
+    mostrar = Noticia.objects.all()
+    equipo = Equipo.objects.all()
+    jugador = Jugador.objects.all()
+    detalle = Detallenoticia.objects.all()
+    return render(request, 'liga_Italiana/Equipo.html',
+                  {'equipo': equipo, 'jugador': jugador, 'var': id, 'mostrar': mostrar, 'detalle': detalle})
+
+
+def verEquipos(request):
+    mostrar = Equipo.objects.all()
+    return render(request, 'liga_Italiana/verEquipo.html', {'mostrar': mostrar})
