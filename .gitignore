@@ -282,9 +282,5 @@ poetry.toml
 
 
 # End of https://www.toptal.com/developers/gitignore/api/python,pycha
-FUTLIBRESV/__pycache__/urls.cpython-311.pyc
 *.pyc
 
-*.pyc
-*.pyc
-*.pyc
