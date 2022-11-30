@@ -1,0 +1,138 @@
+{% extends "bases/base.html" %}
+
+{% block metadatos %}
+<meta name="description" content="Pagina de inicio de sesion para el administrador">
+<meta name="keywords" content="Django, Bootstrap, Python">
+<meta name="author" content="Carlos Eduardo Rafaelano Santos-RS20002">
+{% endblock %}
+
+{% block titulo %} Perfil del equipo {%endblock %}
+
+{% block nvar %}
+
+{% endblock %}
+
+{% block contenido %}
+
+{% for equi in equipo %}
+{% if var|add:"0" == equi.idequipo %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <br><br><br><br>
+            <div class="card text-white bg-dark mb-3">
+                <div class="card-header">
+
+                    <p style="color: white;" class="card-text">Perfil de equipo mundialista: {{equi.nombreequipo}}</p>
+
+
+                    <h1><span class="badge bg-secondary">ID de equipo: {{ var }}</span></h1>
+                </div>
+
+                <div class="row text-center">
+                    <img src={{ equi.urllogo }} class="mx-auto d-block" height="400" alt="Responsive image">
+                </div>
+
+                <div class="card-body">
+
+                    <p style="color: white;" class="card-text">Estadio principal: {{ equi.estadioequipo }} </p>
+
+                    <p style="color: white;" class="card-text">Año de fundacion: {{equi.yearfundacion}}</p>
+
+                    <p style="color: white;" class="card-text">Entrenador: {{ equi.entrenador }} </p>
+
+                </div>
+            </div>
+            <div class="card text-black bg-white mb-3">
+                <div id="main-container">
+                    <div class="card-body">
+                        <p style="color: black;" class="card-text">Jugadores de la plantilla de
+                            {{ equi.nombreequipo}}</p>
+
+                        {% for jug in jugador %}
+                        {% if jug.escapitan == 1 %}
+                        <p style="color: black;" class="card-text">Capitan: {{jug.nombrejugador}}</p>
+
+                        {% endif %}
+                        {% endfor %}
+
+
+
+
+                        <table class="table table-striped">
+                            <tr>
+                                <th>N.º</th>
+                                <th>Nombre</th>
+                                <th>Posición</th>
+                                <th>Edad</th>
+                            </tr>
+
+                            <tbody>
+                                {% for jug in jugador %}
+                                <tr>
+
+                                    <td>{{jug.numerojugador}}</td>
+                                    <td>{{jug.nombrejugador}}</td>
+                                    <td>{{jug.posicionjugador}}</td>
+                                    <td>{{jug.edad}}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="card text-white bg-dark mb-3">
+
+                <div class="card-body">
+                    <p style="color: white;" class="card-text">Todas las noticias sobre {{equi.nombreequipo}} </p>
+                    <div class="card-columns">
+
+                        {% for noti in mostrar %}
+
+                        {% if noti.etiqueta == equi.nombreequipo %}
+
+
+                        <div class="card" style="width: 18rem;">
+                            <!--<img class="card-img-top" alt="Card image cap">-->
+                            <div class="card-body">
+                                <center>
+                                    <h5 style="color: red;" class="card-title">{{ noti.nombrenoticia }}</h5>
+                                    <p style="color: black;" class="card-text">Noticias sobre: {{noti.tiponoticia}}</p>
+                                </center>
+                            </div>
+                            {% for det in detalle %}
+                            {% if det.iddetalle == noti.idnoticia %}
+                            <article class="location-listing">
+                                <a class="location-title"
+                                    href="/internacionales/verNoticiasChampions/{{noti.idnoticia}}">Ver
+                                    Noticia</a>
+                                <div class="location-image">
+                                    <a href="/internacionales/verNoticiasChampions/{{noti.idnoticia}}">
+                                        <img class="card-img-top" src="{{ det.urlimagen }}" height="200"
+                                            alt="Logo Equipo" />
+                                    </a>
+                                </div>
+                            </article>
+                            {% endif %}
+                            {% endfor %}
+                        </div>
+
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+                <a href=" /internacionales/verTodasNoticiasChampions" class="btn btn-light"> Volver a Noticias de
+                    la UEFA Champions League</a>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+{% endfor %}
+{% endblock %}

@@ -20,13 +20,13 @@
     <div class="row">
         <div class="col-12">
             <br><br><br><br>
-            
+
             <div class="card text-white bg-dark mb-3">
                 <div class="card-header">
                     <h1>TABLA DE POSICIONES</h1>
                     <div id="wg-api-football-standings"
     data-host="v3.football.api-sports.io"
-    data-key="3f462c5be3129cfccd0a1dd555348b1b"
+    data-key="d1ef3b48b77caf2568494ca6c9551f9a"
     data-league="135"
     data-team=""
     data-season="2022"
@@ -44,18 +44,18 @@
                     <br>
                     <a href="verEquipos" class="btn btn-warning">Ver Equipos</a>
                 </div>
-                
-                
+
+
                 <div class="card-body">
                     <div class="card-columns">
 
-                        
-                        
+
+
                         {% for noti in mostrar %}
-                        
-                       
-                        
-                        
+
+
+
+
 
                         <div class="card" style="width: 18rem;">
                             <!--<img class="card-img-top" src="" alt="Card image cap">-->
@@ -66,24 +66,24 @@
                                 {% for det in detalle %}
                                 {% if det.iddetalle == noti.idnoticia %}
                                 <li><a><img src={{ det.urlimagen }} height="127" width="225"/></a></li>
-                                
+
                                 {% endif %}
                                 {% endfor %} 
                                 <br>
-                                
+
                                 <a href="verNoticia/{{noti.idnoticia}}" class="btn btn-warning">Ver Noticia {{ forloop.counter }}</a>
 
                             </div>
-                            
+
 
                         </div>
-                        
-                               
 
-                        
-                       
+
+
+
+
                         {% endfor %} 
-                        
+
                     </div>
                 </div>
             </div>

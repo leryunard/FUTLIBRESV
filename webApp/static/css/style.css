@@ -4,6 +4,7 @@
 * Author: BootstrapMade.com
 * License: https://bootstrapmade.com/license/
 */
+@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&family=Open+Sans:wght@300;500;700;800&family=Oswald:wght@500;700&family=Saira+Condensed:wght@500;600;700&display=swap');
 
 /*--------------------------------------------------------------
 # General
@@ -74,19 +75,21 @@ h6 {
   z-index: 997;
   transition: all 0.5s;
   background: #fff;
-  background-color:black;
-	color:#fff;
+  background-color: black;
+  color: #fff;
   box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
 }
 
-.navbar-logo{
+.navbar-logo {
   display: inline-block;
   vertical-align: middle;
   width: 170px;
 }
 
+.enlace {}
+
 .footer-back {
-    background: red;
+  background: red;
 }
 
 #header .logo h1 {
@@ -114,44 +117,45 @@ h6 {
 }
 
 
-			ul, ol {
-				list-style:none;
-			}
+ul,
+ol {
+  list-style: none;
+}
 
-			.nav > li {
-				float:left;
-			}
+.nav>li {
+  float: left;
+}
 
-			.nav li a {
-				background-color:#000;
-				color:#fff;
-				text-decoration:none;
-				padding:10px 12px;
-				display:block;
-			}
+.nav li a {
+  background-color: #000;
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 12px;
+  display: block;
+}
 
-			.nav li a:hover {
-				background-color:#434343;
-			}
+.nav li a:hover {
+  background-color: #434343;
+}
 
-			.nav li ul {
-				display:none;
-				position:absolute;
-				min-width:140px;
-			}
+.nav li ul {
+  display: none;
+  position: absolute;
+  min-width: 140px;
+}
 
-			.nav li:hover > ul {
-				display:block;
-			}
+.nav li:hover>ul {
+  display: block;
+}
 
-			.nav li ul li {
-				position:relative;
-			}
+.nav li ul li {
+  position: relative;
+}
 
-			.nav li ul li ul {
-				right:-140px;
-				top:0px;
-			}
+.nav li ul li ul {
+  right: -140px;
+  top: 0px;
+}
 
 /*--------------------------------------------------------------
 # Navigation Menu
@@ -403,7 +407,7 @@ h6 {
 }
 
 #hero .container {
-background: #F5F5DC;
+  background: #F5F5DC;
   z-index: 2;
 }
 
@@ -671,8 +675,10 @@ section {
 }
 
 #content-wrap {
-  padding-bottom: 2.5rem;    /* Footer height */
+  padding-bottom: 2.5rem;
+  /* Footer height */
 }
+
 /*--------------------------------------------------------------
 # Footer
 --------------------------------------------------------------*/
@@ -836,4 +842,53 @@ section {
 #map_google {
   height: 100%;
   width: 100%;
+}
+
+/* Implementación logos dinamicos by Carlos Rafaelano */
+.location-listing {
+  position: relative;
+  overflow: hidden;
+}
+
+.location-title {
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(90, 0, 10, 0.4);
+
+  /* Estilos de letras */
+  color: white;
+  font-size: 1.5em;
+  font-weight: bold;
+  text-decoration: none;
+
+  /* Centrado del titulo */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Ocultar el titulo por defecto*/
+  opacity: 0;
+  transition: opacity .5s;
+}
+
+.location-image {
+  line-height: 0;
+}
+
+.location-listing:hover .location-title {
+  opacity: 1;
+}
+
+.location-image img {
+  filter: blur(0px);
+  transition: filter 0.3s ease-in;
+  /* transform: scale(1.1);  */ /* Esto es para hacer las imagenes cuadradas */
+}
+
+.location-listing:hover .location-image img {
+  filter: blur(2px);
 }

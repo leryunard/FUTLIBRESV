@@ -1,0 +1,54 @@
+{% extends "bases/base.html" %}
+
+{% block titulo %} Equipos Bundesliga {%endblock %}
+
+{% block nvar %}
+
+{% endblock %}
+
+{% block contenido %}
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <br><br><br><br>
+            <div class="card text-white bg-dark mb-3">
+                <div class="card-header">
+                   <center>
+                    Equipos que participan en la bundesliga
+                    <p>
+                        <p>
+                   </p>
+                    <a href="{% url 'bundesliga' %}" class="btn btn-warning">Regresar a página anterior</a>
+                       <b>
+
+                       </b>
+                    </p>
+                        <br>
+                    <br>
+                   </center>
+
+                </div>
+                <div class="card-body">
+                    <div class="card-columns">
+                        {% for equi in equipo %}
+                        <div class="card" style="width: 18rem;">
+                            <!--<img class="card-img-top" src="" alt="Card image cap">-->
+                            <div class="card-body">
+                                <h5 style="color: red;" class="card-title">{{ equi.nombreequipo }}</h5>
+                                <p style="color: black;" class="card-text">Año de fundación: {{equi.yearfundacion}}</p>
+                                <p style="color: black;" class="card-text">Estadio: {{ equi.estadioequipo }} </p>
+                                <p style="color: black;" class="card-text">Ciudad del equipo: {{ equi.ciudadequipo }} </p>
+                                <li><a><img src={{ equi.urllogo }} width="300" height="300"/></a></li>
+                                <a href="{% url 'perfilbundesliga' equi.idequipo %}" class="btn btn-warning">Ver Perfil</a>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</main>
+{% endblock %}

@@ -1,0 +1,90 @@
+{% extends "bases/base.html" %}
+
+{% block metadatos %}
+<meta name="description" content="Pagina de inicio de sesion para el administrador">
+<meta name="keywords" content="Django, Bootstrap, Python">
+<meta name="author" content="Carlos Eduardo Rafaelano Santos-RS20002">
+{% endblock %}
+
+{% block titulo %} Noticias UEFA Champions League{%endblock %}
+
+{% block nvar %}
+
+{% endblock %}
+
+{% block contenido %}
+
+{% firstof "1" as counter %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <br><br><br><br>
+            <div class="card text-white bg-dark mb-3">
+                <div class="card-header">
+                    <h1>TABLA DE POSICIONES</h1>
+                    <div id="wg-api-football-standings"
+    data-host="v3.football.api-sports.io"
+    data-key="3f462c5be3129cfccd0a1dd555348b1b"
+    data-league="370"
+    data-team=""
+    data-season="2022"
+    data-theme="grey"
+    data-show-errors="false"
+    data-show-logos="true"
+    class="wg_loader">
+</div>
+<script
+    type="module"
+    src="https://widgets.api-sports.io/2.0.3/widgets.js">
+</script>
+                    <center>
+                        Todas las noticias sobre equipos de la Liga Pepsi
+                        <br>
+                        <br>
+                        <a href="viewTeamsLigaPepsi" class="btn btn-warning">Equipos que participan</a>
+                    </center>
+                </div>
+
+
+                <div class="card-body">
+                    <div class="card-columns">
+                        {% for new in news %}
+                        <div class="card" style="width: 18rem;">
+                            {% for det in description %}
+
+                            {% if det.iddetalle == new.idnoticia %}
+                            <article class="location-listing">
+                                <a class="location-title" href="newsByIdLigaPepsi/{{new.idnoticia}}">Ver
+                                    Noticia</a>
+                                <div class="location-image">
+                                    <a href="newsByIdLigaPepsi/{{new.idnoticia}}">
+                                        <img class="card-img-top" src="{{ det.urlimagen  }}" alt="Card image cap"
+                                            alt="imagen noticia" /></a>
+                                </div>
+                            </article>
+                            {% endif %}
+                            {% endfor %}
+                            <div class="card-body">
+                                <center>
+                                    <h5 style="color: red;" class="card-title">{{ new.nombrenoticia }}</h5>
+                                    <p style="color: black;" class="card-text">Noticias sobre: {{new.tiponoticia}}</p>
+
+
+                                </center>
+                            </div>
+
+
+                        </div>
+                        {% endfor %}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</main>
+
+{% endblock %}

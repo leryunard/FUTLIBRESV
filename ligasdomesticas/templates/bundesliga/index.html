@@ -1,0 +1,74 @@
+{% extends "bases/base.html" %}
+
+{% block titulo %} Noticias de la Bundesliga {%endblock %}
+
+{% block nvar %}
+
+{% endblock %}
+
+{% block contenido %}
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <br><br><br><br>
+            <div class="card text-white bg-dark mb-3">
+                <div class="card-header">
+                    <h1>TABLA DE POSICIONES</h1>
+                    <div id="wg-api-football-standings"
+    data-host="v3.football.api-sports.io"
+    data-key="7d4282c0a806baec6169fd79d23c9456"
+    data-league="78"
+    data-team=""
+    data-season="2022"
+    data-theme="grey"
+    data-show-errors="false"
+    data-show-logos="true"
+    class="wg_loader">
+</div>
+<script
+    type="module"
+    src="https://widgets.api-sports.io/2.0.3/widgets.js">
+</script>
+<br>
+                    Descubre lo último de la primera división alemana
+                </div>
+                 <div class="card-header">
+                     Ver los equipos más importantes
+                    <center>
+                        <br>
+                        <br>
+                        <a href="{% url 'equiposbundesliga' %}" class="btn btn-warning">Equipos que participan</a>
+                    </center>
+                </div>
+
+                <div class="card-body">
+                    <div class="card-columns">
+
+                        {% for noti in noticias %}
+                        <div class="card" style="width: 18rem; height: 35;">
+                            {% for det in detalles %}
+                            {% if det.iddetalle == noti.idnoticia %}
+                            <img class="card-img-top" src="{{ det.urlimagen }} " alt="Card image cap">
+                            <div class="card-body">
+                                <h5 style="color: red;" class="card-title">{{ noti.nombrenoticia }}</h5>
+                                <p style="color: black;" class="card-text">Noticias sobre:
+                                    {{noti.tiponoticia}}</p>
+                                <center><a href="{% url 'noticiabundesliga' det.iddetalle %}" class="btn btn-primary">Ver
+                                    Noticia</a></center>
+                            </div>
+                            {% endif %}
+                            {% endfor %}
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row m-4">
+        <a name="" class="btn btn-warning" href="{% url 'todasbundesliga' %}" role="button">Ver todas las noticias</a>
+    </div>
+</div>
+
+
+{% endblock %}
