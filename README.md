@@ -16,3 +16,7 @@ Selecciones: Donde se guarda la información pertinente a selecciones nacionales
 webApp: Mostrará las páginas como el home y cualquier otra cuya categoría sea general o compartida.
 
 -----------------------------------------------------------------------------------------------
+
+para activar el virtual eviroment > .\venv\Scripts\activate
+
+para instalar los requirements > pip install -r requirements.txt

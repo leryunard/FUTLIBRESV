@@ -22,5 +22,10 @@ urlpatterns = [
     path('', include('webApp.urls')),
     path('administracion/', include('administracion.urls')),
     path('selecciones/', include('selecciones.urls')),
+<<<<<<< HEAD
     path('otrasligas/', include('otrasligas.urls')),
+=======
+    path('internacionales/', include('internacionales.urls')),
+    path('ligasdomesticas/', include('ligasdomesticas.urls')),
+>>>>>>> 1cc0f0f2ecdd3c5732b4e9fb6d373f416979aa31
 ]

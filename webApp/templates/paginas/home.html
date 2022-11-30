@@ -18,21 +18,28 @@
 
                 <div class="card-body">
                     <div class="card-columns">
-                        <div class="card" style="width: 18rem;">
-                            <!--<img class="card-img-top" src="" alt="Card image cap">-->
+
+                        {% for noti in noticias %}
+                        <div class="card" style="width: 18rem; height: 35;">
+
+                            <img class="card-img-top" src="{{ noti.urlimagen }} " alt="Card image cap">
                             <div class="card-body">
-                                <h5 style="color: red;" class="card-title">Card title</h5>
-                                <p style="color: black;" class="card-text">Some quick example text to build on the card title and make up the
-                                    bulk of the card's content.</p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                                <h5 style="color: red;" class="card-title">{{ noti.idnoticia.nombrenoticia }}</h5>
+                                <p style="color: black;" class="card-text">Noticias sobre:
+                                    {{noti.idnoticia.tiponoticia}}</p>
+                                <a href="{% url 'noticia' noti.iddetalle %}" class="btn btn-primary">Ver Noticia</a>
                             </div>
                         </div>
+                        {% endfor %}
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <div class="row m-4">
+        <a name="" class="btn btn-warning" href="{% url 'todas' %}" role="button">Ver todas las noticias</a>
+    </div>
 </div>
 
-</main>
+
 {% endblock %}

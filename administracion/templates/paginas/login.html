@@ -1,5 +1,11 @@
 {% extends "bases/base.html" %}
 
+{% block metadatos %}
+<meta name="description" content="Pagina de inicio de sesion para el administrador">
+<meta name="keywords" content="Django, Bootstrap, Python">
+<meta name="author" content="Carlos Eduardo Rafaelano Santos-RS20002">
+{% endblock %}
+
 {% block titulo %} Administración {%endblock %}
 
 {% block nvar %}
@@ -7,6 +13,7 @@
 {% endblock %}
 
 {% block contenido %}
+
 <div class="container">
     <div class="row">
         <div class="col-12">
@@ -35,8 +42,9 @@
                             </div>
                             <div class="mb-3 row">
                                 <div class="offset-sm-4 col-sm-8">
-                                    <button type="submit" class="btn btn-primary">Iniciar</button>
-                                    <button type="submit" class="btn btn-secondary">Cancelar</button>
+                                    <button type="submit" class="btn btn-primary">Iniciar Sesion</button>
+                                    <button type="button" class="btn btn-secondary"
+                                        onClick="location.href='/'">Cancelar</button>
                                 </div>
                             </div>
                         </form>
@@ -47,5 +55,6 @@
     </div>
 </div>
 
-</main>
+{% load static %}
+<script src="{% static 'js/page.js'%}" type="text/javascript"></script>
 {% endblock %}

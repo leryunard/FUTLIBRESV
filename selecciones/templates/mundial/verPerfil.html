@@ -1,6 +1,6 @@
 {% extends "bases/base.html" %}
 
-{% block titulo %} Inicio: Noticias Fútbol Libre SV {%endblock %}
+{% block titulo %} Perfil de equipo {%endblock %}
 
 {% block nvar %}
 
@@ -26,10 +26,10 @@
             <div class="card text-white bg-dark mb-3">
                 <div class="card-header">
                     
-                    <p style="color: white;" class="card-text">Perfil de equipo mundialista: {{equi.nombreequipo}}</p>
+                    
                   
                     
-                    <h1><span class="badge bg-secondary">ID de equipo: {{ var }}</span></h1>
+                    <h1><span class="badge bg-secondary">Perfil de equipo mundialista: {{ equi.nombreequipo }}</span></h1>
                 </div>
                 
                 <div class="row text-center">
@@ -52,11 +52,9 @@
              <p style="color: black;" class="card-text">Jugadores convocados para el Mundial Qatar 2022 para la seleccion de {{ equi.nombreequipo}}</p>
              
              {% for jug in jugador %}
-             {% if var|add:"0" == jug.idequipo %}
              {% if jug.escapitan == 1 %}
              <p style="color: black;" class="card-text">Capitan: {{jug.nombrejugador}}</p>
-             
-             {% endif %}
+
              {% endif %}
              {% endfor %}
              
@@ -73,7 +71,6 @@
                  
                  <tbody>
                  {% for jug in jugador %}
-                 {% if var|add:"0" == jug.idequipo %}
                  <tr>
                 
                  <td>{{jug.numerojugador}}</td>
@@ -81,7 +78,6 @@
                  <td>{{jug.posicionjugador}}</td>
                  <td>{{jug.edad}}</td>   
                  </tr>
-                 {% endif %}
                  {% endfor %} 
                  </tbody>
              </table>
@@ -99,14 +95,14 @@
                     
                     {% for noti in mostrar %}
                     
-                    {% if noti.equipo == equi.nombreequipo %}
+                    {% if noti.etiqueta == equi.nombreequipo %}
                     
 
                     <div class="card" style="width: 18rem;">
                         <!--<img class="card-img-top" src="" alt="Card image cap">-->
                         <div class="card-body">
                             <h5 style="color: red;" class="card-title">{{ noti.nombrenoticia }}</h5>
-                            <p style="color: black;" class="card-text">ID: {{noti.idnoticia}}</p>
+                            
                             <p style="color: black;" class="card-text">Noticias sobre: {{noti.tiponoticia}}</p>
                             {% for det in detalle %}
                             {% if det.iddetalle == noti.idnoticia %}

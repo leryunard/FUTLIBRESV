@@ -1,6 +1,6 @@
 {% extends "bases/base.html" %}
 
-{% block titulo %} Inicio: Noticias Fútbol Libre SV {%endblock %}
+{% block titulo %} Noticias Mundial Qatar 2022 {%endblock %}
 
 {% block nvar %}
 
@@ -29,7 +29,7 @@
                     <p style="color: white;" class="card-text">Noticias sobre: {{noti.tiponoticia}}</p>
                   
                     <h1 >{{noti.nombrenoticia}}</h1>
-                    <h1><span class="badge bg-secondary">ID: {{ var }}</span></h1>
+                    <h1><span class="badge bg-secondary">{{ noti.equipo }}</span></h1>
                 </div>
                 
                 {% for det in detalle %}

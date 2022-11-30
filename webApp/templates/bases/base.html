@@ -7,7 +7,8 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>{% block titulo %} {%endblock %}</title>
+    {% block metadatos %}{% endblock %}
+    <title>{% block titulo %} {% endblock %}</title>
 
     {% load static %}
     <link rel="shortcut icon" type="image/x-icon" href="{% static 'img/favicon.ico' %}">
@@ -42,43 +43,50 @@
                     <nav id="navbar" class="navbar  ml-auto p-2">
                         <ul>
                             <ul class="nav">
-                                <li><a href="">Ligas domésticas</a>
+                                <li class="nav-item"><a href=""
+                                        style="display: inline-block; color:	#FFD700; padding : 10px 30px;">Ligas
+                                        domésticas</a>
                                     <ul>
-                                        <li><a href="static/img/logo.png"><img src="static/img/logo.png" height="125"
-                                                    width="225" /></a></li>
-                                        <li><a href="">Serie A</a></li>
-                                        <li><a href="">Bundesliga</a></li>
-                                        <li><a href="">Liga Francesa</a>
-                                            <ul>
-                                                <li><a href="">Submenu1</a></li>
-                                                <li><a href="">Submenu2</a></li>
-                                                <li><a href="">Submenu3</a></li>
-                                                <li><a href="">Submenu4</a></li>
-                                            </ul>
-                                        </li>
+                                        <li><a style="display: flex; flex-direction: column; align-items: center;"
+                                               href="{% url 'Espana' %}"><img src="{% static 'img/logos/laliga.png' %}" height="43"
+                                                            width="111"/></a></li>
+                                        <li><a style="display: flex; flex-direction: column; align-items: center;"
+                                                href="ligasdomesticas/SerieA_general"><img src="{% static 'img/logos/seriea.png' %}" height="45"
+                                                    width="139" /></a></li>
+                                        <li><a style="display: flex; flex-direction: column; align-items: center;"
+                                                href=""><img src="{% static 'img/logos/premier.png' %}" height="52"
+                                                    width="117" /></a></li>
+                                        <li><a style="display: flex; flex-direction: column; align-items: center;"
+                                               href="{% url 'bundesliga' %}"><img src="{% static 'img/logos/bundesliga.png' %}" height="40"
+                                                            width="116"/></a></li>
+                                        <li><a style="display: flex; flex-direction: column; align-items: center;"
+                                               href=""><img src="{% static 'img/logos/ligapepsi.png' %}" height="47"
+                                                            width="122"/></a></li>
                                     </ul>
                                 </li>
-                                <li><a href="">Competiciones Internacionales</a>
+                                <li class="nav-item"><a href="" class="enlace"
+                                                        style="display: inline-block; color:	#FFD700; padding : 10px 30px;">Competiciones
+                                    Internacionales</a>
                                     <ul>
-                                        <li><a href="">Submenu1</a></li>
-                                        <li><a href="">Submenu2</a></li>
-                                        <li><a href="">Submenu3</a></li>
-                                        <li><a href="">Submenu4</a>
-                                            <ul>
-                                                <li><a href="">Submenu1</a></li>
-                                                <li><a href="">Submenu2</a></li>
-                                                <li><a href="">Submenu3</a></li>
-                                                <li><a href="">Submenu4</a></li>
-                                            </ul>
-                                        </li>
+                                        <li><a style="display: flex; flex-direction: column; align-items: center;"
+                                               href="{% url 'todasChampions' %}"><img src="{% static 'img/logos/champions.png' %}" height="60"
+                                                            width="133"/></a></li>
+                                        <li><a style="display: flex; flex-direction: column; align-items: center;"
+                                               href="{% url 'liber' %}"><img src="{% static 'img/logos/liber.png' %}" height="28"
+                                                            width="132"/></a></li>
                                     </ul>
                                 </li>
-                                <li><a href="">Selecciones Nacionales</a>
+                                <li class="nav-item"><a href="" class="enlace"
+                                                        style="display: inline-block; color:	#FFD700; padding : 10px 30px;">Selecciones
+                                    nacionales</a>
                                     <ul>
-                                        <li><a href="">Submenu1</a></li>
-                                        <li><a href="">Submenu2</a></li>
-                                        <li><a href="">Submenu3</a></li>
-                                        <li><a href="">Submenu4</a></li>
+                                        <li><a style="display: flex; flex-direction: column; align-items: center;"
+                                               href="{% url 'qatar' %}"><img src="{% static 'img/logos/qatar2022.png' %}"
+                                                                             height="42"
+                                                                             width="132"/></a></li>
+                                        <li><a style="display: flex; flex-direction: column; align-items: center;"
+                                               href=""><img src="{% static 'img/logos/selecciones.png' %}" height="52"
+                                                            width="112"/></a></li>
                                     </ul>
                                 </li>
                             </ul>
