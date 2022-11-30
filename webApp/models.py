@@ -297,8 +297,6 @@ class Noticia(models.Model):
                                   null=True)  # Field name made lowercase.
     tiponoticia = models.CharField(db_column='TIPONOTICIA', max_length=255)  # Field name made lowercase.
     nombrenoticia = models.CharField(db_column='NOMBRENOTICIA', max_length=255)  # Field name made lowercase.
-    equipo = models.CharField(db_column='EQUIPO', max_length=255)  # Field name made lowercase.
-    subtitulonoticia = models.CharField(db_column='SUBTITULONOTICIA', max_length=255)  
     # Field name made lowercase.
     etiqueta = models.CharField(db_column='ETIQUETA', max_length=255, blank=True,
                                 null=True)

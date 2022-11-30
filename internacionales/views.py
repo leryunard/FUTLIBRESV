@@ -41,6 +41,6 @@ def verNoticiasChampions(request, id):
 def verPerfilEquipoChampions(request, id):
     mostrar = Noticia.objects.all()
     equipo = Equipo.objects.all()
-    jugador = Jugador.objects.all()
+    jugador = Jugador.objects.filter(idequipo=id)
     detalle = Detallenoticia.objects.all()
     return render(request, 'champions/verPerfil.html', {'equipo': equipo, 'jugador': jugador, 'var': id, 'mostrar': mostrar, 'detalle': detalle})
