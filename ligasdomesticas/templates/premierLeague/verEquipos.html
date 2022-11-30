@@ -1,0 +1,76 @@
+{% extends "bases/base.html" %}
+
+{% block metadatos %}
+<meta name="description" content="Pagina de inicio de sesion para el administrador">
+<meta name="keywords" content="Django, Bootstrap, Python">
+<meta name="author" content="Carlos Eduardo Rafaelano Santos-RS20002">
+{% endblock %}
+
+{% block titulo %} Equipos Premier League {%endblock %}
+
+{% block nvar %}
+
+{% endblock %}
+
+{% block contenido %}
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <br><br><br><br>
+            <div class="card text-white bg-dark mb-3">
+                <div class="card-header">
+                    <center>
+                        Equipos que participan en la Premier League
+                        <p>
+                            <p>
+                            </p>
+                            <a href=" /ligasdomesticas/allNewsPremierLeague" class="btn btn-warning">Noticias
+                                de la Premier League</a>
+                            <b>
+
+                            </b>
+                        </p>
+                        <br>
+                        <br>
+                    </center>
+
+                </div>
+                <div class="card-body">
+                    <center>
+                        <div class="card-columns">
+                            {% for team in teams %}
+                            <div class="card" style="width: 18rem;">
+                                <div class="card-body">
+                                    <center>
+                                        <h5 style="color: red;" class="card-title">{{ team.nombreequipo }}</h5>
+                                        <p style="color: black;" class="card-text">Estadio: {{ team.estadioequipo }}
+                                        </p>
+                                        <p style="color: black;" class="card-text">Ciudad Equipo:
+                                            {{ team.ciudadequipo }}
+                                        </p>
+                                        <li>
+                                            <article class="location-listing">
+                                                <a class="location-title"
+                                                    href="profileTeamsPremierLeague/{{team.idequipo}}">Ver Perfil</a>
+                                                <div class="location-image">
+                                                    <a href="profileTeamsPremierLeague/{{team.idequipo}}"><img
+                                                            src="{{ team.urllogo }}" height="200" width="200"
+                                                            alt="Logo Equipo" /></a>
+                                                </div>
+                                            </article>
+                                        </li>
+                                    </center>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </center>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</main>
+{% endblock %}

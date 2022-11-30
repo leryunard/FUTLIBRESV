@@ -19,4 +19,14 @@ urlpatterns = [
     path('Equipo/<id>', views.verEquipo, name='id'),
     path('verNoticia/<id>', views.Ver_Noticia, name='id'),
     path('verEquipos', views.verEquipos),
+
+    path('viewTeamsLigaPepsi', views.viewTeamsLigaPepsi, name='teamsLigaPepsi'),
+    path('profileTeamsLigaPepsi/<id>/', views.profileTeamsLigaPepsi, name='profileLigaPepsi'),
+    path('newsByIdLigaPepsi/<id>/', views.newsByIdLigaPepsi, name='newsIdLigaPepsi'),
+    path('allNewsLigaPepsi', views.allNewsLigaPepsi, name='allnewsLigaPepsi'),
+
+    path('viewTeamsPremierLeague', views.viewTeamsPremier, name='teamsPremier'),
+    path('profileTeamsPremierLeague/<id>/', views.profileTeamsPremier, name='profilePremierLeague'),
+    path('newsByIdPremierLeague/<id>/', views.newsByIdPremier, name='newsIdPremierLeague'),
+    path('allNewsPremierLeague', views.allNewsPremier, name='allnewsPremierLeague'),
 ]

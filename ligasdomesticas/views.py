@@ -61,7 +61,7 @@ def verPerfilBundesliga(request, idequipo):
 
 
 def SerieA_general(request):
-    mostrar = Noticia.objects.filter(idcompetencia=6)
+    mostrar = Noticia.objects.filter(idcompetencia=10)
     detalle = Detallenoticia.objects.all()
     return render(request, 'liga_Italiana/general.html', {'mostrar': mostrar, 'detalle': detalle, 'var': id})
 
@@ -77,7 +77,7 @@ def Ver_Noticia(request, id):
 def verEquipo(request, id):
     mostrar = Noticia.objects.all()
     equipo = Equipo.objects.all()
-    jugador = Jugador.objects.all()
+    jugador = Jugador.objects.filter(idequipo=id)
     detalle = Detallenoticia.objects.all()
     return render(request, 'liga_Italiana/Equipo.html',
                   {'equipo': equipo, 'jugador': jugador, 'var': id, 'mostrar': mostrar, 'detalle': detalle})
@@ -86,3 +86,65 @@ def verEquipo(request, id):
 def verEquipos(request):
     mostrar = Equipo.objects.all()
     return render(request, 'liga_Italiana/verEquipo.html', {'mostrar': mostrar})
+
+
+""" 
+Liga Pepsi methods (Kevin Grande)
+"""
+
+
+def allNewsLigaPepsi(request):
+    news = Noticia.objects.filter(idcompetencia=9)
+    description = Detallenoticia.objects.all()
+    return render(request, 'ligapepsi/verTodasNoticias.html', {'news': news, 'description': description})
+
+
+def viewTeamsLigaPepsi(request):
+    teams = Equipo.objects.filter(idTipoEquipo=9)
+    return render(request, 'ligapepsi/verEquipos.html', {'teams': teams})
+
+
+def profileTeamsLigaPepsi(request, id):
+    news = Noticia.objects.all()
+    teams = Equipo.objects.all()
+    players = Jugador.objects.filter(idequipo=id)
+    description = Detallenoticia.objects.all()
+    return render(request, 'ligapepsi/verPerfil.html',
+                  {'teams': teams, 'players': players, 'var': id, 'news': news, 'description': description})
+
+
+def newsByIdLigaPepsi(request, id):
+    news = Noticia.objects.filter(idcompetencia=4)
+    description = Detallenoticia.objects.all()
+    return render(request, 'ligapepsi/verNoticiasbyId.html', {'news': news, 'description': description, 'var': id})
+
+
+""" 
+Premier League methods (Carlos Alfonso)
+"""
+
+
+def allNewsPremier(request):
+    news = Noticia.objects.filter(idcompetencia=5)
+    description = Detallenoticia.objects.all()
+    return render(request, 'premierLeague/verTodasNoticias.html', {'news': news, 'description': description})
+
+
+def viewTeamsPremier(request):
+    teams = Equipo.objects.filter(idTipoEquipo=5)
+    return render(request, 'premierLeague/verEquipos.html', {'teams': teams})
+
+
+def profileTeamsPremier(request, id):
+    news = Noticia.objects.all()
+    teams = Equipo.objects.all()
+    players = Jugador.objects.filter(idequipo=id)
+    description = Detallenoticia.objects.all()
+    return render(request, 'premierLeague/verPerfil.html',
+                  {'teams': teams, 'players': players, 'var': id, 'news': news, 'description': description})
+
+
+def newsByIdPremier(request, id):
+    news = Noticia.objects.filter(idcompetencia=5)
+    description = Detallenoticia.objects.all()
+    return render(request, 'premierLeague/verNoticiasbyId.html', {'news': news, 'description': description, 'var': id})
