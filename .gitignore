@@ -287,3 +287,4 @@ poetry.toml
 /webApp/migrations/0008_noticia_etiqueta.py
 
 *.pyc
+*.pyc
