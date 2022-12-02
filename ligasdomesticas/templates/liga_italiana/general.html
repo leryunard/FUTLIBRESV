@@ -1,13 +1,12 @@
 {% extends "bases/base.html" %}
 
-{% block titulo %} Noticia:SerieA de Italia {%endblock %}
+{% block titulo %} Noticias {%endblock %}
 
 {% block nvar %}
 
 {% endblock %}
 
 {% block contenido %}
-
 {% firstof "1" as counter %}
 <head>
     <meta charset="UTF-8">
@@ -16,81 +15,58 @@
     <meta name="author" content="Wilfredo Mancia - MT20015">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<div class="container">
+
+{% load static %}
+<link href="{% static 'css/estilo.css' %}" rel="stylesheet">
+<p class="my-4">e</p>
+<div class="container-fluid">
     <div class="row">
-        <div class="col-12">
-            <br><br><br><br>
-
-            <div class="card text-white bg-dark mb-3">
-                <div class="card-header">
-                    <h1>TABLA DE POSICIONES</h1>
-                    <div id="wg-api-football-standings"
-    data-host="v3.football.api-sports.io"
-    data-key="3f462c5be3129cfccd0a1dd555348b1b"
-    data-league="135"
-    data-team=""
-    data-season="2022"
-    data-theme="grey"
-    data-show-errors="false"
-    data-show-logos="true"
-    class="wg_loader">
-</div>
-<script
-    type="module"
-    src="https://widgets.api-sports.io/2.0.3/widgets.js">
-</script>
-                    Todas las noticias sobre equipos de la SeriaA de Italia!!
-                    <br>
-                    <br>
-                    <a href="verEquipos" class="btn btn-warning">Ver Equipos</a>
-                </div>
-
-
-                <div class="card-body">
-                    <div class="card-columns">
+        <div class="col col-11 mx-auto">
+            <div class="card">
 
 
 
-                        {% for noti in mostrar %}
-
-
-
-
-
-                        <div class="card" style="width: 18rem;">
-                            <!--<img class="card-img-top" src="" alt="Card image cap">-->
-                            <div class="card-body">
-                                <p style="color: black;" class="card-text">Noticia sobre: {{noti.tiponoticia}}</p>
-                                <h5 style="color: red;" class="card-title">{{ noti.nombrenoticia }}</h5>
-                                <br>
-                                {% for det in detalle %}
-                                {% if det.iddetalle == noti.idnoticia %}
-                                <li><a><img src={{ det.urlimagen }} height="127" width="225"/></a></li>
-
-                                {% endif %}
-                                {% endfor %} 
-                                <br>
-
-                                <a href="verNoticia/{{noti.idnoticia}}" class="btn btn-warning">Ver Noticia {{ forloop.counter }}</a>
-
-                            </div>
-
-
+                    <div class="card-body">
+                        <div class="col text-center mb-5">
+                            <h1 class="display-4">¡Todas las noticias sobre equipos de la Seria A de Italia!</h1>
+                        </div>
+                        <div class="row m-4">
+                            <a href="{% url 'equiposseriea' %}" class="btn btn-warning">Equipos que participan</a>
                         </div>
 
+                        <div class="wrapper">
+                            <div class="container-fluid">
+                                <div class="row my-0">
 
 
+                                    {% for noti in mostrar %}
+                                    <div class="col-sm-12 col-md-6 col-lg-4 mb-3">
+                                        {% for det in detalle %}
+                                        {% if det.iddetalle == noti.idnoticia %}
+                                        <div class="card text-white card-has-bg click-col"
+                                             style="background-image:url('{{ det.urlimagen}}');">
+                                            <img class="card-img d-none" src="{{ det.urlimagen}}" alt="">
+                                            <div class="card-img-overlay d-flex flex-column">
+                                                <div class="card-body">
+                                                    <a href="{% url 'noticiaseriea' noti.idnoticia %}"
+                                                       class="text-light"><big class="card-meta mb-2">{{ noti.nombrenoticia }}</big></a>
+                                                    <small><i class="far fa-clock"></i> {{det.fechanoticia}}</small>
+                                                </div>
+                                                {% endif %}
+                                                {% endfor %}
+                                                <div class="card-footer">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
 
-
-                        {% endfor %} 
-
+                                    <td></td>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
-
-</main>
-
-{% endblock %}
+        {% endblock %}

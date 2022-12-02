@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from webApp.models import *
 
-
+#Bundesliga
 def verNoticiasBundesliga(request):
     noticias = Noticia.objects.filter(idcompetencia=1).order_by('-idnoticia')[:12]
     detalles = Detallenoticia.objects.all()
@@ -114,7 +114,7 @@ def profileTeamsLigaPepsi(request, id):
 
 
 def newsByIdLigaPepsi(request, id):
-    news = Noticia.objects.filter(idcompetencia=4)
+    news = Noticia.objects.filter(idcompetencia=9)
     description = Detallenoticia.objects.all()
     return render(request, 'ligapepsi/verNoticiasbyId.html', {'news': news, 'description': description, 'var': id})
 

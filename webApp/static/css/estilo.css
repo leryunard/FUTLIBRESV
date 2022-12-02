@@ -21,11 +21,6 @@
     bottom: 0;
     left: 0;
     background: inherit;
-    -webkit-filter: grayscale(1);
-    -moz-filter: grayscale(100%);
-    -ms-filter: grayscale(100%);
-    -o-filter: grayscale(100%);
-    filter: grayscale(100%);
   }
     .wrapper .card.card-has-bg:hover {
     transform: scale(0.98);
@@ -60,5 +55,5 @@
     .wrapper .card .card-img-overlay {
     transition: all 800ms cubic-bezier(0.19, 1, 0.22, 1);
     background: #6d4e23;
-    background: linear-gradient(0deg, rgba(65, 70, 73, 0.379) 0%, #212223 100%);
+    background: linear-gradient(0deg, rgba(65, 70, 73, 0.379) 0%, #212223 190%);
   }

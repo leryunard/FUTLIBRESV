@@ -5,8 +5,8 @@ from . import views
 # path(para pasar parametros, llamado a las  views, nombre de la url)
 
 urlpatterns = [
-    path('verNoticiasMundial/<id>/', views.verNoticiasMundial, name = 'id'),
-    path('verEquiposMundial', views.verEquiposMundial),
+    path('verNoticiasMundial/<id>/', views.verNoticiasMundial, name = 'idnoti'),
+    path('verEquiposMundial', views.verEquiposMundial, name = 'equiposmundial'),
     path('verTodasNoticiasMundial', views.verTodasNoticiasMundial, name = 'qatar'),
     path('verPerfilEquipoMundial/<id>/', views.verPerfilEquipoMundial, name = 'id'),
     
