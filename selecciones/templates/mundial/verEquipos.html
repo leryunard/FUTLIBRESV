@@ -1,6 +1,6 @@
 {% extends "bases/base.html" %}
 
-{% block titulo %} Equipos del Mundial {%endblock %}
+{% block titulo %} Equipos del Mundial Qatar 2022{%endblock %}
 
 {% block nvar %}
 
@@ -30,7 +30,6 @@
                 <div class="card-body">
                     <div class="card-columns">
                         {% for equi in mostrar %}
-                        {% if equi.idTipoEquipo == 3 %}
                         <div class="card" style="width: 18rem;">
                             <!--<img class="card-img-top" src="" alt="Card image cap">-->
                             <div class="card-body">
@@ -43,7 +42,6 @@
                                 
                             </div>
                         </div>
-                        {% endif %}
                         {% endfor %} 
                     </div>
                 </div>

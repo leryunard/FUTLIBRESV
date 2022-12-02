@@ -118,23 +118,6 @@ class Define(models.Model):
         unique_together = (('idestadistica', 'idpartido'),)
 
 
-class Detallenoticia(models.Model):
-    # Field name made lowercase.
-    iddetalle = models.IntegerField(db_column='IDDETALLE', primary_key=True)
-    idnoticia = models.ForeignKey('Noticia', models.DO_NOTHING, db_column='IDNOTICIA', blank=True,
-                                  null=True)  # Field name made lowercase.
-    # Field name made lowercase.
-    descripcionnoticia = models.CharField(
-        db_column='DESCRIPCIONNOTICIA', max_length=9999)
-    # Field name made lowercase.
-    fechanoticia = models.DateField(db_column='FECHANOTICIA')
-    urlimagen = models.CharField(db_column='URLIMAGEN', max_length=255)
-
-    class Meta:
-        managed = True
-        db_table = 'detallenoticia'
-
-
 class DjangoAdminLog(models.Model):
     action_time = models.DateTimeField()
     object_id = models.TextField(blank=True, null=True)
@@ -204,6 +187,26 @@ class Equipo(models.Model):
         db_table = 'equipo'
 
 
+class Detallenoticia(models.Model):
+    # Field name made lowercase.
+    iddetalle = models.IntegerField(db_column='IDDETALLE', primary_key=True)
+    idnoticia = models.ForeignKey('Noticia', models.DO_NOTHING, db_column='IDNOTICIA', blank=True,
+                                  null=True)  # Field name made lowercase.
+    idequipo = models.ForeignKey('Equipo', models.DO_NOTHING, db_column='IDEQUIPO', blank=True,
+                                 null=True)  # Field name made lowercase.
+
+    # Field name made lowercase.
+    descripcionnoticia = models.CharField(
+        db_column='DESCRIPCIONNOTICIA', max_length=9999)
+    # Field name made lowercase.
+    fechanoticia = models.DateField(db_column='FECHANOTICIA')
+    urlimagen = models.CharField(db_column='URLIMAGEN', max_length=255)
+
+    class Meta:
+        managed = True
+        db_table = 'detallenoticia'
+
+
 class Estadistica(models.Model):
     # Field name made lowercase.
     idestadistica = models.IntegerField(
@@ -267,8 +270,6 @@ class Jugador(models.Model):
     nombrejugador = models.CharField(db_column='NOMBREJUGADOR', max_length=255)
     edad = models.IntegerField(db_column='EDAD')  # Field name made lowercase.
     # Field name made lowercase.
-    dorsaljugador = models.IntegerField(db_column='DORSALJUGADOR')
-    # Field name made lowercase.
     posicionjugador = models.CharField(
         db_column='POSICIONJUGADOR', max_length=255)
     # Field name made lowercase.
@@ -279,7 +280,8 @@ class Jugador(models.Model):
     # Field name made lowercase.
     escapitan = models.BooleanField(db_column='ESCAPITAN')
     # Field name made lowercase.
-    idequipo = models.IntegerField(db_column='IDEQUIPO')
+    idequipo = models.ForeignKey('Equipo', models.DO_NOTHING, db_column='IDEQUIPO', blank=True,
+                                 null=True)  # Field name made lowercase.
 
     class Meta:
         managed = True
@@ -293,12 +295,11 @@ class Noticia(models.Model):
                                       null=True)  # Field name made lowercase.
     idusuario = models.ForeignKey('Usuario', models.DO_NOTHING, db_column='IDUSUARIO', blank=True,
                                   null=True)  # Field name made lowercase.
+    tiponoticia = models.CharField(db_column='TIPONOTICIA', max_length=255)  # Field name made lowercase.
+    nombrenoticia = models.CharField(db_column='NOMBRENOTICIA', max_length=255)  # Field name made lowercase.
     # Field name made lowercase.
-    tiponoticia = models.CharField(db_column='TIPONOTICIA', max_length=255)
-    # Field name made lowercase.
-    nombrenoticia = models.CharField(db_column='NOMBRENOTICIA', max_length=255)
-    # Field name made lowercase.
-    equipo = models.CharField(db_column='EQUIPO', max_length=255)
+    etiqueta = models.CharField(db_column='ETIQUETA', max_length=255, blank=True,
+                                null=True)
 
     class Meta:
         managed = True

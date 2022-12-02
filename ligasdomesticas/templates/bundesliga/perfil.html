@@ -1,10 +1,121 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "bases/base.html" %}
+
+{% block titulo %} {{ equipo.nombreequipo }} {%endblock %}
+
+{% block nvar %}
+
+{% endblock %}
+
+{% block contenido %}
+
+
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="description" content="ver perfil de los equipos del mundial Qatar 2022">
+    <meta name="keywords" content="Django, Bootstrap, Python">
+    <meta name="author" content="Wilfredo Mancia - MT20015">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<body>
 
-</body>
-</html>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <br><br><br><br>
+            <div class="card text-white bg-dark mb-3">
+                <div class="card-header">
+                    <p style="color: white;" class="card-text">Perfil de equipo mundialista: {{equipo.nombreequipo}}</p>
+                </div>
+
+                <div class="row text-center">
+                    <img src={{ equipo.urllogo }} class="mx-auto d-block" alt="Responsive image" height="300" width="300">
+                </div>
+
+                <div class="card-body">
+
+                    <p style="color: white;" class="card-text">Estadio principal: {{ equipo.estadioequipo }} </p>
+
+                    <p style="color: white;" class="card-text">Año de fundacion: {{equipo.yearfundacion}}</p>
+
+                    <p style="color: white;" class="card-text">Entrenador: {{ equipo.entrenador }} </p>
+
+                </div>
+            </div>
+            <div class="card text-black bg-white mb-3">
+                <div id="main-container">
+                    <div class="card-body">
+                        <p style="color: black;" class="card-text">Plantilla actual del equipo: {{ equipo.nombreequipo }}</p>
+
+                        {% for jug in jugador %}
+                        {% if jug.escapitan == 1 %}
+                        <p style="color: black;" class="card-text">Capitán: {{jug.nombrejugador}}</p>
+
+                        {% endif %}
+                        {% endfor %}
+
+
+                        <table class="table table-striped">
+                            <tr>
+                                <th>N.º</th>
+                                <th>Nombre</th>
+                                <th>Posición</th>
+                                <th>Edad</th>
+                            </tr>
+
+                            <tbody>
+                            {% for jug in jugador %}
+                            <tr>
+
+                                <td>{{jug.numerojugador}}</td>
+                                <td>{{jug.nombrejugador}}</td>
+                                <td>{{jug.posicionjugador}}</td>
+                                <td>{{jug.edad}}</td>
+                            </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="card text-white bg-dark mb-3">
+
+                <div class="card-body">
+                    <p style="color: white;" class="card-text">Todas las noticias sobre {{equipo.nombreequipo}} </p>
+                    <div class="card-columns">
+
+                        {% for noti in noticia %}
+
+                        <div class="card" style="width: 18rem;">
+                            <!--<img class="card-img-top" src="" alt="Card image cap">-->
+                            <div class="card-body">
+                                <h5 style="color: red;" class="card-title">{{ noti.idnoticia.nombrenoticia }}</h5>
+                                <p style="color: black;" class="card-text">Noticias sobre: {{noti.idnoticia.tiponoticia}}</p>
+                                <li><a><img class="card-img-top" src={{ noti.urlimagen }} alt="Card image cap"/></a></li>
+                                <br>
+
+                                <button class="btn btn-primary btn-lg" type="button"
+                                        onclick="window.location='/selecciones/verNoticiasMundial/{{noti.idnoticia}}';">
+                                    Ver noticia
+                                </button>
+
+                            </div>
+                        </div>
+
+                        {% endfor %}
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="row m-4">
+                    <a name="" class="btn btn-warning" href="{% url 'equiposbundesliga' %}" role="button">Regresar</a>
+                </div>
+        </div>
+    </div>
+</div>
+
+
+</main>
+{% endblock %}
