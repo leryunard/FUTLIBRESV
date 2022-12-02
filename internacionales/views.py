@@ -23,24 +23,24 @@ def verTodasNoticiasLibertadores(request):
 
 
 def verEquiposChampions(request):
-    equipo = Equipo.objects.filter(idTipoEquipo=1)
+    equipo = Equipo.objects.filter(idTipoEquipo=2)
     return render(request, 'champions/verEquipos.html', {'equipo': equipo})
 
 
 def verTodasNoticiasChampions(request):
-    mostrar = Noticia.objects.filter(idcompetencia=0)
+    mostrar = Noticia.objects.filter(idcompetencia=2)
     detalle = Detallenoticia.objects.all()
     return render(request, 'champions/verTodas.html', {'mostrar': mostrar, 'detalle': detalle})
 
 
 def verNoticiasChampions(request, id):
-    mostrar = Noticia.objects.all()
+    mostrar = Noticia.objects.filter(idcompetencia=2)
     detalle = Detallenoticia.objects.all()
     return render(request, 'champions/verNoticias.html', {'mostrar': mostrar, 'detalle': detalle, 'var': id})
 
 def verPerfilEquipoChampions(request, id):
     mostrar = Noticia.objects.all()
     equipo = Equipo.objects.all()
-    jugador = Jugador.objects.all()
+    jugador = Jugador.objects.filter(idequipo=id)
     detalle = Detallenoticia.objects.all()
     return render(request, 'champions/verPerfil.html', {'equipo': equipo, 'jugador': jugador, 'var': id, 'mostrar': mostrar, 'detalle': detalle})

@@ -1,0 +1,58 @@
+{% extends "bases/base.html" %}
+
+{% block titulo %} {{noticiabundes.idnoticia.nombrenoticia}} {%endblock %}
+
+{% block nvar %}
+
+{% endblock %}
+
+{% block contenido %}
+
+
+<!--<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="ver noticia especifica sobre Copa Libertadores">
+    <meta name="keywords" content="Django, Bootstrap, Python">
+    <meta name="author" content="Oswaldo Cardoza - CD15015">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head> -->
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <br><br><br><br>
+            <div class="card text-white bg-dark mb-3">
+                <div class="card-header">
+
+                    <p style="color: white;" class="card-text">Noticias sobre: {{noticiabundes.idnoticia.tiponoticia}}</p>
+
+                    <h1>{{noticiabundes.idnoticia.nombrenoticia}}</h1>
+
+                </div>
+
+
+                <div class="card-body">
+
+                    <p style="color: white;" class="card-text">Fecha de publicacion: {{noticiabundes.fechanoticia}}</p>
+
+                    <br>
+                    <p style="color: white;" class="card-text">{{noticiabundes.descripcionnoticia}}</p>
+                    <div class="row text-center">
+                        <img src={{ noticiabundes.urlimagen }} height="500" width="800" class="mx-auto d-block">
+                    </div>
+                </div>
+
+                <p>
+
+                </p>
+                <div class="row m-4">
+                    <a name="" class="btn btn-warning" href="javascript:history.back()" role="button">Regresar</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+</main>
+{% endblock %}

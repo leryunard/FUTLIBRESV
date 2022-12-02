@@ -25,18 +25,19 @@
 
                 <div class="card-body">
                     <div class="container">
-                        <form id="login">
+                        <form method="post">
+                            {% csrf_token %}
                             <div class="mb-3 row">
-                                <label for="inputName" class="col-4 col-form-label">Usuario</label>
+                                <label for="username" class="col-4 col-form-label">Usuario</label>
                                 <div class="col-8">
-                                    <input type="text" class="form-control" name="inputName" id="inputName"
+                                    <input type="text" class="form-control" name="username" id="username"
                                         placeholder="Usuario">
                                 </div>
                             </div>
                             <div class="mb-3 row">
-                                <label for="inputPass" class="col-4 col-form-label">Contraseña</label>
+                                <label for="password" class="col-4 col-form-label">Contraseña</label>
                                 <div class="col-8">
-                                    <input type="password" class="form-control" name="inputPass" id="inputPass"
+                                    <input type="password" class="form-control" name="password" id="password"
                                         placeholder="Contraseña">
                                 </div>
                             </div>

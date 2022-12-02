@@ -51,11 +51,9 @@
                             {{ equi.nombreequipo}}</p>
 
                         {% for jug in jugador %}
-                        {% if var|add:"0" == jug.idequipo %}
                         {% if jug.escapitan == 1 %}
                         <p style="color: black;" class="card-text">Capitan: {{jug.nombrejugador}}</p>
 
-                        {% endif %}
                         {% endif %}
                         {% endfor %}
 
@@ -72,7 +70,6 @@
 
                             <tbody>
                                 {% for jug in jugador %}
-                                {% if var|add:"0" == jug.idequipo %}
                                 <tr>
 
                                     <td>{{jug.numerojugador}}</td>
@@ -80,7 +77,6 @@
                                     <td>{{jug.posicionjugador}}</td>
                                     <td>{{jug.edad}}</td>
                                 </tr>
-                                {% endif %}
                                 {% endfor %}
                             </tbody>
                         </table>
@@ -98,7 +94,7 @@
 
                         {% for noti in mostrar %}
 
-                        {% if noti.equipo == equi.nombreequipo %}
+                        {% if noti.etiqueta == equi.nombreequipo %}
 
 
                         <div class="card" style="width: 18rem;">

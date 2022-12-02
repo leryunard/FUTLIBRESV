@@ -1,0 +1,56 @@
+{% extends "bases/base.html" %}
+
+{% block titulo %} Equipos del Mundial {%endblock %}
+
+{% block nvar %}
+
+{% endblock %}
+
+{% block contenido %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="ver todos los equipos registrados de la liga española">
+    <meta name="keywords" content="Django, Bootstrap, Python">
+    <meta name="author" content="Anderson Levi- NM19012">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <br><br><br><br>
+            <div class="card text-white bg-dark mb-3">
+                <div class="card-header">
+                    Equipos que participan en la liga española
+                    <br>
+                    <br>
+                    <a href="verTodasNoticiasLaliga" class="btn btn-warning">Noticias del la liga española</a>
+                </div>
+                <div class="card-body">
+                    <div class="card-columns">
+                        {% for equi in mostrar %}
+                        {% if equi.idTipoEquipo == 4 %}
+                        <div class="card" style="width: 18rem;">
+                            <!--<img class="card-img-top" src="" alt="Card image cap">-->
+                            <div class="card-body">
+                                <h5 style="color: red;" class="card-title">{{ equi.nombreequipo }}</h5>
+                                <p style="color: black;" class="card-text">Año de fundacion: {{equi.yearfundacion}}</p>
+                                <p style="color: black;" class="card-text">Estadio principal: {{ equi.estadioequipo }} </p>
+                                <li><a><img src={{ equi.urllogo }} height="125" width="225"/></a></li>
+                                <br>
+                                <a href="verPerfilEquipoLaliga/{{equi.idequipo}}" class="btn btn-warning">Ver Perfil de equipo</a>
+                                
+                            </div>
+                        </div>
+                        {% endif %}
+                        {% endfor %} 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</main>
+{% endblock %}

@@ -16,11 +16,16 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path, include
+from django.contrib.auth import views as auth_views
+from django.contrib.auth.views import logout_then_login
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('webApp.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
     path('administracion/', include('administracion.urls')),
     path('selecciones/', include('selecciones.urls')),
+    path('otrasligas/', include('otrasligas.urls')),
     path('internacionales/', include('internacionales.urls')),
+    path('ligasdomesticas/', include('ligasdomesticas.urls')),
 ]
