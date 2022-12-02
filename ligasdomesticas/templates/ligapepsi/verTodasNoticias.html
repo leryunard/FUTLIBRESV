@@ -6,69 +6,67 @@
 <meta name="author" content="Carlos Eduardo Rafaelano Santos-RS20002">
 {% endblock %}
 
-{% block titulo %} Noticias UEFA Champions League{%endblock %}
+{% block titulo %} Noticias Liga Pepsi {%endblock %}
 
 {% block nvar %}
 
 {% endblock %}
 
 {% block contenido %}
-
 {% firstof "1" as counter %}
 
-<div class="container">
+
+{% load static %}
+<link href="{% static 'css/estilo.css' %}" rel="stylesheet">
+<p class="my-4">e</p>
+<div class="container-fluid">
     <div class="row">
-        <div class="col-12">
-            <br><br><br><br>
-            <div class="card text-white bg-dark mb-3">
-                <div class="card-header">
-                    <center>
-                        Todas las noticias sobre equipos de la Liga Pepsi
-                        <br>
-                        <br>
-                        <a href="viewTeamsLigaPepsi" class="btn btn-warning">Equipos que participan</a>
-                    </center>
-                </div>
-
-
+        <div class="col col-11 mx-auto">
+            <div class="card">
                 <div class="card-body">
-                    <div class="card-columns">
-                        {% for new in news %}
-                        <div class="card" style="width: 18rem;">
-                            {% for det in description %}
+                    <div class="col text-center mb-5">
+                        <h1 class="display-4">Todas las noticias sobre equipos de la Liga Pepsi</h1>
+                    </div>
+                    <div class="row m-4">
+                        <a href="{% url 'teamsLigaPepsi' %}" class="btn btn-warning">Equipos que participan</a>
+                    </div>
+                    <div class="wrapper">
+                        <div class="container-fluid">
+                            <div class="row my-0">
 
-                            {% if det.iddetalle == new.idnoticia %}
-                            <article class="location-listing">
-                                <a class="location-title" href="newsByIdLigaPepsi/{{new.idnoticia}}">Ver
-                                    Noticia</a>
-                                <div class="location-image">
-                                    <a href="newsByIdLigaPepsi/{{new.idnoticia}}">
-                                        <img class="card-img-top" src="{{ det.urlimagen  }}" alt="Card image cap"
-                                            alt="imagen noticia" /></a>
+                                {% for new in news %}
+
+                                <div class="col-sm-12 col-md-6 col-lg-4 mb-3">
+                                    {% for det in description %}
+                                    {% if det.iddetalle == new.idnoticia %}
+                                    <div class="card text-white card-has-bg click-col"
+                                         style="background-image:url('{{ det.urlimagen }}');">
+                                        <img class="card-img d-none" src="{{ det.urlimagen }}" alt="">
+                                        <div class="card-img-overlay d-flex flex-column">
+                                            <div class="card-body">
+                                                <a href="{% url 'newsIdLigaPepsi' new.idnoticia %}"
+                                                   class="text-light"><big
+                                                        class="card-meta mb-2">{{ new.nombrenoticia}}</big></a>
+                                                <small><i class="far fa-clock"></i> {{det.fechanoticia}}</small>
+                                            </div>
+                                            {% endif %}
+                                            {% endfor %}
+                                            <div class="card-footer">
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </article>
-                            {% endif %}
-                            {% endfor %}
-                            <div class="card-body">
-                                <center>
-                                    <h5 style="color: red;" class="card-title">{{ new.nombrenoticia }}</h5>
-                                    <p style="color: black;" class="card-text">Noticias sobre: {{new.tiponoticia}}</p>
 
+                                <td></td>
+                                {% endfor %}
 
-                                </center>
                             </div>
-
-
                         </div>
-                        {% endfor %}
-
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
-</main>
 
-{% endblock %}
+    {% endblock %}
