@@ -48,53 +48,75 @@
                                         domésticas</a>
                                     <ul>
                                         <li><a style="display: flex; flex-direction: column; align-items: center;"
-                                               href="{% url 'Espana' %}"><img src="{% static 'img/logos/laliga.png' %}" height="43"
-                                                            width="111"/></a></li>
+                                                href="{% url 'Espana' %}"><img src="{% static 'img/logos/laliga.png' %}"
+                                                    height="43" width="111" /></a></li>
                                         <li><a style="display: flex; flex-direction: column; align-items: center;"
-                                                href="{% url 'seriea' %}"><img src="{% static 'img/logos/seriea.png' %}" height="45"
-                                                    width="139" /></a></li>
+                                                href="{% url 'seriea' %}"><img src="{% static 'img/logos/seriea.png' %}"
+                                                    height="45" width="139" /></a></li>
                                         <li><a style="display: flex; flex-direction: column; align-items: center;"
-                                                href="{% url 'allnewsPremierLeague' %}"><img src="{% static 'img/logos/premier.png' %}" height="52"
+                                                href="{% url 'allnewsPremierLeague' %}"><img
+                                                    src="{% static 'img/logos/premier.png' %}" height="52"
                                                     width="117" /></a></li>
                                         <li><a style="display: flex; flex-direction: column; align-items: center;"
-                                               href="{% url 'bundesliga' %}"><img src="{% static 'img/logos/bundesliga.png' %}" height="40"
-                                                            width="116"/></a></li>
+                                                href="{% url 'bundesliga' %}"><img
+                                                    src="{% static 'img/logos/bundesliga.png' %}" height="40"
+                                                    width="116" /></a></li>
                                         <li><a style="display: flex; flex-direction: column; align-items: center;"
-                                               href="{% url 'allnewsLigaPepsi' %}"><img src="{% static 'img/logos/ligapepsi.png' %}" height="47"
-                                                            width="122"/></a></li>
+                                                href="{% url 'allnewsLigaPepsi' %}"><img
+                                                    src="{% static 'img/logos/ligapepsi.png' %}" height="47"
+                                                    width="122" /></a></li>
                                     </ul>
                                 </li>
                                 <li class="nav-item"><a href="" class="enlace"
-                                                        style="display: inline-block; color:	#FFD700; padding : 10px 30px;">Competiciones
-                                    Internacionales</a>
+                                        style="display: inline-block; color:	#FFD700; padding : 10px 30px;">Competiciones
+                                        Internacionales</a>
                                     <ul>
                                         <li><a style="display: flex; flex-direction: column; align-items: center;"
-                                               href="{% url 'todasChampions' %}"><img src="{% static 'img/logos/champions.png' %}" height="60"
-                                                            width="133"/></a></li>
+                                                href="{% url 'todasChampions' %}"><img
+                                                    src="{% static 'img/logos/champions.png' %}" height="60"
+                                                    width="133" /></a></li>
                                         <li><a style="display: flex; flex-direction: column; align-items: center;"
-                                               href="{% url 'liber' %}"><img src="{% static 'img/logos/liber.png' %}" height="28"
-                                                            width="132"/></a></li>
+                                                href="{% url 'liber' %}"><img src="{% static 'img/logos/liber.png' %}"
+                                                    height="28" width="132" /></a></li>
                                     </ul>
                                 </li>
                                 <li class="nav-item"><a href="" class="enlace"
-                                                        style="display: inline-block; color:	#FFD700; padding : 10px 30px;">Selecciones
-                                    nacionales</a>
+                                        style="display: inline-block; color:	#FFD700; padding : 10px 30px;">Selecciones
+                                        nacionales</a>
                                     <ul>
                                         <li><a style="display: flex; flex-direction: column; align-items: center;"
-                                               href="{% url 'qatar' %}"><img src="{% static 'img/logos/qatar2022.png' %}"
-                                                                             height="42"
-                                                                             width="132"/></a></li>
+                                                href="{% url 'qatar' %}"><img
+                                                    src="{% static 'img/logos/qatar2022.png' %}" height="42"
+                                                    width="132" /></a></li>
                                         <li><a style="display: flex; flex-direction: column; align-items: center;"
-                                               href="{% url 'noticias' %}"><img src="{% static 'img/logos/selecciones.png' %}" height="52"
-                                                            width="112"/></a></li>
+                                                href="{% url 'noticias' %}"><img
+                                                    src="{% static 'img/logos/selecciones.png' %}" height="52"
+                                                    width="112" /></a></li>
                                     </ul>
                                 </li>
+                                <div class="logo2 me-auto">
+                                    {% load static %}
+                                    {% if user.is_authenticated %}
+                                    <li class="nav-item"><a href="" class="enlace"
+                                            style="display: inline-block; color:	#FFD700; padding : 10px 30px; ">
+                                            {{user.username}} <i class="bi bi-person-circle"></i></a>
+                                        <ul>
+                                            <li><a style="display: flex; flex-direction: column; align-items: center;"
+                                                    href="{% url 'noticiasCRUD' %}">Administración
+                                                    <img src="{% static 'img/admin.png' %}"></a></li>
+                                            <li><a style="display: flex; flex-direction: column; align-items: center;"
+                                                    href="{% url 'salir' %}">Cerrar Sesion<i
+                                                        class="bi bi-box-arrow-right"></i></a></li>
+                                        </ul>
+                                    </li>
+                                    {% else %}
+                                    <a class="navbar-logo" href="{% url 'noticiasCRUD' %}">
+                                        <img src="{% static 'img/admin.png' %}"></a>
+                                    {% endif %}
+
+                                </div>
                             </ul>
-                            <div class="logo2 me-auto">
-                                {% load static %}
-                                <a class="navbar-logo" href="{% url 'administracion' %}"><img
-                                        src="{% static 'img/admin.png' %}"></a>
-                            </div>
+
                             {% block nvar %} {% endblock %}
                         </ul>
                     </nav>
