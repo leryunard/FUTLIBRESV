@@ -4,7 +4,7 @@
 * Author: BootstrapMade.com
 * License: https://bootstrapmade.com/license/
 */
-@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&family=Open+Sans:wght@300;500;700;800&family=Oswald:wght@500;700&family=Saira+Condensed:wght@500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Fjalla+One&family=Open+Sans:wght@300;500;700;800&family=Oswald:wght@500;700&family=Saira+Condensed:wght@500;600;700&display=swap");
 
 /*--------------------------------------------------------------
 # General
@@ -86,7 +86,8 @@ h6 {
   width: 170px;
 }
 
-.enlace {}
+.enlace {
+}
 
 .footer-back {
   background: red;
@@ -115,7 +116,6 @@ h6 {
 #header .logo2 img {
   max-height: 30px;
 }
-
 
 /* ul,
 ol {
@@ -160,8 +160,25 @@ ol {
 /*--------------------------------------------------------------
 # Navigation Menu
 --------------------------------------------------------------*/
-nav , .bg-navColor{
+nav,
+.bg-navColor {
   background-color: #21262a;
+}
+.dropdown-menu {
+  background-color: #30373d;
+}
+.dropdown-menu > a:hover {
+  background-color: #474747;
+}
+.dropdown-menu > a {
+  display: flex;
+  justify-content: start;
+}
+@media (min-width: 992px) {
+  .dropdown-menu > a {
+    display: flex;
+    justify-content: center;
+  }
 }
 
 /**
@@ -314,7 +331,6 @@ nav , .bg-navColor{
   z-index: 999;
 } */
 
-
 /* 
 .navbar-mobile .mobile-nav-toggle {
   position: absolute;
@@ -411,7 +427,7 @@ nav , .bg-navColor{
 }
 
 #hero .container {
-  background: #F5F5DC;
+  background: #f5f5dc;
   z-index: 2;
 }
 
@@ -473,7 +489,7 @@ nav , .bg-navColor{
 /*--------------------------------------------------------------
 # Sections General
 --------------------------------------------------------------*/
-section {
+/* section {
   padding: 60px 0;
 }
 
@@ -519,7 +535,7 @@ section {
 .section-title p {
   margin-bottom: 0;
 }
-
+ */
 /*--------------------------------------------------------------
 # What We Do
 --------------------------------------------------------------*/
@@ -593,7 +609,7 @@ section {
   font-size: 15px;
 }
 
-.about ul li+li {
+.about ul li + li {
   margin-top: 10px;
 }
 
@@ -790,13 +806,13 @@ section {
   border: 1px solid #b6daf2;
 }
 
-#footer .footer-newsletter form input[type=email] {
+#footer .footer-newsletter form input[type="email"] {
   border: 0;
   padding: 4px 8px;
   width: calc(100% - 100px);
 }
 
-#footer .footer-newsletter form input[type=submit] {
+#footer .footer-newsletter form input[type="submit"] {
   position: absolute;
   top: 0;
   right: -2px;
@@ -812,7 +828,7 @@ section {
   box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
 }
 
-#footer .footer-newsletter form input[type=submit]:hover {
+#footer .footer-newsletter form input[type="submit"]:hover {
   background: #57aae1;
 }
 
@@ -876,7 +892,7 @@ section {
 
   /* Ocultar el titulo por defecto*/
   opacity: 0;
-  transition: opacity .5s;
+  transition: opacity 0.5s;
 }
 
 .location-image {

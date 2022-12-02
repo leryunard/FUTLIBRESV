@@ -80,9 +80,40 @@
                 class="dropdown-menu"
                 aria-labelledby="navbarDropdownMenuLink"
               >
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
+                <a class="dropdown-item" href="{% url 'Espana' %}">
+                  <img
+                    src="{% static 'img/logos/laliga.png' %}"
+                    height="35"
+                    width="90"
+                  />
+                </a>
+                <a class="dropdown-item" href="{% url 'seriea' %}">
+                  <img
+                    src="{% static 'img/logos/seriea.png' %}"
+                    height="35"
+                    width="90"
+                  />
+                </a>
+                <a class="dropdown-item" href="{% url 'allnewsPremierLeague' %}"
+                  ><img
+                    src="{% static 'img/logos/premier.png' %}"
+                    height="35"
+                    width="90"
+                /></a>
+                <a class="dropdown-item" href="{% url 'bundesliga' %}">
+                  <img
+                    src="{% static 'img/logos/bundesliga.png' %}"
+                    height="35"
+                    width="90"
+                  />
+                </a>
+                <a class="dropdown-item" href="{% url 'allnewsLigaPepsi' %}">
+                  <img
+                    src="{% static 'img/logos/ligapepsi.png' %}"
+                    height="35"
+                    width="90"
+                  />
+                </a>
               </div>
             </li>
             <li class="nav-item dropdown">
@@ -101,9 +132,20 @@
                 class="dropdown-menu"
                 aria-labelledby="navbarDropdownMenuLink"
               >
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
+                <a class="dropdown-item" href="{% url 'todasChampions' %}">
+                  <img
+                    src="{% static 'img/logos/champions.png' %}"
+                    height="40"
+                    width="90"
+                  />
+                </a>
+                <a class="dropdown-item" href="{% url 'liber' %}">
+                  <img
+                    src="{% static 'img/logos/liber.png' %}"
+                    height="40"
+                    width="90"
+                  />
+                </a>
               </div>
             </li>
             <li class="nav-item dropdown">
@@ -122,9 +164,20 @@
                 class="dropdown-menu"
                 aria-labelledby="navbarDropdownMenuLink"
               >
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
+                <a class="dropdown-item" href="{% url 'qatar' %}">
+                  <img
+                    src="{% static 'img/logos/qatar2022.png' %}"
+                    height="44"
+                    width="120"
+                  />
+                </a>
+                <a class="dropdown-item" href="{% url 'noticias' %}">
+                  <img
+                    src="{% static 'img/logos/selecciones.png' %}"
+                    height="40"
+                    width="90"
+                  />
+                </a>
               </div>
             </li>
           </ul>
@@ -134,84 +187,24 @@
         </div>
       </nav>
     </header>
-    <!--     <header id="header" class="fixed-top d-flex align-items-center">
-                <div class="container d-flex align-items-center">
-
-                    <div class="logo me-auto">
-                        {% load static %}
-                        <a class="navbar-logo" href="{% url 'home' %}"><img src="{% static 'img/logo.png' %}"></a>
-                    </div>
-
-                    <nav id="navbar" class="navbar  ml-auto p-2">
-                        <ul>
-                            <ul class="nav">
-                                <li class="nav-item"><a href=""
-                                        style="display: inline-block; color:	#FFD700; padding : 10px 30px;">Ligas
-                                        domésticas</a>
-                                    <ul>
-                                        <li><a style="display: flex; flex-direction: column; align-items: center;"
-                                               href="{% url 'Espana' %}"><img src="{% static 'img/logos/laliga.png' %}" height="43"
-                                                            width="111"/></a></li>
-                                        <li><a style="display: flex; flex-direction: column; align-items: center;"
-                                                href="{% url 'seriea' %}"><img src="{% static 'img/logos/seriea.png' %}" height="45"
-                                                    width="139" /></a></li>
-                                        <li><a style="display: flex; flex-direction: column; align-items: center;"
-                                                href="{% url 'allnewsPremierLeague' %}"><img src="{% static 'img/logos/premier.png' %}" height="52"
-                                                    width="117" /></a></li>
-                                        <li><a style="display: flex; flex-direction: column; align-items: center;"
-                                               href="{% url 'bundesliga' %}"><img src="{% static 'img/logos/bundesliga.png' %}" height="40"
-                                                            width="116"/></a></li>
-                                        <li><a style="display: flex; flex-direction: column; align-items: center;"
-                                               href="{% url 'allnewsLigaPepsi' %}"><img src="{% static 'img/logos/ligapepsi.png' %}" height="47"
-                                                            width="122"/></a></li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item"><a href="" class="enlace"
-                                                        style="display: inline-block; color:	#FFD700; padding : 10px 30px;">Competiciones
-                                    Internacionales</a>
-                                    <ul>
-                                        <li><a style="display: flex; flex-direction: column; align-items: center;"
-                                               href="{% url 'todasChampions' %}"><img src="{% static 'img/logos/champions.png' %}" height="60"
-                                                            width="133"/></a></li>
-                                        <li><a style="display: flex; flex-direction: column; align-items: center;"
-                                               href="{% url 'liber' %}"><img src="{% static 'img/logos/liber.png' %}" height="28"
-                                                            width="132"/></a></li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item"><a href="" class="enlace"
-                                                        style="display: inline-block; color:	#FFD700; padding : 10px 30px;">Selecciones
-                                    nacionales</a>
-                                    <ul>
-                                        <li><a style="display: flex; flex-direction: column; align-items: center;"
-                                               href="{% url 'qatar' %}"><img src="{% static 'img/logos/qatar2022.png' %}"
-                                                                             height="42"
-                                                                             width="132"/></a></li>
-                                        <li><a style="display: flex; flex-direction: column; align-items: center;"
-                                               href="{% url 'noticias' %}"><img src="{% static 'img/logos/selecciones.png' %}" height="52"
-                                                            width="112"/></a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                            <div class="logo2 me-auto">
-                                {% load static %}
-                                <a class="navbar-logo" href="{% url 'administracion' %}"><img
-                                        src="{% static 'img/admin.png' %}"></a>
-                            </div>
-                            {% block nvar %} {% endblock %}
-                        </ul>
-                    </nav>
-                </div>
-            </header>
- -->
     {% block contenido %} {% endblock %}
 
-    <a
+    <footer class="bg-navColor text-center text-lg-start p-3 text-white">
+      <!-- Copyright -->
+      <div class="text-center p-3">
+        © 2022 Copyright
+        <a class="text-white" href="#">Futbol Libre SV</a>
+      </div>
+      <!-- Copyright -->
+    </footer>
+    <!--     <a
       href="#"
       class="back-to-top d-flex align-items-center justify-content-center"
       ><i class="bi bi-arrow-up-short"></i
-    ></a>
+    ></a> -->
 
     <!-- Template Main JS File -->
+
     {% load static %}
     <!--     <script src="{% static 'js/main.js' %}"></script> -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
