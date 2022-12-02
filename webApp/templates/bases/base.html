@@ -49,7 +49,7 @@
     <header class="navigation-container">
       <nav class="navbar navbar-expand-lg navbar-dark bg-navColor">
         <a class="navbar-brand" href="#">
-          <img src="{% static 'img/logo.png' %}" width="90" height="50" />
+          <img src="{% static 'img/logo.png' %}" width="110" height="60" />
         </a>
         <button
           class="navbar-toggler"
@@ -74,7 +74,7 @@
                 aria-haspopup="true"
                 aria-expanded="false"
               >
-                Ligas domésticas
+                LIGAS DOMÉSTICAS
               </a>
               <div
                 class="dropdown-menu"
@@ -126,7 +126,7 @@
                 aria-haspopup="true"
                 aria-expanded="false"
               >
-                Competiciones Internacionales
+                COMPETICIONES INTERNACIONALES
               </a>
               <div
                 class="dropdown-menu"
@@ -158,7 +158,7 @@
                 aria-haspopup="true"
                 aria-expanded="false"
               >
-                Selecciones Nacionales
+                SELECCIONES NACIONALES
               </a>
               <div
                 class="dropdown-menu"
@@ -189,19 +189,20 @@
     </header>
     {% block contenido %} {% endblock %}
 
-    <footer class="bg-navColor text-center text-lg-start p-3 text-white">
+    <footer
+      class="bg-navColor text-center text-lg-start p-3 text-white d-flex justify-content-between align-items-center"
+    >
       <!-- Copyright -->
       <div class="text-center p-3">
         © 2022 Copyright
         <a class="text-white" href="#">Futbol Libre SV</a>
       </div>
-      <!-- Copyright -->
+      <a
+        href="#"
+        class="back-to-top d-flex align-items-center justify-content-center"
+        ><i class="bi bi-arrow-up-short"></i
+      ></a>
     </footer>
-    <!--     <a
-      href="#"
-      class="back-to-top d-flex align-items-center justify-content-center"
-      ><i class="bi bi-arrow-up-short"></i
-    ></a> -->
 
     <!-- Template Main JS File -->
 
