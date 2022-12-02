@@ -20,17 +20,16 @@
 
 {% load static %}
 <link href="{% static 'css/estilo.css' %}" rel="stylesheet">
-<p class="my-4">e</p>
+
 <div class="container-fluid">
     <div class="row">
-        <div class="col col-11 mx-auto">
-            <div class="card">
-                <div class="card-body">
-                    <div class="col text-center mb-5">
+        <div class="col-11 col-lg-10 col-xl-9 mx-auto container-noticias p-2 p-md-5">
+            
+                    <div class="text-center mb-5">
                         <h1 class="display-4"> Todas las noticias sobre equipos del mundial Qatar 2022 </h1>
                     </div>
-                    <div class="row m-4">
-                        <a href="{% url 'equiposmundial' %}" class="btn btn-warning">Equipos que participan</a>
+                    <div class="mx-3 mt-4 mb-3 d-flex justify-content-end">
+                        <a href="{% url 'equiposmundial' %}" class="btn btn-color text-white">Equipos que participan</a>
                     </div>
                     <div class="wrapper">
                         <div class="container-fluid">
@@ -63,10 +62,9 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
+            
         </div>
     </div>
+</div>
 
-
-    {% endblock %}
+{% endblock %}
