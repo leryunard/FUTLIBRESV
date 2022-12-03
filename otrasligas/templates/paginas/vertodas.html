@@ -8,59 +8,49 @@
 
 {% block contenido %}
 
-    {% load static %}
+  {% load static %}
     <link href="{% static 'css/estilo.css' %}" rel="stylesheet">
-    <p class="my-4">e</p>
+
     <div class="container-fluid">
         <div class="row">
-            <div class="col col-11 mx-auto">
-                <div class="card">
-                    <div class="card-body">
-                      <div class="col text-center mb-5">
-                        <h1 class="display-4">Noticias de Otras ligas</h1>
-                        <p class="lead">La seleccion de El Salvador y más.. </p>
+            <div class="col-11 col-lg-10 col-xl-9 mx-auto container-noticias p-2 p-md-5">
+              
+                      <div class="text-center mb-5">
+                        <h1 class="display-4">Noticias de selecciones nacionales</h1>
+                        <p class="lead">¡La seleccion de El Salvador y más! </p>
                      </div>
                     
+
                      <div class="wrapper">
                       <div class="container-fluid">
                           <div class="row my-0">
 
-                          
+
                             {% for noti in noticias %}
                             <div class="col-sm-12 col-md-6 col-lg-4 mb-3">
                               <div class="card text-white card-has-bg click-col" style="background-image:url('{{ noti.detalle.urlimagen}}');">
                                   <img class="card-img d-none" src="{{ noti.detalle.urlimagen}}" alt="">
                                     <div class="card-img-overlay d-flex flex-column">
                                         <div class="card-body">
-                                            <a href="{% url 'detalle' id=noti.idnoticia %}" class="text-light"><small class="card-meta mb-2">{{ noti.nombrenoticia}}</small></a>
+                                            <a href="{% url 'detalle' id=noti.idnoticia %}" class="text-light"><big class="card-meta mb-2">{{ noti.nombrenoticia}}</big></a>
                                             <h4 class="card-title mt-0 "><a class="text-white" herf="#">{{ noti.equipo}}</a></h4>
                                           <small><i class="far fa-clock"></i> {{noti.detalle.fechanoticia}}</small>
                                         </div>
                                           <div class="card-footer">
-                                            <div class="media">
-                                              <img class="mr-3 rounded-circle" src="{{ noti.detalle.urlimagen}}" alt="" style="width:50px;height: 50px;">
-                                              <div class="media-body">
-                                                <h6 class="my-0 text-white d-block">{{noti.idcompetencia.nombrecompetencia}}</h6>
-                                                <small>FUTLIBRE sv</small>
-                                              </div>
-                                            </div>
                                           </div>
                                       </div>
                                 </div>
                             </div>
-                             
-                                <td></td>
-                            {% endfor %} 
 
-                          </div>
-                      </div>
-                    </div>
-                </div>
-            </div>
+                                <td></td>
+                            {% endfor %}
+
+       
         </div>
+      </div>
     </div>
-   
-  
-                       
-    
+ </div>
+</div>
+</div>
+     
 {% endblock %}
