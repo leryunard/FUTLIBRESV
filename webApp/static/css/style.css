@@ -197,3 +197,9 @@ nav {
 .location-listing:hover .location-image img {
   filter: blur(2px);
 }
+#wg-api-football-standings{
+  overflow-x: hidden;
+  max-height: 300px;
+  margin-bottom: 2rem;
+
+}
