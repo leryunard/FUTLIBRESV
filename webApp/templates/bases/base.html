@@ -1,38 +1,28 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <!-- Required meta tags -->
-    <meta charset="utf-8"/>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     {% block metadatos %}{% endblock %}
     <title>{% block titulo %} {% endblock %}</title>
 
     {% load static %}
-    <link
-            rel="shortcut icon"
-            type="image/x-icon"
-            href="{% static 'img/favicon.ico' %}"
-    />
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'img/favicon.ico' %}" />
 
     <!-- Bootstrap and Icon CSS -->
-    <link
-            rel="stylesheet"
-            href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-            crossorigin="anonymous"
-    />
-    <link
-            rel="stylesheet"
-            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
-    />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" />
 
     <!--  {% load static %}
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script> -->
 
     {% load static %}
-    <link href="{% static 'css/style.css' %}" rel="stylesheet"/>
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" />
     <!--     <link
       rel="stylesheet"
       type="text/css"
@@ -46,208 +36,117 @@
 </head>
 
 <body>
-<header class="navigation-container">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-navColor">
-        <a class="navbar-brand" href="{% url 'home' %}">
-            <img src="{% static 'img/logo.png' %}" width="110" height="60"/>
-        </a>
-        <button
-                class="navbar-toggler"
-                type="button"
-                data-toggle="collapse"
-                data-target="#navbarNav"
-                aria-controls="navbarNav"
-                aria-expanded="false"
-                aria-label="Toggle navigation"
-        >
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                <li class="nav-item dropdown">
-                    <a
-                            class="nav-link dropdown-toggle"
-                            href="#"
-                            id="navbarDropdownMenuLink"
-                            role="button"
-                            data-toggle="dropdown"
-                            aria-haspopup="true"
-                            aria-expanded="false"
-                    >
-                        LIGAS DOMÉSTICAS
-                    </a>
-                    <div
-                            class="dropdown-menu"
-                            aria-labelledby="navbarDropdownMenuLink"
-                    >
-                        <a class="dropdown-item" href="{% url 'Espana' %}">
-                            <img
-                                    src="{% static 'img/logos/laliga.png' %}"
-                                    height="35"
-                                    width="90"
-                            />
+    <header class="navigation-container">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-navColor">
+            <a class="navbar-brand" href="{% url 'home' %}">
+                <img src="{% static 'img/logo.png' %}" width="110" height="60" />
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            LIGAS DOMÉSTICAS
                         </a>
-                        <a class="dropdown-item" href="{% url 'seriea' %}">
-                            <img
-                                    src="{% static 'img/logos/seriea.png' %}"
-                                    height="35"
-                                    width="90"
-                            />
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="{% url 'Espana' %}">
+                                <img src="{% static 'img/logos/laliga.png' %}" height="35" width="90" />
+                            </a>
+                            <a class="dropdown-item" href="{% url 'seriea' %}">
+                                <img src="{% static 'img/logos/seriea.png' %}" height="35" width="90" />
+                            </a>
+                            <a class="dropdown-item" href="{% url 'allnewsPremierLeague' %}"><img
+                                    src="{% static 'img/logos/premier.png' %}" height="35" width="90" /></a>
+                            <a class="dropdown-item" href="{% url 'bundesliga' %}">
+                                <img src="{% static 'img/logos/bundesliga.png' %}" height="35" width="90" />
+                            </a>
+                            <a class="dropdown-item" href="{% url 'allnewsLigaPepsi' %}">
+                                <img src="{% static 'img/logos/ligapepsi.png' %}" height="35" width="90" />
+                            </a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            COMPETICIONES INTERNACIONALES
                         </a>
-                        <a class="dropdown-item" href="{% url 'allnewsPremierLeague' %}"
-                        ><img
-                                src="{% static 'img/logos/premier.png' %}"
-                                height="35"
-                                width="90"
-                        /></a>
-                        <a class="dropdown-item" href="{% url 'bundesliga' %}">
-                            <img
-                                    src="{% static 'img/logos/bundesliga.png' %}"
-                                    height="35"
-                                    width="90"
-                            />
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="{% url 'todasChampions' %}">
+                                <img src="{% static 'img/logos/champions.png' %}" height="40" width="90" />
+                            </a>
+                            <a class="dropdown-item" href="{% url 'liber' %}">
+                                <img src="{% static 'img/logos/liber.png' %}" height="30" width="110" />
+                            </a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            SELECCIONES NACIONALES
                         </a>
-                        <a class="dropdown-item" href="{% url 'allnewsLigaPepsi' %}">
-                            <img
-                                    src="{% static 'img/logos/ligapepsi.png' %}"
-                                    height="35"
-                                    width="90"
-                            />
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="{% url 'qatar' %}">
+                                <img src="{% static 'img/logos/qatar2022.png' %}" height="44" width="120" />
+                            </a>
+                            <a class="dropdown-item" href="{% url 'noticias' %}">
+                                <img src="{% static 'img/logos/selecciones.png' %}" height="40" width="90" />
+                            </a>
+                        </div>
+                    </li>
+                    {% if user.is_authenticated %}
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="{% url 'panelControl' %}" id="navbarDropdownMenuLink" role="button"
+                            color="yellow" style="color: #FFD700">
+                            PANEL DE CONTROL
                         </a>
-                    </div>
-                </li>
-                <li class="nav-item dropdown">
-                    <a
-                            class="nav-link dropdown-toggle"
-                            href="#"
-                            id="navbarDropdownMenuLink"
-                            role="button"
-                            data-toggle="dropdown"
-                            aria-haspopup="true"
-                            aria-expanded="false"
-                    >
-                        COMPETICIONES INTERNACIONALES
-                    </a>
-                    <div
-                            class="dropdown-menu"
-                            aria-labelledby="navbarDropdownMenuLink"
-                    >
-                        <a class="dropdown-item" href="{% url 'todasChampions' %}">
-                            <img
-                                    src="{% static 'img/logos/champions.png' %}"
-                                    height="40"
-                                    width="90"
-                            />
-                        </a>
-                        <a class="dropdown-item" href="{% url 'liber' %}">
-                            <img
-                                    src="{% static 'img/logos/liber.png' %}"
-                                    height="30"
-                                    width="110"
-                            />
-                        </a>
-                    </div>
-                </li>
-                <li class="nav-item dropdown">
-                    <a
-                            class="nav-link dropdown-toggle"
-                            href="#"
-                            id="navbarDropdownMenuLink"
-                            role="button"
-                            data-toggle="dropdown"
-                            aria-haspopup="true"
-                            aria-expanded="false"
-                    >
-                        SELECCIONES NACIONALES
-                    </a>
-                    <div
-                            class="dropdown-menu"
-                            aria-labelledby="navbarDropdownMenuLink"
-                    >
-                        <a class="dropdown-item" href="{% url 'qatar' %}">
-                            <img
-                                    src="{% static 'img/logos/qatar2022.png' %}"
-                                    height="44"
-                                    width="120"
-                            />
-                        </a>
-                        <a class="dropdown-item" href="{% url 'noticias' %}">
-                            <img
-                                    src="{% static 'img/logos/selecciones.png' %}"
-                                    height="40"
-                                    width="90"
-                            />
-                        </a>
-                    </div>
-                </li>
-                {% if user.is_authenticated %}
-                <li class="nav-item dropdown">
-                    <a
-                            class="nav-link"
-                            href="{% url 'panelControl' %}"
-                            id="navbarDropdownMenuLink"
-                            role="button"
-                            color="yellow"
-                            style="color: #FFD700"
-                    >
-                        PANEL DE CONTROL
-                    </a>
-                </li>
+                    </li>
 
-                <li class="nav-item dropdown">
-                    <a
-                            class="nav-link"
-                            href="{% url 'salir' %}"
-                            id="navbarDropdownMenuLink"
-                            role="button"
-                            color="yellow"
-                            style="color: #FFD700"
-                    >
-                        CERRAR SESIÓN
-                    </a>
-                </li>
-                {% endif %}
-            </ul>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="{% url 'salir' %}" id="navbarDropdownMenuLink" role="button"
+                            color="yellow" style="color: #FFD700">
+                            CERRAR SESIÓN
+                        </a>
+                    </li>
+                    {% endif %}
+                </ul>
 
+            </div>
+        </nav>
+    </header>
+    {% block contenido %} {% endblock %}
+
+    <footer
+        class="bg-navColor text-center text-lg-start p-3 text-white d-flex justify-content-between align-items-center">
+        <!-- Copyright -->
+        <div class="text-center p-3">
+            © 2022 Copyright,
+            <a class="text-white" href="#"> Futbol Libre SV</a>
         </div>
-    </nav>
-</header>
-{% block contenido %} {% endblock %}
+        {% if user.is_authenticated %}
+        {% else %}
+        <a class="navbar-logo" href="{% url 'panelControl' %}">
+            <img src="{% static 'img/admin.png' %}" height="30" width="30"></a>
+        {% endif %}
+    </footer>
 
-<footer
-        class="bg-navColor text-center text-lg-start p-3 text-white d-flex justify-content-between align-items-center"
->
-    <!-- Copyright -->
-    <div class="text-center p-3">
-        © 2022 Copyright,
-        <a class="text-white" href="#"> Futbol Libre SV</a>
-    </div>
-    {% if user.is_authenticated %}
-    {% else %}
-    <a class="navbar-logo" href="{% url 'noticiasCRUD' %}">
-        <img src="{% static 'img/admin.png' %}" height="30" width="30"></a>
-    {% endif %}
-</footer>
+    <!-- Template Main JS File -->
 
-<!-- Template Main JS File -->
-
-{% load static %}
-<!--     <script src="{% static 'js/main.js' %}"></script> -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script
-        src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"
-></script>
-<script
-        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"
-></script>
-<script
-        src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"
-></script>
+    {% load static %}
+    <!--     <script src="{% static 'js/main.js' %}"></script> -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
 </body>
+
 </html>

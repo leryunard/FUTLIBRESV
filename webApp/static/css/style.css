@@ -16,10 +16,12 @@ body {
   display: flex;
   flex-direction: column;
 }
-footer{
+
+footer {
   margin-top: auto;
 }
-.card-text{
+
+.card-text {
   font-weight: 700;
   text-transform: uppercase;
 }
@@ -33,12 +35,15 @@ a:hover {
   color: #5faee3;
   text-decoration: none;
 }
+
 .btn-color {
   background-color: #802c50;
 }
+
 .btn-color:hover {
   background-color: #6e1c3f;
 }
+
 /*--------------------------------------------------------------
 # Back to top button
 --------------------------------------------------------------*/
@@ -77,27 +82,34 @@ nav {
 .bg-navColor {
   background-color: #21262a;
 }
+
 .bg-greey {
   background-color: #dbdbdb;
 }
-.contenedor-cards{
+
+.contenedor-cards {
   background-color: #21262a;
 }
+
 .navbar-dark .navbar-nav .nav-link {
   color: rgba(255, 255, 255, 0.842);
 }
+
 .dropdown-menu {
   background-color: #30373d;
 }
-.dropdown-menu > a:hover {
+
+.dropdown-menu>a:hover {
   background-color: #474747;
 }
-.dropdown-menu > a {
+
+.dropdown-menu>a {
   display: flex;
   justify-content: start;
 }
+
 @media (min-width: 992px) {
-  .dropdown-menu > a {
+  .dropdown-menu>a {
     display: flex;
     justify-content: center;
   }
@@ -121,11 +133,13 @@ nav {
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
 }
+
 @media (min-width: 992px) {
   .display-4 {
     font-size: 2.5rem;
   }
 }
+
 @media (max-width: 768px) {
   .display-4 {
     font-size: 2.2rem;
@@ -146,6 +160,7 @@ nav {
     -webkit-background-clip: text;
   }
 }
+
 /* Implementación logos dinamicos by Carlos Rafaelano */
 .location-listing {
   position: relative;
@@ -185,19 +200,21 @@ nav {
 .location-listing:hover .location-title {
   opacity: 1;
   color: #f7f7f7;
-  
+
 }
 
 .location-image img {
   filter: blur(0px);
   transition: filter 0.3s ease-in;
-  /* transform: scale(1.1);  */ /* Esto es para hacer las imagenes cuadradas */
+  /* transform: scale(1.1);  */
+  /* Esto es para hacer las imagenes cuadradas */
 }
 
 .location-listing:hover .location-image img {
   filter: blur(2px);
 }
-#wg-api-football-standings{
+
+#wg-api-football-standings {
   overflow-x: hidden;
   max-height: 300px;
   margin-bottom: 2rem;

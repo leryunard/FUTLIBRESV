@@ -108,11 +108,10 @@
                             {% for det in detalle %}
                             {% if det.iddetalle == noti.idnoticia %}
                             <article class="location-listing">
-                                <a class="location-title"
-                                    href="/internacionales/verNoticiasChampions/{{noti.idnoticia}}">Ver
+                                <a class="location-title" href="{% url 'notiChampions' noti.idnoticia %}">Ver
                                     Noticia</a>
                                 <div class="location-image">
-                                    <a href="/internacionales/verNoticiasChampions/{{noti.idnoticia}}">
+                                    <a href="{% url 'notiChampions' noti.idnoticia %}">
                                         <img class="card-img-top" src="{{ det.urlimagen }}" height="200"
                                             alt="Logo Equipo" />
                                     </a>
@@ -126,7 +125,7 @@
                         {% endfor %}
                     </div>
                 </div>
-                <a href=" /internacionales/verTodasNoticiasChampions" class="btn btn-light"> Volver a Noticias de
+                <a href="{% url 'todasChampions' %}" class="btn btn-color text-white"> Volver a Noticias de
                     la UEFA Champions League</a>
 
             </div>
