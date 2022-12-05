@@ -21,10 +21,14 @@
                                     <textarea type="text" class="form-control" name="nombrenoticia" >{{noticia.nombrenoticia}}</textarea>
                                 </div>
                                 <div class="col col-3">
-                                    <label for="">Equipo:</label>
-                                    <input type="text" class="form-control" value="{{noticia.equipo}}" name="idequipo">
+                                    <label for="">Etiqueta:</label>
+                                    <select class="custom-select" name="idequipo">
+                                        {% for equi in equipos %}
+                                        <option value="{{equi.nombreequipo}}" {% if equi.nombreequipo == noticia.etiqueta %}selected{% endif %}>{{equi.nombreequipo}}</option>
+                                        {% endfor %}
+                                    </select>
                                 </div>
-                              
+
                                 <div class="col col-3">
                                     <label for="">Fecha:</label>
                                     <input type="date" class="form-control" value="{{detalle.fechanoticia}}" name="fecha">
@@ -57,12 +61,12 @@
                                      
                                   </div>
                             </div>
-                        </div>
-
-
-                    </form>
-
-                </div>
+                     
+                        
+                        </form>
+                        
+                    </div>
+                  </div>
             </div>
         </div>
     </div>

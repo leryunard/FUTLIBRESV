@@ -295,11 +295,13 @@ class Noticia(models.Model):
                                       null=True)  # Field name made lowercase.
     idusuario = models.ForeignKey('Usuario', models.DO_NOTHING, db_column='IDUSUARIO', blank=True,
                                   null=True)  # Field name made lowercase.
-    tiponoticia = models.CharField(db_column='TIPONOTICIA', max_length=255)  # Field name made lowercase.
-    nombrenoticia = models.CharField(db_column='NOMBRENOTICIA', max_length=255)  # Field name made lowercase.
     # Field name made lowercase.
-    etiqueta = models.CharField(db_column='ETIQUETA', max_length=255, blank=True,
-                                null=True)
+    tiponoticia = models.CharField(db_column='TIPONOTICIA', max_length=255)
+    # Field name made lowercase.
+    nombrenoticia = models.CharField(db_column='NOMBRENOTICIA', max_length=255)
+    # Field name made lowercase.
+    idequipo = models.ForeignKey(Equipo, models.DO_NOTHING, db_column='IDEQUIPO', blank=True,
+                                 null=True)
 
     class Meta:
         managed = True
