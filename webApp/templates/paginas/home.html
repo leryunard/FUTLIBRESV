@@ -10,10 +10,8 @@ LibreSV {%endblock %} {% block nvar %} {% endblock %} {% block contenido %}
         <h1 class="display-4">Descubre lo último en el mundo del deporte</h1>
       </div>
       <div class="mx-3 mt-4 mb-3 d-flex justify-content-end">
-        <a class="btn btn-color text-white" href="{% url 'todas' %}" role="button"
-          >Ver todas las noticias
-          <img src="{% static 'img/arrow.svg' %}" alt=""
-        /></a>
+        <a class="btn btn-color text-white" href="{% url 'todas' %}" role="button">Ver todas las noticias
+          <img src="{% static 'img/arrow.svg' %}" alt="" /></a>
       </div>
 
       <div class="wrapper">
@@ -21,23 +19,13 @@ LibreSV {%endblock %} {% block nvar %} {% endblock %} {% block contenido %}
           <div class="row my-0">
             {% for noti in noticias %}
             <div class="col-12 col-md-6 col-lg-4 mb-3">
-              <div
-                class="card text-white card-has-bg click-col"
-                style="background-image:url('{{ noti.urlimagen}}');"
-              >
+              <div class="card text-white card-has-bg click-col" style="background-image:url('{{ noti.urlimagen}}');">
                 <img class="card-img d-none" src="{{ noti.urlimagen}}" alt="" />
                 <div class="card-img-overlay d-flex flex-column">
                   <div class="card-body">
-                    <a
-                      href="{% url 'noticia' noti.iddetalle %}"
-                      class="text-light"
-                      ><big class="card-meta mb-2"
-                        >{{ noti.idnoticia.nombrenoticia }}</big
-                      ></a
-                    >
-                    <small
-                      ><i class="far fa-clock"></i> {{noti.fechanoticia}}</small
-                    >
+                    <a href="{% url 'noticia' noti.iddetalle %}" class="text-light"><big
+                        class="card-meta mb-2">{{ noti.idnoticia.nombrenoticia }}</big></a>
+                    <small><i class="far fa-clock"></i> {{noti.fechanoticia}}</small>
                   </div>
                   <div class="card-footer"></div>
                 </div>

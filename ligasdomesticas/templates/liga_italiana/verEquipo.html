@@ -10,18 +10,18 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="ver todos los equipos registrados de la liga española">
+    <meta name="description" content="ver todos los equipos registrados de la SeriaA de italia">
     <meta name="keywords" content="Django, Bootstrap, Python">
-    <meta name="author" content="Anderson Levi- NM19012">
+    <meta name="author" content="Julio Cesar Mejia MR20084">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <div class="container bg-greey mt-5 p-3 mb-5">
-    <h1 class="display-4 mb-3">Equipos de La Liga</h1>
+    <h1 class="display-4 mb-3">Equipos de la Serie A</h1>
     <div class="row">
         <div class="col-12">
             <div class="row">
                 {% for equi in mostrar %}
-                {% if equi.idTipoEquipo == 4 %}
+                {% if equi.idTipoEquipo == 10 %}
                 <div class="col-auto m-auto m-md-0">
                     <div class="card mb-2" style="width: 18rem;">
                         <article class="location-listing">

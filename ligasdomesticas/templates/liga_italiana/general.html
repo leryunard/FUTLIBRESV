@@ -21,7 +21,8 @@
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col-11 col-lg-10 col-xl-9 mx-auto container-noticias p-2 p-md-5">
+<!--         col-lg-10 col-xl-9  -->
+        <div class="col-12 col-lg-9 mx-auto container-noticias p-2 p-md-5">
                         <div class="col text-center mb-5">
                             <h1 class="display-4">¡Todas las noticias sobre equipos de la Seria A de Italia!</h1>
                         </div>
@@ -62,7 +63,24 @@
                         </div>
                    
             </div>
+            <div class="col-12 col-lg-3">
+                <div id="wg-api-football-standings"
+                data-host="v3.football.api-sports.io"
+                data-key="3f462c5be3129cfccd0a1dd555348b1b"
+                data-league="135"
+                data-team=""
+                data-season="2022"
+                data-theme=""
+                data-show-errors="false"
+                data-show-logos="true"
+                class="wg_loader">
+            </div>
+            <script
+    type="module"
+    src="https://widgets.api-sports.io/2.0.3/widgets.js">
+</script>
         </div>
         </div>
-        
+        </div>
+
         {% endblock %}

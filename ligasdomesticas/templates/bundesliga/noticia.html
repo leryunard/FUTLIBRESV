@@ -7,7 +7,21 @@
 {% endblock %}
 
 {% block contenido %}
+<style>
+  body::before {
+    background-repeat: repeat;
+    background-size: cover;
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    filter: grayscale(100%);
+    filter:brightness(0.2);
 
+  }
+
+
+</style>
 
 <!--<head>
     <meta charset="UTF-8">
@@ -17,42 +31,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head> -->
 
-<div class="container">
+<div class="container-fluid mt-4">
     <div class="row">
-        <div class="col-12">
-            <br><br><br><br>
-            <div class="card text-white bg-dark mb-3">
+        <div class="col col-11 mx-auto">
+            <div class="card">
                 <div class="card-header">
-
-                    <p style="color: white;" class="card-text">Noticias sobre: {{noticiabundes.idnoticia.tiponoticia}}</p>
-
-                    <h1>{{noticiabundes.idnoticia.nombrenoticia}}</h1>
+                    <h1 class="display-4">{{noticiabundes.idnoticia.nombrenoticia}}</h1>
 
                 </div>
-
-
                 <div class="card-body">
-
-                    <p style="color: white;" class="card-text">Fecha de publicacion: {{noticiabundes.fechanoticia}}</p>
-
-                    <br>
-                    <p style="color: white;" class="card-text">{{noticiabundes.descripcionnoticia}}</p>
-                    <div class="row text-center">
-                        <img src={{ noticiabundes.urlimagen }} height="500" width="800" class="mx-auto d-block">
+                    <div class="col text-center mb-5">
+                        <p class="lead">{{noticiabundes.idnoticia.idcompetencia.nombrecompetencia}} -
+                            {{noticiabundes.fechanoticia}}</p>
                     </div>
+                    <div class="clearfix">
+                        <img src="{{noticiabundes.urlimagen}}" class="col-md-4 float-md-left mb-3 ml-md-3 rounded"
+                             alt="...">
+
+                        <p>
+                            {{noticiabundes.descripcionnoticia}}
+                        </p>
+                        <p>
+                            <b> {{noticiabundes.idnoticia.equipo}} -
+                                {{noticiabundes.idnoticia.idcompetencia.nombrecompetencia}} </b>
+                        </p>
+
+                    </div>
+
                 </div>
-
-                <p>
-
-                </p>
-                <div class="row m-4">
-                    <a name="" class="btn btn-warning" href="javascript:history.back()" role="button">Regresar</a>
-                </div>
-
             </div>
+            <div class="row m-4">
+                <a name="" class="btn btn-warning" href="javascript:history.back()" role="button">Regresar</a>
+            </div>
+
         </div>
     </div>
 </div>
-
-</main>
 {% endblock %}

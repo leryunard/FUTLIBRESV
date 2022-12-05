@@ -14,48 +14,65 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-11 col-lg-10 col-xl-9 mx-auto container-noticias p-2 p-md-5">
-          
-                    <div class="col text-center mb-5">
-                        <h1 class="display-4">Descubre lo último de la primera división alemana</h1>
-                    </div>
-                    <div class="mx-3 mt-4 mb-3 d-flex justify-content-end">
-                        <a href="{% url 'equiposbundesliga' %}" class="btn btn-color text-white">Equipos que participan</a>
-                    </div>
-                    <div class="wrapper">
-                        <div class="container-fluid">
-                            <div class="row my-0">
 
-                                {% for noti in noticias %}
-                                <div class="col-sm-12 col-md-6 col-lg-4 mb-3">
-                                    {% for det in detalles %}
-                                    {% if det.iddetalle == noti.idnoticia %}
-                                    <div class="card text-white card-has-bg click-col"
-                                         style="background-image:url('{{ det.urlimagen }}');">
-                                        <img class="card-img d-none" src="{{ det.urlimagen }}" alt="">
-                                        <div class="card-img-overlay d-flex flex-column">
-                                            <div class="card-body">
-                                                <a href="{% url 'noticiabundesliga' det.iddetalle %}"
-                                                   class="text-light"><big
-                                                        class="card-meta mb-2">{{ noti.nombrenoticia}}</big></a>
-                                                <small><i class="far fa-clock"></i> {{det.fechanoticia}}</small>
-                                            </div>
-                                            {% endif %}
-                                            {% endfor %}
-                                            <div class="card-footer">
-                                            </div>
-                                        </div>
+            <div class="col text-center mb-5">
+                <h1 class="display-4">Descubre lo último de la primera división alemana</h1>
+            </div>
+            <div class="mx-3 mt-4 mb-3 d-flex justify-content-end">
+                <a href="{% url 'equiposbundesliga' %}" class="btn btn-color text-white">Equipos que participan</a>
+            </div>
+            <div class="wrapper">
+                <div class="container-fluid">
+                    <div class="row my-0">
+
+                        {% for noti in noticias %}
+                        <div class="col-sm-12 col-md-6 col-lg-4 mb-3">
+                            {% for det in detalles %}
+                            {% if det.iddetalle == noti.idnoticia %}
+                            <div class="card text-white card-has-bg click-col"
+                                 style="background-image:url('{{ det.urlimagen }}');">
+                                <img class="card-img d-none" src="{{ det.urlimagen }}" alt="">
+                                <div class="card-img-overlay d-flex flex-column">
+                                    <div class="card-body">
+                                        <a href="{% url 'noticiabundesliga' det.iddetalle %}"
+                                           class="text-light"><big
+                                                class="card-meta mb-2">{{ noti.nombrenoticia}}</big></a>
+                                        <small><i class="far fa-clock"></i> {{det.fechanoticia}}</small>
+                                    </div>
+                                    {% endif %}
+                                    {% endfor %}
+                                    <div class="card-footer">
                                     </div>
                                 </div>
-
-                                <td></td>
-                                {% endfor %}
-
                             </div>
                         </div>
+
+                        <td></td>
+                        {% endfor %}
+
                     </div>
-            
+                </div>
+            </div>
+
+        </div>
+        <div class="col-12 col-lg-3">
+            <div id="wg-api-football-standings"
+                 data-host="v3.football.api-sports.io"
+                 data-key="3f462c5be3129cfccd0a1dd555348b1b"
+                 data-league="78"
+                 data-team=""
+                 data-season="2022"
+                 data-theme=""
+                 data-show-errors="false"
+                 data-show-logos="true"
+                 class="wg_loader">
+            </div>
+            <script
+                    type="module"
+                    src="https://widgets.api-sports.io/2.0.3/widgets.js">
+            </script>
         </div>
     </div>
 
 </div>
-    {% endblock %}
+{% endblock %}

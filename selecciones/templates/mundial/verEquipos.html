@@ -16,39 +16,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
-<div class="container">
+<div class="container bg-greey mt-5 p-3 mb-5">
+    <h1 class="display-4 mb-3">Equipos del mundial Qatar 2022</h1>
     <div class="row">
         <div class="col-12">
-            <br><br><br><br>
-            <div class="card text-white bg-dark mb-3">
-                <div class="card-header">
-                    Equipos que participan el mundial Qatar 2022
-                    <br>
-                    <br>
-                    <a href="verTodasNoticiasMundial" class="btn btn-warning">Noticias del Mundial</a>
-                </div>
-                <div class="card-body">
-                    <div class="card-columns">
-                        {% for equi in mostrar %}
-                        <div class="card" style="width: 18rem;">
-                            <!--<img class="card-img-top" src="" alt="Card image cap">-->
-                            <div class="card-body">
-                                <h5 style="color: red;" class="card-title">{{ equi.nombreequipo }}</h5>
-                                <p style="color: black;" class="card-text">Año de fundacion: {{equi.yearfundacion}}</p>
-                                <p style="color: black;" class="card-text">Estadio principal: {{ equi.estadioequipo }} </p>
-                                <li><a><img src={{ equi.urllogo }} height="125" width="225"/></a></li>
-                                <br>
-                                <a href="verPerfilEquipoMundial/{{equi.idequipo}}" class="btn btn-warning">Ver Perfil de equipo</a>
-                                
+            <div class="row">
+                {% for equi in mostrar %}
+                <div class="col-auto m-auto m-md-0">
+                    <div class="card mb-2" style="width: 18rem;">
+                        <article class="location-listing">
+                            <a class="location-title" href="{% url 'id' equi.idequipo %}">Ver
+                                Perfil</a>
+                            <div class="location-image">
+                                <a href="{% url 'id' equi.idequipo %}">
+                                    <img src="{{ equi.urllogo }}" class="card-img-top"
+                                         alt="Logo Equipo"/></a>
                             </div>
+                        </article>
+                        <div class="card-body">
+                            <div class="card-text text-center">{{equi.nombreequipo}}</div>
                         </div>
-                        {% endfor %} 
+
                     </div>
                 </div>
+                {% endfor %}
             </div>
         </div>
     </div>
 </div>
-
-</main>
 {% endblock %}
