@@ -32,7 +32,6 @@ def editar(request, id):
     detalle = Detallenoticia.objects.get(idnoticia=id)
     equipos = Equipo.objects.all()
     messages.success(request, "Guardado Con exito")
-    competencias = Competencia.objects.all()
     if request.method == 'POST':
         if request.POST['nombrenoticia'] != "" and request.POST['idequipo'] != "" and request.POST[
                 'descripcion'] != "" and request.POST['fecha'] != "" and request.POST['urlimagen'] != "":
@@ -52,7 +51,7 @@ def editar(request, id):
         else:
             messages.error(request, "El formulario esta invalido")
     return render(request, 'paginas/editar.html',
-                  {'noticia': noticia, 'detalle': detalle, 'competencias': competencias, 'equipos': equipos})
+                  {'noticia': noticia, 'detalle': detalle, 'equipos': equipos})
 
 
 @login_required
@@ -67,8 +66,8 @@ def guardar(request):
             competencia = Competencia.objects.get(
                 pk=request.POST['idcompetencia'])
             nuevanoticia = Noticia(nombrenoticia=request.POST['nombrenoticia'], idcompetencia=competencia,
-                                   tiponoticia=competencia.nombrecompetencia, etiqueta=request.POST[
-                                       'idequipo'], idnoticia=obj.idnoticia + 1)
+                                   tiponoticia=competencia.nombrecompetencia, etiqueta=request.POST['idequipo'],
+                                   subtitulonoticia="", idnoticia=obj.idnoticia + 1)
             nuevanoticia.save()
             nuevodetalle = Detallenoticia(idnoticia=nuevanoticia, descripcionnoticia=request.POST['descripcion'],
                                           fechanoticia=request.POST[
