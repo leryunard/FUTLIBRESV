@@ -9,7 +9,7 @@
 {% block contenido %}
 <style>
   body::before {
-    background-image: url('{{detalle.urlimagen}}');
+    background-image: ;
     background-repeat: no-repeat;
     background-size: cover;
     content: "";
@@ -20,38 +20,39 @@
     filter:brightness(0.2);
 
   }
-  </style>
-    <div class="container-fluid mt-4">
-        <div class="row">
-            <div class="col col-11 mx-auto">
-                <div class="card">
-                  <div class="card-header">
+
+</style>
+<div class="container-fluid mt-4">
+    <div class="row">
+        <div class="col col-11 mx-auto">
+            <div class="card">
+                <div class="card-header">
                     <h1 class="display-4">{{noticia.nombrenoticia}}</h1>
 
-                  </div>
-                    <div class="card-body">
-                      <div class="col text-center mb-5">
+                </div>
+                <div class="card-body">
+                    <div class="col text-center mb-5">
                         <p class="lead">{{noticia.idcompetencia.nombrecompetencia}} - {{detalle.fechanoticia}}</p>
-                     </div>
-                     <div class="clearfix">
+                    </div>
+                    <div class="clearfix">
                         <img src="{{detalle.urlimagen}}" class="col-md-4 float-md-left mb-3 ml-md-3 rounded" alt="...">
-                      
+
                         <p>
                             {{detalle.descripcionnoticia}}
                         </p>
                         <p>
-                           <b> {{noticia.equipo}} - {{noticia.idcompetencia.nombrecompetencia}} </b>
+                            <b> {{noticia.equipo}} - {{noticia.idcompetencia.nombrecompetencia}} </b>
                         </p>
-                      
-                      </div>
-                       
-                    </div>
-                  </div>
-                  <button class="btn btn-sm btn-danger mt-2">Regresar</button>
 
+                    </div>
+
+                </div>
             </div>
+            <button class="btn btn-sm btn-danger mt-2">Regresar</button>
+
         </div>
     </div>
-  
-   
+</div>
+
+
 {% endblock %}
