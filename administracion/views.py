@@ -68,8 +68,7 @@ def guardar(request):
                 pk=request.POST['idcompetencia'])
             nuevanoticia = Noticia(nombrenoticia=request.POST['nombrenoticia'], idcompetencia=competencia,
                                    tiponoticia=competencia.nombrecompetencia, etiqueta=request.POST[
-                                       'idequipo'],
-                                   subtitulonoticia="", idnoticia=obj.idnoticia + 1)
+                                       'idequipo'], idnoticia=obj.idnoticia + 1)
             nuevanoticia.save()
             nuevodetalle = Detallenoticia(idnoticia=nuevanoticia, descripcionnoticia=request.POST['descripcion'],
                                           fechanoticia=request.POST[
