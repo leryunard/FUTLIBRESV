@@ -8,6 +8,7 @@
 
 {% block titulo %} Perfil del equipo {%endblock %}
 
+
 {% block contenido %}
 
 {% for equi in equipo %}
@@ -90,7 +91,7 @@
 
                         {% for noti in mostrar %}
 
-                        {% if noti.etiqueta == equi.nombreequipo %}
+                        {% if noti.idequipo.nombreequipo == equi.nombreequipo %}
 
 
                         <div class="card" style="width: 18rem;">

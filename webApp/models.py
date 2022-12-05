@@ -293,9 +293,6 @@ class Noticia(models.Model):
     idnoticia = models.IntegerField(db_column='IDNOTICIA', primary_key=True)
     idcompetencia = models.ForeignKey(Competencia, models.DO_NOTHING, db_column='IDCOMPETENCIA', blank=True,
                                       null=True)  # Field name made lowercase.
-    idusuario = models.ForeignKey('Usuario', models.DO_NOTHING, db_column='IDUSUARIO', blank=True,
-                                  null=True)  # Field name made lowercase.
-    # Field name made lowercase.
     tiponoticia = models.CharField(db_column='TIPONOTICIA', max_length=255)
     # Field name made lowercase.
     nombrenoticia = models.CharField(db_column='NOMBRENOTICIA', max_length=255)

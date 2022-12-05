@@ -38,9 +38,10 @@ def editar(request, id):
                 'descripcion'] != "" and request.POST['fecha'] != "" and request.POST['urlimagen'] != "":
             competencia = Competencia.objects.get(
                 pk=request.POST['idcompetencia'])
+            equip = Equipo.objects.get(pk=request.POST['idequipo'])
             noticia.idcompetencia = competencia
             noticia.tiponoticia = competencia.nombrecompetencia
-            noticia.idequipo = request.POST['idequipo']
+            noticia.idequipo = equip
             noticia.nombrenoticia = request.POST['nombrenoticia']
             noticia.save()
             detalle.descripcionnoticia = request.POST['descripcion']
@@ -66,9 +67,9 @@ def guardar(request):
                 'descripcion'] != "" and request.POST['fecha'] != "" and request.POST['urlimagen'] != "":
             competencia = Competencia.objects.get(
                 pk=request.POST['idcompetencia'])
+            equip = Equipo.objects.get(pk=request.POST['idequipo'])
             nuevanoticia = Noticia(nombrenoticia=request.POST['nombrenoticia'], idcompetencia=competencia,
-                                   tiponoticia=competencia.nombrecompetencia, idequipo=request.POST[
-                                       'idequipo'], idnoticia=obj.idnoticia + 1)
+                                   tiponoticia=competencia.nombrecompetencia, idequipo=equip, idnoticia=obj.idnoticia + 1)
             nuevanoticia.save()
             nuevodetalle = Detallenoticia(idnoticia=nuevanoticia, descripcionnoticia=request.POST['descripcion'],
                                           fechanoticia=request.POST[
