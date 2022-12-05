@@ -1,4 +1,5 @@
-{% extends "bases/base.html" %} {% block titulo %} Panel de Control{%endblock %} {% block nvar %} {% endblock %} {% block contenido %}
+{% extends "bases/base.html" %} {% block titulo %} Panel de Control{%endblock %} {% block nvar %} {% endblock %}
+{% block contenido %}
 {%load static %}
 <link href="{% static 'css/estilo.css' %}" rel="stylesheet"/>
 
@@ -13,8 +14,9 @@
             <div class="card text-white bg-info mb-3" style="max-width: 18rem;  margin:0px auto; ">
                 <div class="card-header">Administración</div>
                 <div class="card-body">
-                    <h5 class="card-title">Aquí puedes gestionar la información del sitio, por ejemplo los usuarios y roles.</h5>
-                    <a href="" class="btn btn-danger" role="button">Administrar</a>
+                    <h5 class="card-title">Aquí puedes gestionar la información del sitio, por ejemplo los usuarios y
+                        roles.</h5>
+                    <a href="/admin" class="btn btn-danger" role="button">Administrar</a>
                 </div>
             </div>
 
