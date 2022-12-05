@@ -8,35 +8,54 @@
 
 {% block titulo %} Equipos UEFA Champions League {%endblock %}
 
-{% block nvar %}
-
-{% endblock %}
-
 {% block contenido %}
-<div class="container bg-greey mt-5 p-3 mb-5">
-    <h1 class="display-4 mb-3">Equipos de La Champions League</h1>
+<div class="container">
     <div class="row">
         <div class="col-12">
-            <div class="row">
-                {% for equi in equipo %}
-                <div class="col-auto m-auto m-md-0">
-                    <div class="card mb-2" style="width: 18rem;">
-                        <article class="location-listing">
-                            <a class="location-title" href="{% url 'id' equi.idequipo %}">Ver
-                                Perfil</a>
-                            <div class="location-image">
-                                <a href="{% url 'id' equi.idequipo %}">
-                                    <img src="{{ equi.urllogo }}" class="card-img-top"
-                                         alt="Logo Equipo"/></a>
-                            </div>
-                        </article>
-                        <div class="card-body">
-                            <div class="card-text text-center">{{equi.nombreequipo}}</div>
-                        </div>
+            <br><br><br><br>
+            <div class="card text-white bg-dark mb-3">
+                <div class="card-header">
+                    <center>
+                        Equipos que participan en UEFA Champions League
+                        <p>
+                            <p>
+                            </p>
+                            <a href="{% url 'todasChampions' %}" class="btn btn-color text-white">Noticias
+                                de la UEFA Champions League</a>
+                            <b>
 
-                    </div>
+                            </b>
+                        </p>
+                        <br>
+                        <br>
+                    </center>
+
                 </div>
-                {% endfor %}
+                <div class="card-body">
+                    <center>
+                        <div class="card-columns">
+                            {% for equi in equipo %}
+                            <div class="card" style="width: 18rem;">
+                                <div class="card-body">
+                                    <center>
+                                        <h5 style="color: #802c50;" class="card-title">{{ equi.nombreequipo }}</h5>
+                                    </center>
+                                </div>
+                                <article class="location-listing">
+                                    <a class="location-title" href="{% url 'perfilChampions' equi.idequipo %}">Ver
+                                        Perfil</a>
+                                    <div class="location-image">
+                                        <a href="{% url 'perfilChampions' equi.idequipo %}">
+                                            <img src="{{ equi.urllogo }}" height="200" width="200"
+                                                alt="Logo Equipo" /></a>
+                                    </div>
+                                </article>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </center>
+
+                </div>
             </div>
         </div>
     </div>
