@@ -1,45 +1,44 @@
-{% extends "bases/base.html" %}
+{% extends "bases/base.html" %} {% block titulo %} Inicio: Noticias Fútbol
+LibreSV {%endblock %} {% block nvar %} {% endblock %} {% block contenido %}
+{%load static %}
+<link href="{% static 'css/estilo.css' %}" rel="stylesheet" />
 
-{% block titulo %} Inicio: Noticias Fútbol Libre SV {%endblock %}
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-11 col-lg-10 col-xl-9 mx-auto container-noticias p-2 p-md-5">
+      <div class="text-center p-3 p-md-0">
+        <h1 class="display-4">Descubre lo último en el mundo del deporte</h1>
+      </div>
+      <div class="mx-3 mt-4 mb-3 d-flex justify-content-end">
+        <a class="btn btn-color text-white" href="{% url 'todas' %}" role="button">Ver todas las noticias
+          <img src="{% static 'img/arrow.svg' %}" alt="" /></a>
+      </div>
 
-{% block nvar %}
-
-{% endblock %}
-
-{% block contenido %}
-<div class="container">
-    <div class="row">
-        <div class="col-12">
-            <br><br><br><br>
-            <div class="card text-white bg-dark mb-3">
-                <div class="card-header">
-                    Descubre lo último en el mundo del deporte
+      <div class="wrapper">
+        <div class="container-fluid">
+          <div class="row my-0">
+            {% for noti in noticias %}
+            <div class="col-12 col-md-6 col-lg-4 mb-3">
+              <div class="card text-white card-has-bg click-col" style="background-image:url('{{ noti.urlimagen}}');">
+                <img class="card-img d-none" src="{{ noti.urlimagen}}" alt="" />
+                <div class="card-img-overlay d-flex flex-column">
+                  <div class="card-body">
+                    <a href="{% url 'noticia' noti.iddetalle %}" class="text-light"><big
+                        class="card-meta mb-2">{{ noti.idnoticia.nombrenoticia }}</big></a>
+                    <small><i class="far fa-clock"></i> {{noti.fechanoticia}}</small>
+                  </div>
+                  <div class="card-footer"></div>
                 </div>
-
-                <div class="card-body">
-                    <div class="card-columns">
-
-                        {% for noti in noticias %}
-                        <div class="card" style="width: 18rem; height: 35;">
-
-                            <img class="card-img-top" src="{{ noti.urlimagen }} " alt="Card image cap">
-                            <div class="card-body">
-                                <h5 style="color: red;" class="card-title">{{ noti.idnoticia.nombrenoticia }}</h5>
-                                <p style="color: black;" class="card-text">Noticias sobre:
-                                    {{noti.idnoticia.tiponoticia}}</p>
-                                <a href="{% url 'noticia' noti.iddetalle %}" class="btn btn-primary">Ver Noticia</a>
-                            </div>
-                        </div>
-                        {% endfor %}
-                    </div>
-                </div>
+              </div>
             </div>
+
+            <td></td>
+
+            {% endfor %}
+          </div>
         </div>
+      </div>
     </div>
-    <div class="row m-4">
-        <a name="" class="btn btn-warning" href="{% url 'todas' %}" role="button">Ver todas las noticias</a>
-    </div>
+  </div>
 </div>
-
-
 {% endblock %}

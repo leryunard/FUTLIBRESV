@@ -7,8 +7,6 @@
 {% endblock %}
 
 {% block contenido %}
-
-    <p class="my-5">espacio</p>
     <div class="container-fluid">
         <div class="row">
             <div class="col col-11 mx-auto">
@@ -26,7 +24,7 @@
                                     <textarea type="text" class="form-control" name="nombrenoticia" ></textarea>
                                 </div>
                                 <div class="col col-3">
-                                    <label for="">Equipo:</label>
+                                    <label for="">Etiqueta:</label>
                                     <select class="custom-select" name="idequipo">
                                         {% for equi in equipos %}
                                         <option value="{{equi.nombreequipo}}" >{{equi.nombreequipo}}</option>
@@ -86,6 +84,17 @@
             <script type=text/javascript>toastr.{{ message.tags }}('{{ message }}')</script>
         {% endif %}
     {% endfor %}
+{% endif %}
+{% if messages %}
+{% for mensaje in messages %}
+<script>
+    Swal.fire({
+        "title": "Aviso",
+        "text": "{{mensaje}}",
+        "icon": "{{mensaje.tags}}"
+    })
+</script>
+{% endfor %}
 {% endif %}
   
    

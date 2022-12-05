@@ -7,8 +7,6 @@
 {% endblock %}
 
 {% block contenido %}
-
-    <p class="my-5">espacio</p>
     <div class="container-fluid">
         <div class="row">
             <div class="col col-11 mx-auto">
@@ -26,8 +24,12 @@
                                     <textarea type="text" class="form-control" name="nombrenoticia" >{{noticia.nombrenoticia}}</textarea>
                                 </div>
                                 <div class="col col-3">
-                                    <label for="">Equipo:</label>
-                                    <input type="text" class="form-control" value="{{noticia.equipo}}" name="idequipo">
+                                    <label for="">Etiqueta:</label>
+                                    <select class="custom-select" name="idequipo">
+                                        {% for equi in equipos %}
+                                        <option value="{{equi.nombreequipo}}" {% if equi.nombreequipo == noticia.etiqueta %}selected{% endif %}>{{equi.nombreequipo}}</option>
+                                        {% endfor %} 
+                                    </select>
                                 </div>
                               
                                 <div class="col col-3">
@@ -38,7 +40,7 @@
                                     <label for="">Competencia:</label>
                                     <select class="custom-select" name="idcompetencia">
                                         {% for comp in competencias %}
-                                        <option value="{{comp.idcompetencia}}" {% if comp.idcompetencia == noticia.idcompetencia %}selected{% endif %}>{{comp.nombrecompetencia}}</option>
+                                        <option value="{{comp.idcompetencia}}" {% if comp.idcompetencia == noticia.idcompetencia.idcompetencia %}selected{% endif %}>{{comp.nombrecompetencia}}</option>
                                         {% endfor %} 
                                     </select>
                                 </div>
@@ -72,6 +74,12 @@
         </div>
     </div>
    
-  
+    {% if messages %}
+    {% for message in messages %}
+        {{message}}
+        Si
+    {% endfor %}
+{% endif %}
+
    
 {% endblock %}

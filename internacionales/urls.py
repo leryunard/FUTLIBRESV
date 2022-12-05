@@ -7,7 +7,7 @@ from . import views
 
 urlpatterns = [
     path('verNoticiasLibertadores/<id>/', views.verNoticiasLibertadores, name='noticialiber'),
-    path('verEquiposLibertadores', views.verEquiposLibertadores),
+    path('verEquiposLibertadores', views.verEquiposLibertadores, name='equiposliber'),
     path('verTodasNoticiasLibertadores', views.verTodasNoticiasLibertadores, name='liber'),
     # Parte Carlos Rafaelano
     path('verNoticiasChampions/<id>/', views.verNoticiasChampions, name='notiChampions'),

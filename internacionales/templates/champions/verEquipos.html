@@ -24,7 +24,7 @@
                         <p>
                             <p>
                             </p>
-                            <a href=" /internacionales/verTodasNoticiasChampions " class="btn btn-warning">Noticias
+                            <a href="{% url 'todasChampions' %}" class="btn btn-color text-white">Noticias
                                 de la UEFA Champions League</a>
                             <b>
 
@@ -52,10 +52,10 @@
                                     </center>
                                 </div>
                                 <article class="location-listing">
-                                    <a class="location-title" href="verPerfilEquipoChampions/{{equi.idequipo}}">Ver
+                                    <a class="location-title" href="{% url 'perfilChampions' equi.idequipo %}">Ver
                                         Perfil</a>
                                     <div class="location-image">
-                                        <a href="verPerfilEquipoChampions/{{equi.idequipo}}">
+                                        <a href="{% url 'perfilChampions' equi.idequipo %}">
                                             <img src="{{ equi.urllogo }}" height="200" width="200"
                                                 alt="Logo Equipo" /></a>
                                     </div>
