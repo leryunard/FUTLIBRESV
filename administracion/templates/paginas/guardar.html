@@ -7,84 +7,97 @@
 {% endblock %}
 
 {% block contenido %}
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col col-11 mx-auto">
-                <div class="card">
-                    <div class="card-body">
-                      <h4 class="card-title">Ingresar Nueva Noticia</h4>
-                      <h6 class="card-subtitle mb-2 text-muted ">Editar Noticia</h6>
-                        <form method="post" action="/administracion/noticiasCRUD/nueva">
-                            {% csrf_token %}
-                            <h6><span class="badge bg-danger mt-3 text-light rounded-pill">1</span> Información Inicial</h6>
-                         
-                           <div class="row mx-4">
-                                <div class="col col-6">
-                                    <label for="">Titulo:</label>
-                                    <textarea type="text" class="form-control" name="nombrenoticia" ></textarea>
-                                </div>
-                                <div class="col col-3">
-                                    <label for="">Equipo:</label>
-                                    <select class="custom-select" name="idequipo">
-                                        {% for equi in equipos %}
-                                        <option value="{{equi.nombreequipo}}" >{{equi.nombreequipo}}</option>
-                                        {% endfor %} 
-                                    </select>
-                                </div>
-                                <div class="col col-3">
-                                    <label for="">Fecha:</label>
-                                    <input type="date" class="form-control" name="fecha">
-                                </div>
-                                <div class="col col-6 mt-2">
-                                    <label for="">Competencia:</label>
-                                    <select class="custom-select" name="idcompetencia">
-                                        {% for comp in competencias %}
-                                        <option value="{{comp.idcompetencia}}" >{{comp.nombrecompetencia}}</option>
-                                        {% endfor %} 
-                                    </select>
-                                </div>
-                           </div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col col-11 mx-auto">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Ingresar Nueva Noticia</h4>
+                    <h6 class="card-subtitle mb-2 text-muted ">Editar Noticia</h6>
+                    <form method="post" action="/administracion/noticiasCRUD/nueva">
+                        {% csrf_token %}
+                        <h6><span class="badge bg-danger mt-3 text-light rounded-pill">1</span> Información Inicial</h6>
 
-                           <h6><span class="badge bg-danger mt-4 text-light rounded-pill">2</span> Detalles Noticia</h6>
-
-                           <div class="row mx-4">
-                                    <div class="col">
-                                        <label for="">Descripción:</label>
-                                        <textarea type="text" class="form-control" rows="6" name="descripcion"></textarea>
-                                    </div>
-                                    <div class="col">
-                                        <label for="">url imagen:</label>
-                                        <textarea name="urlimagen" id="" rows="4" class="form-control" name="urlimagen"></textarea>
-                                    </div>
-                                  <div class="col col-12">
-                                 
-                                        <button type="button" class="btn btn-sm btn-danger float-right">Cancelar</button>
-                                        <button class="btn btn-sm btn-primary float-right mr-2">Guardar</button>
-                                     
-                                  </div>
+                        <div class="row mx-4">
+                            <div class="col col-6">
+                                <label for="">Titulo:</label>
+                                <textarea type="text" class="form-control" name="nombrenoticia"></textarea>
                             </div>
-                     
-                        
-                        </form>
-                        
-                    </div>
-                  </div>
+                            <div class="col col-3">
+                                <label for="">Etiqueta:</label>
+                                <select class="custom-select" name="idequipo">
+                                    {% for equi in equipos %}
+                                    <option value="{{equi.nombreequipo}}">{{equi.nombreequipo}}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class="col col-3">
+                                <label for="">Fecha:</label>
+                                <input type="date" class="form-control" name="fecha">
+                            </div>
+                            <div class="col col-6 mt-2">
+                                <label for="">Competencia:</label>
+                                <select class="custom-select" name="idcompetencia">
+                                    {% for comp in competencias %}
+                                    <option value="{{comp.idcompetencia}}">{{comp.nombrecompetencia}}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+
+                        <h6><span class="badge bg-danger mt-4 text-light rounded-pill">2</span> Detalles Noticia</h6>
+
+                        <div class="row mx-4">
+                            <div class="col">
+                                <label for="">Descripción:</label>
+                                <textarea type="text" class="form-control" rows="6" name="descripcion"></textarea>
+                            </div>
+                            <div class="col">
+                                <label for="">url imagen:</label>
+                                <textarea name="urlimagen" id="" rows="4" class="form-control"
+                                          name="urlimagen"></textarea>
+                            </div>
+                            <div class="col col-12">
+
+                                <button type="button" class="btn btn-sm btn-danger float-right">Cancelar</button>
+                                <button class="btn btn-sm btn-primary float-right mr-2">Guardar</button>
+
+                            </div>
+                        </div>
+
+
+                    </form>
+
+                </div>
             </div>
         </div>
     </div>
-    {% if messages %}
-    {% for message in messages %}
-        {% if message.tags == 'success'%}
-            <script type=text/javascript>toastr.{{ message.tags }}('{{ message }}')</script>
-        {% elif message.tags == 'info' %}
-            <script type=text/javascript>toastr.{{ message.tags }}('{{ message }}')</script>
-        {% elif message.tags == 'warning' %}
-            <script type=text/javascript>toastr.{{ message.tags }}('{{ message }}')</script>
-        {% elif message.tags == 'error' %}
-            <script type=text/javascript>toastr.{{ message.tags }}('{{ message }}')</script>
-        {% endif %}
-    {% endfor %}
+</div>
+{% if messages %}
+{% for message in messages %}
+{% if message.tags == 'success'%}
+<script type=text/javascript>toastr.{{ message.tags }}('{{ message }}')</script>
+{% elif message.tags == 'info' %}
+<script type=text/javascript>toastr.{{ message.tags }}('{{ message }}')</script>
+{% elif message.tags == 'warning' %}
+<script type=text/javascript>toastr.{{ message.tags }}('{{ message }}')</script>
+{% elif message.tags == 'error' %}
+<script type=text/javascript>toastr.{{ message.tags }}('{{ message }}')</script>
 {% endif %}
-  
-   
+{% endfor %}
+{% endif %}
+{% if messages %}
+{% for mensaje in messages %}
+<script>
+    Swal.fire({
+        "title": "Aviso",
+        "text": "{{mensaje}}",
+        "icon": "{{mensaje.tags}}"
+    })
+
+</script>
+{% endfor %}
+{% endif %}
+
+
 {% endblock %}
