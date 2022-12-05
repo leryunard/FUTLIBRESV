@@ -19,7 +19,7 @@
 <div class="container-fluid">
     <div class="row">
         <div
-                class="col-11 col-lg-10 col-xl-9 mx-auto container-noticias p-2 p-md-5"
+                class="col-12 col-xl-9 mx-auto container-noticias p-2 p-md-5"
         >
             <div class="text-center mb-5">
                 <h1 class="display-4">
@@ -36,7 +36,7 @@
                     <div class="row my-0">
                         {% for new in news %}
 
-                        <div class="col-sm-12 col-md-6 col-lg-4 mb-3">
+                        <div class="col-12 col-md-6 col-lg-4 mb-3">
                             {% for det in description %} {% if det.iddetalle == new.idnoticia %}
                             <div
                                     class="card text-white card-has-bg click-col"
@@ -66,22 +66,30 @@
                 </div>
             </div>
         </div>
-        <div class="col-12 col-lg-3">
-            <div id="wg-api-football-standings"
-                 data-host="v3.football.api-sports.io"
-                 data-key="3f462c5be3129cfccd0a1dd555348b1b"
-                 data-league="39"
-                 data-team=""
-                 data-season="2022"
-                 data-theme=""
-                 data-show-errors="false"
-                 data-show-logos="true"
-                 class="wg_loader">
+        <div class="col-12 col-xl-3">
+           <div class="row mt-md-3">
+            <div class="col-md-4 col-xl-12">
+                <div id="wg-api-football-standings"
+                data-host="v3.football.api-sports.io"
+                data-key="3f462c5be3129cfccd0a1dd555348b1b"
+                data-league="39"
+                data-team=""
+                data-season="2022"
+                data-theme=""
+                data-show-errors="false"
+                data-show-logos="true"
+                class="wg_loader">
+           </div>
+           <script
+                   type="module"
+                   src="https://widgets.api-sports.io/2.0.3/widgets.js">
+           </script>
             </div>
-            <script
-                    type="module"
-                    src="https://widgets.api-sports.io/2.0.3/widgets.js">
-            </script>
+            <div class="col-md-8 col-xl-12">
+                <a class="twitter-timeline" href="https://twitter.com/premierleague?ref_src=twsrc%5Etfw">Tweets by premierleague</a> 
+                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            </div>
+           </div>
         </div>
     </div>
 </div>

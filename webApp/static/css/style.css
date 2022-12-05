@@ -220,3 +220,13 @@ nav {
   margin-bottom: 2rem;
 
 }
+
+.twitter-container{
+  width: 700px;
+}
+.twitter-timeline{
+  max-height: 500px;
+  overflow-y: scroll;
+}
+
+
