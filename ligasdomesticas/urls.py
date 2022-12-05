@@ -11,14 +11,14 @@ bundesligaurls = [
 
 urlpatterns = [
     path('bundesliga/', include(bundesligaurls)),
-    path('verNoticiasLaliga/<id>/', views.verNoticiasLaliga, name = 'id'),
-    path('verEquiposLaliga', views.verEquiposLaliga),
+    path('verNoticiasLaliga/<id>/', views.verNoticiasLaliga, name = 'noticialiga'),
+    path('verEquiposLaliga', views.verEquiposLaliga, name = 'equiposlaliga'),
     path('verTodasNoticiasLaliga', views.verTodasNoticiasLaliga, name = 'Espana'),
     path('verPerfilEquipoLaliga/<id>/', views.verPerfilEquipoLaliga, name = 'id'),
     path('SerieA_general', views.SerieA_general, name = 'seriea'),
     path('Equipo/<id>', views.verEquipo, name='id'),
-    path('verNoticia/<id>', views.Ver_Noticia, name='id'),
-    path('verEquipos', views.verEquipos),
+    path('verNoticia/<id>', views.Ver_Noticia, name='noticiaseriea'),
+    path('verEquipos', views.verEquipos, name='equiposseriea'),
 
     path('viewTeamsLigaPepsi', views.viewTeamsLigaPepsi, name='teamsLigaPepsi'),
     path('profileTeamsLigaPepsi/<id>/', views.profileTeamsLigaPepsi, name='profileLigaPepsi'),
