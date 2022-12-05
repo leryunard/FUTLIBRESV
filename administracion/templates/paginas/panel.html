@@ -1,0 +1,35 @@
+{% extends "bases/base.html" %} {% block titulo %} Panel de Control{%endblock %} {% block nvar %} {% endblock %}
+{% block contenido %}
+{%load static %}
+<link href="{% static 'css/estilo.css' %}" rel="stylesheet" />
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-11 col-lg-10 col-xl-9 mx-auto container-noticias p-2 p-md-5" style=" text-align:center;">
+            <div class="text-center p-3 p-md-0">
+                <h1 class="display-4">Bienvenido al panel de control, {{user.username}}</h1>
+            </div>
+
+
+            <div class="card text-white bg-info mb-3" style="max-width: 18rem;  margin:0px auto; ">
+                <div class="card-header">Administración</div>
+                <div class="card-body">
+                    <h5 class="card-title">Aquí puedes gestionar la información del sitio, por ejemplo los usuarios y
+                        roles.</h5>
+                    <a href="/admin" class="btn btn-danger" role="button">Administrar</a>
+                </div>
+            </div>
+
+            <div class="card text-white bg-info mb-3" style="max-width: 18rem;  margin:0px auto; margin-bottom: 20px;">
+                <div class="card-header">Gestionar noticias</div>
+                <div class="card-body">
+                    <h5 class="card-title">Aquí puedes gestionas las noticias: añadir, editar o eliminar.</h5>
+                    <a href="{% url 'noticiasCRUD' %}" class="btn btn-danger" role="button">Gestionar</a>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+{% endblock %}
