@@ -31,6 +31,7 @@ def editar(request, id):
     noticia = Noticia.objects.get(pk=id)
     detalle = Detallenoticia.objects.get(idnoticia=id)
     equipos = Equipo.objects.all()
+    messages.success(request, "Guardado Con exito")
     competencias = Competencia.objects.all()
     if request.method == 'POST':
         if request.POST['nombrenoticia'] != "" and request.POST['idequipo'] != "" and request.POST[
@@ -39,7 +40,7 @@ def editar(request, id):
                 pk=request.POST['idcompetencia'])
             noticia.idcompetencia = competencia
             noticia.tiponoticia = competencia.nombrecompetencia
-            noticia.equipo = request.POST['idequipo']
+            noticia.etiqueta = request.POST['idequipo']
             noticia.nombrenoticia = request.POST['nombrenoticia']
             noticia.save()
             detalle.descripcionnoticia = request.POST['descripcion']
@@ -66,7 +67,7 @@ def guardar(request):
             competencia = Competencia.objects.get(
                 pk=request.POST['idcompetencia'])
             nuevanoticia = Noticia(nombrenoticia=request.POST['nombrenoticia'], idcompetencia=competencia,
-                                   tiponoticia=competencia.nombrecompetencia, equipo=request.POST[
+                                   tiponoticia=competencia.nombrecompetencia, etiqueta=request.POST[
                                        'idequipo'],
                                    subtitulonoticia="", idnoticia=obj.idnoticia + 1)
             nuevanoticia.save()

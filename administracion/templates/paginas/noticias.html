@@ -22,7 +22,7 @@
                             <tr>
                                 <th scope="col">#</th>
                                 <th scope="col">Nombre Noticia</th>
-                                <th scope="col">Equipo</th>
+                                <th scope="col">Etiqueta</th>
                                 <th scope="col">Tipo Noticia</th>
                                 <th scope="col">Acciones</th>
                             </tr>
@@ -32,7 +32,7 @@
                             <tr>
                                 <th scope="row">{{ noti.idnoticia}}</th>
                                 <td>{{ noti.nombrenoticia}}</td>
-                                <td>{{ noti.equipo}}</td>
+                                <td>{{ noti.etiqueta}}</td>
                                 <td>
                                     <span class="badge bg-dark text-light rounded-pill px-3 py-2">{{ noti.tiponoticia}}</span>
                                  </td>
@@ -79,6 +79,18 @@
         </div>
     </div>
    
-  
+    {% if messages %}
+    {% for message in messages %}
+        {% if message.tags == 'success'%}
+            <script type=text/javascript>toastr.{{ message.tags }}('{{ message }}')</script>
+        {% elif message.tags == 'info' %}
+            <script type=text/javascript>toastr.{{ message.tags }}('{{ message }}')</script>
+        {% elif message.tags == 'warning' %}
+            <script type=text/javascript>toastr.{{ message.tags }}('{{ message }}')</script>
+        {% elif message.tags == 'error' %}
+            <script type=text/javascript>toastr.{{ message.tags }}('{{ message }}')</script>
+        {% endif %}
+    {% endfor %}
+{% endif %}
    
 {% endblock %}
